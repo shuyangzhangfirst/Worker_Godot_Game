@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://bqeo8phqedhek" path="res://Script/State/State_Machine.gd" id="3_8xcb8"]
 [ext_resource type="Script" uid="uid://bspycrpxnlwnp" path="res://Script/State/Player/Player_Idle_State.gd" id="4_0tco1"]
 [ext_resource type="Script" uid="uid://dujllhikumg4" path="res://Script/State/Player/Player_Walk_State.gd" id="5_bubao"]
+[ext_resource type="Script" uid="uid://cbcdyr20avkx4" path="res://Script/Character/StatsSystem/StatsManager.gd" id="6_1nox1"]
+[ext_resource type="Script" uid="uid://d187dktq0xg4" path="res://Script/Character/StatsSystem/Stat.gd" id="7_kvbc0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1tc5g"]
 size = Vector2(12, 7)
@@ -138,6 +140,12 @@ _data = {
 &"walk_up": SubResource("Animation_kmjhx")
 }
 
+[sub_resource type="Resource" id="Resource_kmjhx"]
+script = ExtResource("7_kvbc0")
+stat_type = 1
+base_value = 100.0
+metadata/_custom_type_script = "uid://d187dktq0xg4"
+
 [node name="Player" type="CharacterBody2D" unique_id=576296784 node_paths=PackedStringArray("animationplayer", "sprite", "statemachine")]
 script = ExtResource("1_aheb8")
 animationplayer = NodePath("AnimationPlayer")
@@ -171,3 +179,7 @@ script = ExtResource("5_bubao")
 move_speed = 100.0
 state_id = 1
 state_name = "walk"
+
+[node name="StatManager" type="Node" parent="." unique_id=1757818698]
+script = ExtResource("6_1nox1")
+stats = Array[ExtResource("7_kvbc0")]([SubResource("Resource_kmjhx")])
