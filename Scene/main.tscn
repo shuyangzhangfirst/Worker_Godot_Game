@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://bm8guianam4uk" path="res://Scene/Character/Player/player.tscn" id="1_f6udf"]
 
-[node name="Node2D" type="Node2D" unique_id=658159684]
+[node name="main" type="Node2D" unique_id=658159684]
 
 [node name="Player" parent="." unique_id=576296784 instance=ExtResource("1_f6udf")]
-position = Vector2(81, 60)

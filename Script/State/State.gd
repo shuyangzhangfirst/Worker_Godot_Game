@@ -15,13 +15,13 @@ func Exit():
 	process_mode=Node.PROCESS_MODE_DISABLED
 	pass
 
-func Physic(delta:float):
+func Physic(_delta:float):
 	
 	pass
 
-func Process(delta:float):
+func Process(_delta:float):
 	pass
 	
 	
-func HandleInput(input:InputEvent):
+func HandleInput(_input:InputEvent):
 	pass

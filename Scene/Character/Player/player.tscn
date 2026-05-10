@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://dujllhikumg4" path="res://Script/State/Player/Player_Walk_State.gd" id="5_bubao"]
 [ext_resource type="Script" uid="uid://cbcdyr20avkx4" path="res://Script/Character/StatsSystem/StatsManager.gd" id="6_1nox1"]
 [ext_resource type="Script" uid="uid://d187dktq0xg4" path="res://Script/Character/StatsSystem/Stat.gd" id="7_kvbc0"]
+[ext_resource type="PackedScene" uid="uid://b3cnrf7i32mvf" path="res://Scene/Weapon/Gun/Gun.tscn" id="8_kvbc0"]
+[ext_resource type="PackedScene" uid="uid://c5c74061iw76w" path="res://Scene/Weapon/Bullet/Bullet.tscn" id="9_kmjhx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1tc5g"]
 size = Vector2(12, 7)
@@ -146,8 +148,9 @@ stat_type = 1
 base_value = 100.0
 metadata/_custom_type_script = "uid://d187dktq0xg4"
 
-[node name="Player" type="CharacterBody2D" unique_id=576296784 node_paths=PackedStringArray("animationplayer", "sprite", "statemachine")]
+[node name="Player" type="CharacterBody2D" unique_id=576296784 node_paths=PackedStringArray("gun", "animationplayer", "sprite", "statemachine")]
 script = ExtResource("1_aheb8")
+gun = NodePath("Weapons/Gun")
 animationplayer = NodePath("AnimationPlayer")
 sprite = NodePath("Sprite2D")
 statemachine = NodePath("StateMachine")
@@ -183,3 +186,9 @@ state_name = "walk"
 [node name="StatManager" type="Node" parent="." unique_id=1757818698]
 script = ExtResource("6_1nox1")
 stats = Array[ExtResource("7_kvbc0")]([SubResource("Resource_kmjhx")])
+
+[node name="Weapons" type="Node2D" parent="." unique_id=2134991743]
+position = Vector2(-16, 0)
+
+[node name="Gun" parent="Weapons" unique_id=1520514711 instance=ExtResource("8_kvbc0")]
+bullet = ExtResource("9_kmjhx")

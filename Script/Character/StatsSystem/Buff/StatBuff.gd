@@ -24,7 +24,7 @@ func BuffIsActive():
 		return buff_time>0
 	else:
 		return CheckConditionIsTrue(buff_condition)
-func CheckConditionIsTrue(args:Array)->bool:
+func CheckConditionIsTrue(_args:Array)->bool:
 	return true
 
  

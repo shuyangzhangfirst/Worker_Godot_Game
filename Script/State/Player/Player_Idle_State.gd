@@ -13,3 +13,4 @@ func Physic(delta:float):
 	if character.move_direction!=Vector2.ZERO:
 		statemachine.SwitchState(statemachine.states[StateConstands.State.walk])
 		return
+	
