@@ -12,7 +12,7 @@ func _ready() -> void:
 	statmanager.stats[Stat.StatType.health].ChangeBaseValue(StatModifier.Add(-1))
 	print(statmanager.stats[Stat.StatType.health].GetValue())
 	
-func TakeDamage(hitbox:Hitbox):
+func TakeDamage(_hitbox:Hitbox):
 	statmanager.stats[Stat.StatType.health].ChangeBaseValue(StatModifier.Add(-1))
 	print(statmanager.stats[Stat.StatType.health].GetValue())
 
