@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://be8n6l64fk5hw"]
+
+[ext_resource type="PackedScene" uid="uid://b3cnrf7i32mvf" path="res://scene/component/weapon/gun/gun.tscn" id="1_7ofdg"]
+[ext_resource type="PackedScene" uid="uid://c5c74061iw76w" path="res://scene/component/weapon/gun/bullet/bullet.tscn" id="2_og3og"]
+[ext_resource type="Texture2D" uid="uid://cnjpoeifnbfm1" path="res://asset/texture/gun/PNG/GUN_01_[square_frame]_01_V1.00.png" id="2_tlgof"]
+
+[node name="Handgun" unique_id=737484638 instance=ExtResource("1_7ofdg")]
+bullet_scene = ExtResource("2_og3og")
+gun_fire_mode = Array[int]([0, 1, 2])
+
+[node name="Sprite2D" parent="." index="0" unique_id=1681892862]
+position = Vector2(9.999999, -8.000002)
+texture = ExtResource("2_tlgof")
+
+[node name="GunWire" parent="." index="1" unique_id=953801462]
+points = PackedVector2Array(3.999998, -11.000001, 24.999998, -11.000005)
+
+[node name="BarrelChamber" parent="GunWire" index="0" unique_id=1993508182]
+position = Vector2(3.999998, -11.000001)
+
+[node name="Muzzle" parent="GunWire" index="1" unique_id=241637781]
+position = Vector2(24.999998, -11.000005)

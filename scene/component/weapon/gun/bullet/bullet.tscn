@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://c5c74061iw76w"]
+
+[ext_resource type="Script" uid="uid://csx06h4o236fr" path="res://script/component/weapon/bullet/bullet.gd" id="1_svyyh"]
+[ext_resource type="Texture2D" uid="uid://b56o3x1n0hela" path="res://asset/texture/bullet/01.png" id="2_4hek0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xv1mx"]
+atlas = ExtResource("2_4hek0")
+region = Rect2(0, 0, 126, 121)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcnms"]
+atlas = ExtResource("2_4hek0")
+region = Rect2(0, 0, 126, 121)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4shke"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xv1mx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcnms")
+}],
+"loop": true,
+"name": &"shooting",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4shke"]
+radius = 3.0
+
+[node name="Bullet" type="Area2D" unique_id=738530266]
+script = ExtResource("1_svyyh")
+bullet_name = "蓝色子弹"
+bullet_flight_speed = 1000.0
+
+[node name="BulletAnimated" type="AnimatedSprite2D" parent="." unique_id=978013098]
+unique_name_in_owner = true
+scale = Vector2(0.23553722, 0.23553719)
+sprite_frames = SubResource("SpriteFrames_4shke")
+animation = &"shooting"
+
+[node name="BulletCollisionShape2D" type="CollisionShape2D" parent="." unique_id=171623991]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_4shke")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=944153067]
+unique_name_in_owner = true
+rect = Rect2(-4, -4, 8, 8)
+
+[node name="ClearTimer" type="Timer" parent="." unique_id=119712310]
+unique_name_in_owner = true

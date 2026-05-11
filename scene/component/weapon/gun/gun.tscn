@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b3cnrf7i32mvf"]
+
+[ext_resource type="Script" uid="uid://cvjmp1lxc5lpt" path="res://script/component/weapon/gun/gun.gd" id="1_hcbmk"]
+[ext_resource type="PackedScene" uid="uid://by321lbuhg51w" path="res://scene/component/weapon/gun/gun_wire/gun_wire.tscn" id="4_02xej"]
+[ext_resource type="Texture2D" uid="uid://dyfbaag641fu7" path="res://icon.svg" id="5_4tack"]
+
+[node name="Gun" type="Node2D" unique_id=737484638]
+rotation = 6.2831855
+script = ExtResource("1_hcbmk")
+rotation_speed = 100.0
+gun_fire_mode = Array[int]([0])
+single_cooldown_time = 0.05
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1681892862]
+unique_name_in_owner = true
+
+[node name="GunWire" parent="." unique_id=953801462 node_paths=PackedStringArray("barrel_chamber", "muzzle") instance=ExtResource("4_02xej")]
+unique_name_in_owner = true
+points = PackedVector2Array(0, 0, 16, -2.861023e-06)
+gun_wire_preview = false
+barrel_chamber = NodePath("BarrelChamber")
+muzzle = NodePath("Muzzle")
+
+[node name="BarrelChamber" type="Marker2D" parent="GunWire" unique_id=1993508182]
+unique_name_in_owner = true
+
+[node name="Sprite2D" type="Sprite2D" parent="GunWire/BarrelChamber" unique_id=1022489214]
+visible = false
+scale = Vector2(0.031250004, 0.03125)
+texture = ExtResource("5_4tack")
+
+[node name="Muzzle" type="Marker2D" parent="GunWire" unique_id=241637781]
+unique_name_in_owner = true
+position = Vector2(16, -2.861023e-06)
+
+[node name="Sprite2D2" type="Sprite2D" parent="GunWire/Muzzle" unique_id=505551811]
+visible = false
+position = Vector2(2, 0)
+scale = Vector2(0.031250004, 0.03125)
+texture = ExtResource("5_4tack")
+
+[node name="CooldownTimer" type="Timer" parent="." unique_id=245345446]
+unique_name_in_owner = true
+
+[node name="BurstTimer" type="Timer" parent="." unique_id=1855152662]
+unique_name_in_owner = true

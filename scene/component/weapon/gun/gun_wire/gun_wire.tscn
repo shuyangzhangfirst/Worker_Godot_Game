@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://by321lbuhg51w"]
+
+[ext_resource type="Script" uid="uid://wyv5cfs2fl55" path="res://script/component/weapon/gun/gun_wire/gun_wire.gd" id="1_jom12"]
+
+[node name="GunWire" type="Line2D" unique_id=40538929]
+points = PackedVector2Array(256, 0, 0, 0)
+width = 1.0
+default_color = Color(0.92156863, 0.050980393, 0.05882353, 0.7882353)
+script = ExtResource("1_jom12")
+gun_wire_preview = true

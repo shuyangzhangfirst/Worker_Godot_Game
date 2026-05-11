@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://biwpuy3jxu67f"]
+
+[ext_resource type="Script" uid="uid://bc80md2qp4hbv" path="res://script/game_system/game_system.gd" id="1_f7ml6"]
+[ext_resource type="PackedScene" uid="uid://31dmpoigyfsy" path="res://scene/game_system/data_manager/data.tscn" id="2_5qtju"]
+[ext_resource type="Script" uid="uid://g767g5oxjkgo" path="res://script/game_system/data_manager/data_manager.gd" id="3_r31ul"]
+
+[node name="GameSystem" type="Node" unique_id=1869255827]
+script = ExtResource("1_f7ml6")
+
+[node name="DataManager" parent="." unique_id=1619383742 instance=ExtResource("2_5qtju")]
+unique_name_in_owner = true
+script = ExtResource("3_r31ul")
