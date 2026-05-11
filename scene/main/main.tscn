@@ -8,7 +8,7 @@
 script = ExtResource("1_0imob")
 
 [node name="Player" parent="." unique_id=576296784 instance=ExtResource("1_f6udf")]
-position = Vector2(206, 81)
+position = Vector2(128, 41)
 
 [node name="Line2D" type="Line2D" parent="." unique_id=616885897]
 position = Vector2(-1, -1)
@@ -23,4 +23,4 @@ width = 1.0
 default_color = Color(1, 0, 1, 1)
 
 [node name="Zombie" parent="." unique_id=905139244 instance=ExtResource("3_6vuhr")]
-position = Vector2(135, 106)
+position = Vector2(40, 48)

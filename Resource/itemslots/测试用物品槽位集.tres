@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemSlots" format=3 uid="uid://blndjex4302o1"]
+
+[ext_resource type="Script" uid="uid://cdvdq0cv4uouy" path="res://script/class/item_slots/item_slots.gd" id="1_u1v8l"]
+[ext_resource type="Script" uid="uid://dss08vasgvwnb" path="res://script/class/item_slot/item_slot.gd" id="2_8rt74"]
+[ext_resource type="Resource" uid="uid://dx2rb5fp0fk6n" path="res://Resource/item/测试物品.tres" id="3_nwyen"]
+
+[sub_resource type="Resource" id="Resource_8rt74"]
+script = ExtResource("2_8rt74")
+item = ExtResource("3_nwyen")
+metadata/_custom_type_script = "uid://dss08vasgvwnb"
+
+[resource]
+script = ExtResource("1_u1v8l")
+slots = Array[ExtResource("2_8rt74")]([SubResource("Resource_8rt74")])
+metadata/_custom_type_script = "uid://cdvdq0cv4uouy"

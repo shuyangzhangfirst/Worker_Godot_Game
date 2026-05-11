@@ -4,6 +4,7 @@ class_name Player extends Character
 
 @export var statmanager:StatsManager
 @export var hurtbox:Hurtbox
+
 func _ready() -> void:
 	statemachine.Initialize(self)
 	hurtbox.TakeDamage.connect(TakeDamage)
