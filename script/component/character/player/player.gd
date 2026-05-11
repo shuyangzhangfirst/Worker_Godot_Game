@@ -12,6 +12,9 @@ func _ready() -> void:
 	statmanager.stats[Stat.StatType.health].ChangeBaseValue(StatModifier.Add(-1))
 	print(statmanager.stats[Stat.StatType.health].GetValue())
 	
+func TakeDamage(hitbox:Hitbox):
+	statmanager.stats[Stat.StatType.health].ChangeBaseValue(StatModifier.Add(-1))
+	print(statmanager.stats[Stat.StatType.health].GetValue())
 
 func _physics_process(_delta: float) -> void:
 	move_direction=Vector2(
