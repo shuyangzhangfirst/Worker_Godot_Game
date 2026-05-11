@@ -8,6 +8,8 @@ class_name Gun extends Weapon
 @onready var gun_wire: Node2D = %GunWire
 @onready var cooldown_timer: Timer = %CooldownTimer
 @onready var burst_timer: Timer = %BurstTimer
+@onready var auto_timer: Timer = %AutoTimer
+
 #endregion
 
 #region 枪械属性
@@ -70,14 +72,12 @@ var _current_fire_mode: GunFireMode = GunFireMode.Single:
 			cooldown_timer.wait_time = burst_cooldown_time
 			return
 			
-			
-
 
 enum GunFireMode {		## 枪械开火模式
-	Single,		## 单发
-	Burst,		## 点射
-	Auto,		## 全自动
-	Charge,    ## 蓄力
+	Single = 0,		## 单发
+	Burst = 1,		## 点射
+	Auto = 2,		## 全自动
+	Charge = 3,    ## 蓄力
 }
 
 func _ready() -> void:
@@ -107,10 +107,13 @@ func _init_gun() -> void:
 	_current_fire_mode = gun_fire_mode[0]
 	cooldown_timer.one_shot = true
 	
-	# 创建点射计时器
+	# 点射计时器
 	burst_timer.one_shot = true
 	burst_timer.wait_time = burst_fire_rate
-
+	
+	auto_timer.one_shot = true
+	auto_timer.wait_time = auto_fire_rate
+	
 ## 开火
 func _open_fire() -> void:
 	if _current_fire_mode == GunFireMode.Single:
@@ -146,9 +149,7 @@ func _open_fire_burst() -> void:
 
 ## 发射点射的下一发
 func _fire_next_burst_shot() -> void:
-	print(_burst_shots_fired)
 	if _burst_shots_fired >= burst_count:
-		print("点射完成")
 		_is_bursting = false
 		_burst_shots_fired = 0
 		return
@@ -167,7 +168,10 @@ func _on_burst_timer_timeout() -> void:
 		
 ## 全自动开火
 func _open_fire_auto() -> void:
-	_shoot_bullet()
+	if is_able_fire and is_trigger:
+		is_able_fire = false
+		_shoot_bullet()
+		auto_timer.start()
 	
 ## 充能开火
 func _open_fire_charge() -> void:
@@ -191,7 +195,7 @@ func _update_gun_facing(delta: float) -> void:
 func turn_fire_mode() -> void:
 	gun_fire_mode_index = wrapi(gun_fire_mode_index + 1 ,0 , gun_fire_mode.size())
 	_current_fire_mode = gun_fire_mode[gun_fire_mode_index]
-	print("当前开火模式" + str(_current_fire_mode))
+	print("当前开火模式: " + _get_gun_fire_mode_name(_current_fire_mode))
 
 ## 生成子弹方向 = 枪械方向 +- 随机枪口扩散
 func _create_bullet_direction() -> Vector2:
@@ -204,7 +208,21 @@ func _fire_cooltime_over() -> void:
 	#print("开火冷却完成")
 	is_able_fire = true
 
+## 返回枪械开火模式字符串
+func _get_gun_fire_mode_name(index: int) -> String:
+	if index == 0:
+		return "单发模式"
+	if index == 1:
+		return "连发模式"
+	if index == 2:
+		return "全自动模式"
+	if index == 3:
+		return "蓄能模式"
+	return "空模式"
+	
 ## 连接信号
 func _connect_signals() -> void:
 	cooldown_timer.timeout.connect(_fire_cooltime_over)
 	burst_timer.timeout.connect(_on_burst_timer_timeout)
+	auto_timer.timeout.connect(_fire_cooltime_over)
+	

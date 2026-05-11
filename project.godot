@@ -41,6 +41,7 @@ enabled=PackedStringArray("res://addons/FolderLabels/plugin.cfg")
 folder_colors={
 "res://addons/": "purple",
 "res://asset/": "green",
+"res://resources/": "gray",
 "res://scene/": "blue",
 "res://script/": "yellow"
 }
