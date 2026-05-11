@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c08hb6swg6hjy" path="res://script/main/main.gd" id="1_0imob"]
 [ext_resource type="PackedScene" uid="uid://bm8guianam4uk" path="res://scene/component/character/player/player.tscn" id="1_f6udf"]
+[ext_resource type="PackedScene" uid="uid://cxyfigyia8t7v" path="res://scene/component/character/Enemy/Zombie.tscn" id="3_6vuhr"]
 
 [node name="main" type="Node2D" unique_id=658159684]
 script = ExtResource("1_0imob")
@@ -20,3 +21,6 @@ position = Vector2(-1, -1)
 points = PackedVector2Array(1000, 0, -100, 0)
 width = 1.0
 default_color = Color(1, 0, 1, 1)
+
+[node name="Zombie" parent="." unique_id=905139244 instance=ExtResource("3_6vuhr")]
+position = Vector2(135, 106)

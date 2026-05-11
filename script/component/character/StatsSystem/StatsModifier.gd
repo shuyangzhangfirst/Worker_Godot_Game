@@ -29,12 +29,15 @@ static func Mul(_value):
 static func Set(_value):
 	return StatModifier.new(OperateType.forceset,_value)
 
-func Operatoe(base_value):
-	match  OperateType:
+func Operatoe(base_value)->float:
+	
+	
+	match  self.type:
 		OperateType.add: return base_value+value
 		OperateType.sub: return base_value-value
 		OperateType.div: return base_value/value
 		OperateType.mul: return base_value*value
 		OperateType.forceset: return value
+		_: return base_value
 
  

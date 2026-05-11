@@ -8,6 +8,9 @@
 [ext_resource type="Script" uid="uid://cbcdyr20avkx4" path="res://script/component/character/StatsSystem/StatsManager.gd" id="6_1nox1"]
 [ext_resource type="Script" uid="uid://d187dktq0xg4" path="res://script/component/character/StatsSystem/Stat.gd" id="7_kvbc0"]
 [ext_resource type="PackedScene" uid="uid://be8n6l64fk5hw" path="res://scene/component/weapon/gun/handgun/handgun.tscn" id="8_28dk6"]
+[ext_resource type="Resource" uid="uid://rvd8fu46ifbb" path="res://Resource/PlayerStatResource/PlayerMaxHealth.tres" id="9_dthkf"]
+[ext_resource type="Resource" uid="uid://ciajtkyy557wt" path="res://Resource/PlayerStatResource/PlayerCurrentHealth.tres" id="10_dyfn5"]
+[ext_resource type="Script" uid="uid://dfxe4byorgdgl" path="res://script/component/hurtbox 受击框/Hurtbox.gd" id="11_dyfn5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1tc5g"]
 size = Vector2(12, 7)
@@ -143,12 +146,53 @@ _data = {
 
 [sub_resource type="Resource" id="Resource_kmjhx"]
 script = ExtResource("7_kvbc0")
-stat_type = 1
 base_value = 100.0
 metadata/_custom_type_script = "uid://d187dktq0xg4"
 
-[node name="Player" type="CharacterBody2D" unique_id=576296784 node_paths=PackedStringArray("animationplayer", "sprite", "statemachine")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ua8b"]
+size = Vector2(15, 22)
+
+[sub_resource type="Animation" id="Animation_dyfn5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8ua8b"]
+resource_name = "takedamage"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.19984019, 0.29984018, 0.39968038, 0.49968037, 0.596745, 0.69674504, 0.79936075),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.19607843), Color(1, 1, 1, 1), Color(1, 1, 1, 0.39215687), Color(1, 1, 1, 1), Color(1, 1, 1, 0.5882353), Color(1, 1, 1, 1), Color(1, 1, 1, 0.78431374), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_60te1"]
+_data = {
+&"RESET": SubResource("Animation_dyfn5"),
+&"takedamage": SubResource("Animation_8ua8b")
+}
+
+[node name="Player" type="CharacterBody2D" unique_id=576296784 node_paths=PackedStringArray("statmanager", "hurtbox", "animationplayer", "sprite", "statemachine")]
 script = ExtResource("1_aheb8")
+statmanager = NodePath("StatManager")
+hurtbox = NodePath("Hurtbox")
 animationplayer = NodePath("AnimationPlayer")
 sprite = NodePath("Sprite2D")
 statemachine = NodePath("StateMachine")
@@ -191,3 +235,19 @@ stats = Array[ExtResource("7_kvbc0")]([SubResource("Resource_kmjhx")])
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2125858279]
 
 [node name="Handgun" parent="." unique_id=737484638 instance=ExtResource("8_28dk6")]
+
+[node name="StatSystem" type="Node" parent="." unique_id=1188695261]
+script = ExtResource("6_1nox1")
+stats = Array[ExtResource("7_kvbc0")]([ExtResource("9_dthkf"), ExtResource("10_dyfn5")])
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1185940278]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("11_dyfn5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1277727515]
+position = Vector2(0.5, -7)
+shape = SubResource("RectangleShape2D_8ua8b")
+
+[node name="EffectAnimationPlayer" type="AnimationPlayer" parent="." unique_id=683372094]
+libraries/ = SubResource("AnimationLibrary_60te1")

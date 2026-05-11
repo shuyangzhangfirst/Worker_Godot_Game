@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="PlayerMaxHealth" format=3 uid="uid://rvd8fu46ifbb"]
+
+[ext_resource type="Script" uid="uid://d187dktq0xg4" path="res://script/component/character/StatsSystem/Stat.gd" id="1_jtjrv"]
+[ext_resource type="Script" uid="uid://e7qk0bgbwghq" path="res://script/component/character/StatsSystem/PlayerStat/PlayerMaxHealth.gd" id="2_cqaio"]
+
+[resource]
+script = ExtResource("2_cqaio")
+base_value = 50.0
+metadata/_custom_type_script = "uid://e7qk0bgbwghq"

@@ -1,7 +1,9 @@
 class_name StatsManager extends Node
 
 @export var stats:Array[Stat]
-
+func _ready() -> void:
+	for stat in self.stats:
+		stat.Init()
 func _physics_process(_delta: float) -> void:
 	
 	for stat in stats:

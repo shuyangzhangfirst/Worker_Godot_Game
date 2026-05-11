@@ -19,23 +19,29 @@ enum StatType{
 	lucky
 }
 signal StatChanged(newstat:Stat)
-@export var stat_type : StatType
+var stat_type : StatType
 @export var base_value:float=0
 var computed_value:float=0
 var result_value:float =0
 var buffs:Dictionary[String,StatBuff]={}
 @export var rely_on_stats:Dictionary[StatType,Stat]={}
 
+func Init():
+	pass
+
 func SetBaseValue(value):
 	base_value=value
 	
 	UpdateValue()
 	
-func GetValue():
+func GetValue()->float:
 	return result_value
-
+func GetBaseValue()->float:
+	return base_value
 func ChangeBaseValue(modifier:StatModifier):
+	
 	base_value=modifier.Operatoe(base_value)
+	
 	UpdateValue()
 
 func UpdateValue():
