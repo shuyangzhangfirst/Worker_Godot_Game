@@ -9,7 +9,6 @@ func _ready() -> void:
 	statemachine.Initialize(self)
 	hurtbox.TakeDamage.connect(TakeDamage)
 
-func TakeDamage(hitbox:Hitbox):
 	statmanager.stats[Stat.StatType.health].ChangeBaseValue(StatModifier.Add(-1))
 	print(statmanager.stats[Stat.StatType.health].GetValue())
 	
