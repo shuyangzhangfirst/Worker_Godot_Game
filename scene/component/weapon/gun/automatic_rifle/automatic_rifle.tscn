@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cslh3tucr7qfn"]
+
+[ext_resource type="PackedScene" uid="uid://b3cnrf7i32mvf" path="res://scene/component/weapon/gun/gun.tscn" id="1_jlero"]
+[ext_resource type="PackedScene" uid="uid://c5c74061iw76w" path="res://scene/component/weapon/gun/bullet/bullet.tscn" id="2_syiso"]
+[ext_resource type="Texture2D" uid="uid://vnkpkbpr10nc" path="res://asset/texture/gun/PNG/Assault_rifle_V1.01.png" id="3_6vsva"]
+
+[node name="AutomaticRifle" unique_id=737484638 instance=ExtResource("1_jlero")]
+bullet_scene = ExtResource("2_syiso")
+spread_angle = 0.03
+magazine_size = 30
+gun_fire_mode = Array[int]([2, 0, 1])
+burst_count = 4
+burst_fire_rate = 0.01
+burst_cooldown_time = 0.1
+weapon_name = "加特林机枪"
+
+[node name="Sprite2D" parent="." index="0" unique_id=1681892862]
+position = Vector2(35, -6.000006)
+texture = ExtResource("3_6vsva")
+
+[node name="GunWire" parent="." index="1" unique_id=953801462]
+points = PackedVector2Array(1.9999979, -12, 59.999996, -12.0000105)
+
+[node name="BarrelChamber" parent="GunWire" index="0" unique_id=1993508182]
+position = Vector2(1.9999979, -12)
+
+[node name="Muzzle" parent="GunWire" index="1" unique_id=241637781]
+position = Vector2(59.999996, -12.0000105)

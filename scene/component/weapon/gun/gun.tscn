@@ -44,3 +44,6 @@ unique_name_in_owner = true
 
 [node name="BurstTimer" type="Timer" parent="." unique_id=1855152662]
 unique_name_in_owner = true
+
+[node name="AutoTimer" type="Timer" parent="." unique_id=2017026965]
+unique_name_in_owner = true

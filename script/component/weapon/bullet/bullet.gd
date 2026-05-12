@@ -7,8 +7,8 @@ class_name Bullet extends Hitbox
 @onready var clear_timer: Timer = %ClearTimer
 
 #endregion
-@export var bullet_name: String = ""
-@export var bullet_flight_speed: float = 300.0	## 子弹飞行速度
+@export var bullet_name: String = ""		## 子弹名称
+@export var bullet_flight_speed: float = 800.0	## 子弹飞行速度
 @export var exit_screen_duration: float = 2.0	## 屏幕外子弹可滞留时间
 @export var target: Node2D
 

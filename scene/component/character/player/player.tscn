@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bm8guianam4uk"]
+[gd_scene format=3 uid="uid://dxst05ue6f23x"]
 
 [ext_resource type="Script" uid="uid://jjlxccn5isc8" path="res://script/component/character/player/player.gd" id="1_aheb8"]
 [ext_resource type="Texture2D" uid="uid://owvqssu7se37" path="res://asset/texture/Modern tiles_Free/Characters_free/Adam_16x16.png" id="2_aheb8"]

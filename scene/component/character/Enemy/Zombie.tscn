@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cxyfigyia8t7v"]
 
 [ext_resource type="Texture2D" uid="uid://bbq6atjodbp6r" path="res://asset/texture/Modern tiles_Free/Characters_free/Alex_16x16.png" id="1_u7p2q"]
-[ext_resource type="Script" uid="uid://c1goowg82uxqm" path="res://script/component/character/Enemy 敌人/Enemy.gd" id="1_yego2"]
-[ext_resource type="Script" uid="uid://dks3h2vcu5vwu" path="res://script/component/hitbox 攻击框/Hitbox.gd" id="2_vkpty"]
-[ext_resource type="Script" uid="uid://dfxe4byorgdgl" path="res://script/component/hurtbox 受击框/Hurtbox.gd" id="3_yego2"]
+[ext_resource type="Script" uid="uid://c1goowg82uxqm" path="res://script/component/character/Enemy/Enemy.gd" id="1_yego2"]
+[ext_resource type="Script" uid="uid://dks3h2vcu5vwu" path="res://script/component/hitbox/Hitbox.gd" id="2_vkpty"]
+[ext_resource type="Script" uid="uid://dfxe4byorgdgl" path="res://script/component/hurtbox/Hurtbox.gd" id="3_yego2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u7p2q"]
 size = Vector2(10, 7)
