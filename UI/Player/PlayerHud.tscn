@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cyu53mw1c832s"]
+
+[node name="PlayerHud" type="Control" unique_id=1782343894]
+layout_mode = 3
+anchors_preset = 0
