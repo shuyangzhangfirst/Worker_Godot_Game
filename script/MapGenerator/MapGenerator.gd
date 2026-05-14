@@ -14,8 +14,10 @@ var tiledata:Dictionary={
 @export var tile_map:TileMap
 @export_tool_button("GenerateMap")
 var genmap := Callable(self, "GenerateMap")
+
 func _ready() -> void:
 	GenerateMap()
+	
 func GenerateMap():
 	if randomize_seed:
 		gen_seed=randi()

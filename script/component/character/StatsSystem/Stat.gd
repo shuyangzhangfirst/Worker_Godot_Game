@@ -1,4 +1,5 @@
 class_name Stat extends Resource
+
 enum StatType{
 	health,
 	maxhealth,
@@ -18,6 +19,7 @@ enum StatType{
 	charm,
 	lucky
 }
+
 signal StatChanged(newstat:Stat)
 var stat_type : StatType
 @export var base_value:float=0

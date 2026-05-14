@@ -1,46 +1,34 @@
 [gd_scene format=3 uid="uid://btksvklbdvhml"]
 
 [ext_resource type="Script" uid="uid://dsvel11ki0366" path="res://script/component/item_display/item_display.gd" id="1_qh5qm"]
-[ext_resource type="Texture2D" uid="uid://dr5rdpwljwa7" path="res://asset/texture/ui/Sprite sheet for Basic Pack.png" id="2_p1vcq"]
+[ext_resource type="Texture2D" uid="uid://cpbp1rb6k6p0j" path="res://asset/texture/ui/UI.png" id="2_qh5qm"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_05g1j"]
-atlas = ExtResource("2_p1vcq")
-region = Rect2(11, 155, 26, 28)
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh5qm"]
+atlas = ExtResource("2_qh5qm")
+region = Rect2(464, 128, 16, 16)
 
-[node name="ItemDisplay" type="Control" unique_id=519180018]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_qh5qm")
-
-[node name="Backgorund" type="TextureRect" parent="." unique_id=2047057197]
-unique_name_in_owner = true
-layout_mode = 0
+[node name="Backgorund" type="TextureRect" unique_id=1195569362]
+custom_minimum_size = Vector2(40, 40)
 offset_right = 40.0
 offset_bottom = 40.0
-texture = SubResource("AtlasTexture_05g1j")
+texture = SubResource("AtlasTexture_qh5qm")
+script = ExtResource("1_qh5qm")
+default_item_icon = "res://asset/texture/items/default_item_icon.png"
 
-[node name="ItemIcon" type="TextureRect" parent="Backgorund" unique_id=352965990]
+[node name="DisplayIcon" type="TextureRect" parent="." unique_id=352965990]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -12.0
-offset_top = -14.0
-offset_right = 12.0
-offset_bottom = 10.0
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.125
+anchor_right = 0.87500006
+anchor_bottom = 0.87500006
 grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 5
 stretch_mode = 5
 
-[node name="ItemCountLabel" type="Label" parent="Backgorund" unique_id=1803905098]
+[node name="ItemCountLabel" type="Label" parent="." unique_id=1803905098]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -48,6 +36,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 10
 text = "99"
 horizontal_alignment = 2
 vertical_alignment = 2

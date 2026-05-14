@@ -11,7 +11,7 @@ class_name Enemy extends Node
 var invulnerable:bool = false
 
 func _ready() -> void:
-	hurtbox.TakeDamage.connect(TakeDamage)
+	pass
 
 
 func TakeDamage(hitbox:Hitbox):
@@ -22,7 +22,7 @@ func TakeDamage(hitbox:Hitbox):
 	effect_animation_player.play("takedamage")
 	
 	print(current_hp)
-	invulnerable=true
-	await  get_tree().create_timer(1).timeout
+	#invulnerable=true
+	#await  get_tree().create_timer(1).timeout
 	invulnerable=false
 	
