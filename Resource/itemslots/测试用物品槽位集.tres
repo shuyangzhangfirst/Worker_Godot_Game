@@ -9,7 +9,12 @@ script = ExtResource("2_8rt74")
 item = ExtResource("3_nwyen")
 metadata/_custom_type_script = "uid://dss08vasgvwnb"
 
+[sub_resource type="Resource" id="Resource_1htmg"]
+script = ExtResource("2_8rt74")
+item = ExtResource("3_nwyen")
+metadata/_custom_type_script = "uid://dss08vasgvwnb"
+
 [resource]
 script = ExtResource("1_u1v8l")
-slots = Array[ExtResource("2_8rt74")]([SubResource("Resource_8rt74")])
+slots = Array[ExtResource("2_8rt74")]([SubResource("Resource_8rt74"), null, null, null, null, SubResource("Resource_1htmg"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
 metadata/_custom_type_script = "uid://cdvdq0cv4uouy"

@@ -12,6 +12,7 @@ class_name Enemy extends Character
 
 func _ready() -> void:
 	hurtbox.TakeDamage.connect(TakeDamage)
+	pass
 
 
 func TakeDamage(hitbox:Hitbox):

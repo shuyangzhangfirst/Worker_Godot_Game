@@ -156,8 +156,10 @@ layer_1/name = "wall"
 layer_2/name = "roof"
 
 [node name="MapGenerator" type="Node2D" parent="." unique_id=129375048 node_paths=PackedStringArray("tile_map")]
+[node name="MapGenerator" type="Node2D" unique_id=274477355]
 script = ExtResource("1_c8sac")
 randomize_seed = false
 gen_seed = 2437886564
 tile_map = NodePath("../TileMap")
 metadata/_custom_type_script = "uid://jtjjtp62ktv1"
+gen_seed = 3770285615
