@@ -11,7 +11,6 @@ class_name Enemy extends Character
 
 
 func _ready() -> void:
-	hurtbox.TakeDamage.connect(TakeDamage)
 	pass
 
 
@@ -22,8 +21,14 @@ func TakeDamage(hitbox:Hitbox):
 	effect_animation_player.play("takedamage")
 	
 	print(current_hp)
+<<<<<<< HEAD
 	
 	hitbox.invulnerable=true
 	await  get_tree().create_timer(1).timeout
 	hitbox.invulnerable=false
+=======
+	#invulnerable=true
+	#await  get_tree().create_timer(1).timeout
+	invulnerable=false
+>>>>>>> ChangLuoD
 	
