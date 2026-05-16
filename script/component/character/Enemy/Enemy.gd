@@ -20,21 +20,14 @@ class_name Enemy extends Character
 @export var hurt_box:Hurtbox
 
 func chase_area_has_player():
-	return chase_area.get_overlapping_bodies().has(GameSystem.DataDataManager.current_player)
+	return chase_area.get_overlapping_bodies().has(GameSystem.data.current_player)
 func meele_area_has_player():
-	return meele_area.get_overlapping_bodies().has(GameSystem.DataDataManager.current_player)
+	return meele_area.get_overlapping_bodies().has(GameSystem.data.current_player)
 func TakeDamage(hitbox:Hitbox):
 	current_hp = max(0,current_hp- hitbox.damage)
 	effect_animation_player.play("takedamage")
 	print(current_hp)	
-	
-<<<<<<< HEAD
-	print(current_hp)
-<<<<<<< Updated upstream
-	#invulnerable=true
-	#await  get_tree().create_timer(1).timeout
-	invulnerable=false
-=======
+
 	
 func ShouldUpdateAnimationDirection()->bool:
 	if move_direction==Vector2.ZERO:
@@ -59,11 +52,3 @@ func VectorToDirection(vector:Vector2):
 		return "down"
 	else:
 		return "side"
->>>>>>> main
-	
-=======
-	
-	hitbox.invulnerable=true
-	await  get_tree().create_timer(1).timeout
-	hitbox.invulnerable=false
->>>>>>> Stashed changes

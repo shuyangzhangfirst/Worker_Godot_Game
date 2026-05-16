@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://f7x661jsdyvi"]
 
+[ext_resource type="Script" uid="uid://b154jyor1dce8" path="res://script/game_system/audio/audio.gd" id="1_18osb"]
+
 [node name="Audio" type="Node" unique_id=1903797557]
+script = ExtResource("1_18osb")
 
 [node name="Music" type="Node" parent="." unique_id=1382735380]
 unique_name_in_owner = true

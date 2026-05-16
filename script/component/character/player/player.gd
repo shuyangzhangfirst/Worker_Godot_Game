@@ -10,7 +10,7 @@ class_name Player extends Character
 	
 func _ready() -> void:
 	super._ready()
-	GameSystem.DataDataManager.current_player=self
+	GameSystem.data.current_player=self
 	
 func _physics_process(_delta: float) -> void:
 	move_direction=Vector2(
