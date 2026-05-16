@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b540dytmfodoa"]
+
+[ext_resource type="Script" uid="uid://b6xg4h42hueoy" path="res://script/game_system/settings/settings.gd" id="1_6bwef"]
+[ext_resource type="Script" uid="uid://71qn3p253v5q" path="res://script/game_system/settings/sub_settings/audio.gd" id="2_d75we"]
+[ext_resource type="Script" uid="uid://dj7mfnnsslrt7" path="res://script/game_system/settings/sub_settings/graphics.gd" id="3_32a1s"]
+[ext_resource type="Script" uid="uid://3c5yjrjdecwr" path="res://script/game_system/settings/sub_settings/game_play.gd" id="4_m1o7e"]
+[ext_resource type="Script" uid="uid://qh5d26agwlsl" path="res://script/game_system/settings/sub_settings/control.gd" id="5_wudd8"]
+
+[node name="Settings" type="Node" unique_id=939108780]
+script = ExtResource("1_6bwef")
+
+[node name="Audio" type="Node" parent="." unique_id=1997686510]
+unique_name_in_owner = true
+script = ExtResource("2_d75we")
+
+[node name="Graphics" type="Node" parent="." unique_id=487824769]
+unique_name_in_owner = true
+script = ExtResource("3_32a1s")
+
+[node name="GamePlay" type="Node" parent="." unique_id=1805425215]
+unique_name_in_owner = true
+script = ExtResource("4_m1o7e")
+
+[node name="Control" type="Node" parent="." unique_id=84763884]
+unique_name_in_owner = true
+script = ExtResource("5_wudd8")

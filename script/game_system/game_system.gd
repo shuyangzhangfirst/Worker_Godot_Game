@@ -1,6 +1,9 @@
 @tool
 extends Node
 
-@onready var DataDataManager: DataManager = %DataManager	## 系统数据管理
+@onready var data_manager: DataManager = %DataManager
+@onready var audio: AudioManager = %Audio
+@onready var settings: SettingsManager = %Settings
+
 
 var main_scene: Node2D	## 游戏主场景

@@ -26,3 +26,8 @@ func OnAreaEntered(area:Area2D):
 		invulnerable=false
 		
 	
+func _connec_signals() -> void:
+	var node: Node2D = get_parent()
+	if node.has_method("TakeDamage"):
+		area_entered.connect(node.TakeDamage)
+	area_entered.connect(OnAreaEntered)

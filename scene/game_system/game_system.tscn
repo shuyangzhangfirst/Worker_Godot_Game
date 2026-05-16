@@ -3,10 +3,20 @@
 [ext_resource type="Script" uid="uid://bc80md2qp4hbv" path="res://script/game_system/game_system.gd" id="1_f7ml6"]
 [ext_resource type="PackedScene" uid="uid://31dmpoigyfsy" path="res://scene/game_system/data_manager/data.tscn" id="2_5qtju"]
 [ext_resource type="Script" uid="uid://g767g5oxjkgo" path="res://script/game_system/data_manager/data_manager.gd" id="3_r31ul"]
+[ext_resource type="PackedScene" uid="uid://f7x661jsdyvi" path="res://scene/game_system/audio/audio.tscn" id="4_r31ul"]
+[ext_resource type="Script" uid="uid://b154jyor1dce8" path="res://script/game_system/audio/audio.gd" id="5_ln0bn"]
+[ext_resource type="PackedScene" uid="uid://b540dytmfodoa" path="res://scene/game_system/settings/settings.tscn" id="6_80l1n"]
 
 [node name="GameSystem" type="Node" unique_id=1869255827]
 script = ExtResource("1_f7ml6")
 
-[node name="DataManager" parent="." unique_id=1619383742 instance=ExtResource("2_5qtju")]
+[node name="Data" parent="." unique_id=1619383742 instance=ExtResource("2_5qtju")]
 unique_name_in_owner = true
 script = ExtResource("3_r31ul")
+
+[node name="Audio" parent="." unique_id=1903797557 instance=ExtResource("4_r31ul")]
+unique_name_in_owner = true
+script = ExtResource("5_ln0bn")
+
+[node name="Settings" parent="." unique_id=939108780 instance=ExtResource("6_80l1n")]
+unique_name_in_owner = true

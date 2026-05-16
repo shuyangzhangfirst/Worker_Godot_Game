@@ -2,6 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://clvtixc5oiiie" path="res://scene/component/inventory/inventory.tscn" id="1_amy5m"]
 [ext_resource type="Script" uid="uid://c328m76mklota" path="res://script/component/backpack/backpack.gd" id="1_lwg7e"]
+[ext_resource type="Theme" uid="uid://cjm85o2nrov4p" path="res://Resource/theme/default_panel.tres" id="2_f3d64"]
+[ext_resource type="Texture2D" uid="uid://cpbp1rb6k6p0j" path="res://asset/texture/ui/UI.png" id="3_6066x"]
+[ext_resource type="Resource" uid="uid://blndjex4302o1" path="res://Resource/itemslots/测试用物品槽位集.tres" id="5_u1wrj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3t4id"]
+texture = ExtResource("3_6066x")
+texture_margin_left = 3.0
+texture_margin_top = 5.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(417, 80, 47, 48)
 
 [node name="Backpack" type="Control" unique_id=1536852418]
 layout_mode = 3
@@ -13,10 +24,22 @@ grow_vertical = 2
 script = ExtResource("1_lwg7e")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=368551856]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.0
+offset_top = -107.0
+offset_right = 186.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_f3d64")
+theme_override_styles/panel = SubResource("StyleBoxTexture_3t4id")
 
 [node name="Inventory" parent="PanelContainer" unique_id=236432795 instance=ExtResource("1_amy5m")]
 unique_name_in_owner = true
 layout_mode = 2
+item_slots = ExtResource("5_u1wrj")

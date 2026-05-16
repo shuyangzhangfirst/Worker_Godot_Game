@@ -7,9 +7,7 @@ class_name Inventory
 ## 物品展示
 @export var item_display_scene: PackedScene
 ## 物品容器
-@export var item_slots: ItemSlots:
-	set(value):
-		item_slots = value
+@export var item_slots: ItemSlots
 
 func _ready() -> void:
 	update_inventory()
@@ -24,10 +22,11 @@ func update_inventory() -> void:
 ## 添加物品展示
 func _add_inventory() -> void:
 	var item_display: ItemDisplay = item_display_scene.instantiate()
-	for i in range(item_slots.slots.size):
+	for i in range(item_slots.slots.size()):
 		var new_item_display: ItemDisplay = item_display.duplicate()
 		new_item_display.name = "ItemDisplay" + "[" + str(i) + "]" 
 		new_item_display.item_slot = item_slots.slots[i]
+		item_slot_container.add_child(new_item_display)
 		new_item_display.update_item_display()
 
 ## 清空物品栏
