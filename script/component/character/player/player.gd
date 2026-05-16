@@ -4,18 +4,14 @@ class_name Player extends Character
 
 @export var statmanager:StatsManager
 @export var hurtbox:Hurtbox
+@export var stats:PlayerStats
 
-func _ready() -> void:
-	statemachine.Initialize(self)
-	hurtbox.TakeDamage.connect(TakeDamage)
-
-	statmanager.stats[Stat.StatType.health].ChangeBaseValue(StatModifier.Add(-1))
-	print(statmanager.stats[Stat.StatType.health].GetValue())
 	
-func TakeDamage(_hitbox:Hitbox):
-	statmanager.stats[Stat.StatType.health].ChangeBaseValue(StatModifier.Add(-1))
-	print(statmanager.stats[Stat.StatType.health].GetValue())
-
+	
+func _ready() -> void:
+	super._ready()
+	GameSystem.DataDataManager.current_player=self
+	
 func _physics_process(_delta: float) -> void:
 	move_direction=Vector2(
 	Input.get_axis("Left", "Right"),
@@ -29,6 +25,10 @@ func _physics_process(_delta: float) -> void:
 
 
 	
+func TakeDamage(hitbox:Hitbox):
+	stats.current_hp-=hitbox.damage
+	effect_animation_player.play("takedamage")
+	print(stats.max_hp)
 	
 	
 

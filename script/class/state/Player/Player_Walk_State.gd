@@ -2,7 +2,7 @@ class_name PlayerWalkState extends PlayerState
 @export var  move_speed:float
 
 func Enter():
-	super.Enter()
+	
 	
 	character.ShouldUpdateAnimationDirection()
 	var direction=character.VectorToDirection(character.move_direction)

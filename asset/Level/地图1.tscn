@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c4ulelni13kyi"]
 
 [ext_resource type="Texture2D" uid="uid://hskjtxnn3kvm" path="res://asset/texture/Sprout Lands - Sprites - Basic pack/Tilesets/Grass.png" id="1_4m0eh"]
+[ext_resource type="Script" uid="uid://cfpsmw1cvtreb" path="res://script/Map/map.gd" id="1_4p5f6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4p5f6"]
 texture = ExtResource("1_4m0eh")
@@ -171,6 +172,7 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_4p5f6")
 
 [node name="地图1" type="Node2D" unique_id=962246659]
+script = ExtResource("1_4p5f6")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1643858018]
 tile_set = SubResource("TileSet_ltsnl")

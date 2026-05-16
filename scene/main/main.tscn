@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://vmlb1gmyem8b"]
 
 [ext_resource type="Script" uid="uid://c08hb6swg6hjy" path="res://script/main/main.gd" id="1_0imob"]
-[ext_resource type="PackedScene" uid="uid://bm8guianam4uk" path="res://scene/component/character/player/player.tscn" id="1_f6udf"]
+[ext_resource type="PackedScene" uid="uid://dxst05ue6f23x" path="res://scene/component/character/player/player.tscn" id="1_f6udf"]
 [ext_resource type="PackedScene" uid="uid://cxyfigyia8t7v" path="res://scene/component/character/Enemy/Zombie.tscn" id="3_6vuhr"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_6vuhr"]
+vertices = PackedVector2Array(513.46094, 302.5703, -208, 271.42188, -208, -78.21094, 531.52344, -94.75781)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-218, -88, 542, -105, 523, 313, -218, 281)])
 
 [node name="main" type="Node2D" unique_id=658159684]
 script = ExtResource("1_0imob")
@@ -23,4 +28,7 @@ width = 1.0
 default_color = Color(1, 0, 1, 1)
 
 [node name="Zombie" parent="." unique_id=905139244 instance=ExtResource("3_6vuhr")]
-position = Vector2(40, 48)
+position = Vector2(-62, 95)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1790623272]
+navigation_polygon = SubResource("NavigationPolygon_6vuhr")

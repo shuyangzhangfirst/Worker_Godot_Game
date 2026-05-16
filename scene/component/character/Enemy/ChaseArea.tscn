@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dkoxw1b14b6vc"]
+
+[ext_resource type="Script" uid="uid://bg04g524goq8a" path="res://script/component/character/Enemy/chase_area.gd" id="1_j0kaq"]
+
+[node name="ChaseArea" type="Area2D" unique_id=1901543769]
+script = ExtResource("1_j0kaq")
