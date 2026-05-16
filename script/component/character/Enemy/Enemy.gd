@@ -27,11 +27,7 @@ func TakeDamage(hitbox:Hitbox):
 	current_hp = max(0,current_hp- hitbox.damage)
 	effect_animation_player.play("takedamage")
 	print(current_hp)	
-	
-	print(current_hp)
-	#invulnerable=true
-	#await  get_tree().create_timer(1).timeout
-	invulnerable=false
+
 	
 func ShouldUpdateAnimationDirection()->bool:
 	if move_direction==Vector2.ZERO:
