@@ -28,13 +28,10 @@ func TakeDamage(hitbox:Hitbox):
 	effect_animation_player.play("takedamage")
 	print(current_hp)	
 	
-<<<<<<< HEAD
 	print(current_hp)
-<<<<<<< Updated upstream
 	#invulnerable=true
 	#await  get_tree().create_timer(1).timeout
 	invulnerable=false
-=======
 	
 func ShouldUpdateAnimationDirection()->bool:
 	if move_direction==Vector2.ZERO:
@@ -59,11 +56,7 @@ func VectorToDirection(vector:Vector2):
 		return "down"
 	else:
 		return "side"
->>>>>>> main
-	
-=======
 	
 	hitbox.invulnerable=true
 	await  get_tree().create_timer(1).timeout
 	hitbox.invulnerable=false
->>>>>>> Stashed changes
