@@ -4,8 +4,15 @@ class_name Character extends CharacterBody2D
 @export var sprite:Sprite2D
 @export var statemachine:StateMachine
 
+@export var effect_animation_player:AnimationPlayer # 受伤特效的animation
 var move_direction:Vector2
 var anim_direction:Vector2
+
+func _ready() -> void:
+	statemachine.Initialize(self)
+	anim_direction=Vector2.DOWN
+	
+	pass
 
 func UpdateAnimation(animation:String,direction:String=""):
 	if direction=="":
@@ -17,6 +24,7 @@ func UpdateAnimation(animation:String,direction:String=""):
 	
 	
 func ShouldUpdateAnimationDirection()->bool:
+	
 	var new_anim_direction=anim_direction
 	if new_anim_direction==move_direction:
 		return false
@@ -27,8 +35,10 @@ func ShouldUpdateAnimationDirection()->bool:
 	elif move_direction.y==0:
 		new_anim_direction=Vector2.LEFT if move_direction.x<0 else Vector2.RIGHT
 	else:
+		
 		if (anim_direction==Vector2.LEFT and move_direction.x<0) or (anim_direction==Vector2.RIGHT and move_direction.x>0) or (anim_direction==Vector2.UP and move_direction.y>0) or (anim_direction==Vector2.DOWN and move_direction.y<0):
 			new_anim_direction=anim_direction*-1
+		
 		
 		
 		
@@ -38,6 +48,7 @@ func ShouldUpdateAnimationDirection()->bool:
 		
 		return false
 	else:
+		
 		anim_direction=new_anim_direction
 		return true
 		
@@ -59,4 +70,7 @@ func HandleFlip():
 		
 		sprite.scale.x=-1 if move_direction.x<0 else 1
 	
-		
+
+func TakeDamage(hitbox:Hitbox):
+	
+	pass

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bvvc0cf57tj1"]
+
+[ext_resource type="Script" uid="uid://bhyal4xdxvu8u" path="res://script/component/character/Enemy/attack_area.gd" id="1_uet62"]
+
+[node name="AttackArea" type="Area2D" unique_id=37802889]
+script = ExtResource("1_uet62")

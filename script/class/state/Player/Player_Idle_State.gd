@@ -1,7 +1,7 @@
 class_name  PlayerIdleState extends PlayerState
 
 func Enter():
-	super.Enter()
+	
 	
 	var direction = character.VectorToDirection(character.anim_direction)
 	character.UpdateAnimation(state_name,direction)
