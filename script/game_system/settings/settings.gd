@@ -23,7 +23,7 @@ func load_settings() -> void:
 	audio.load_settings(config_file)
 	graphics.load_settings(config_file)
 	game_play.load_settings(config_file)
-	control.load_settings(config_file)
+	#control.load_settings(config_file)
 	
 	print("设置加载完成")
 
@@ -38,7 +38,7 @@ func _save_all_settings() -> void:
 	audio.save_all(config_file)
 	graphics.save_all(config_file)
 	game_play.save_all(config_file)
-	control.save_all(config_file)
+	#control.save_all(config_file)
 	
 	config_file.save(SAVE_PATH)
 	print("设置已保存")
@@ -47,7 +47,7 @@ func reset_to_default() -> void:
 	audio.reset_to_default()
 	graphics.reset_to_default()
 	game_play.reset_to_default()
-	control.reset_to_default()
+	#control.reset_to_default()
 	
 	_save_all_settings()
 	print("设置已重置为默认值")

@@ -1,26 +1,9 @@
 [gd_scene format=3 uid="uid://vmlb1gmyem8b"]
 
 [ext_resource type="Script" uid="uid://c08hb6swg6hjy" path="res://script/main/main.gd" id="1_0imob"]
-[ext_resource type="PackedScene" uid="uid://bm8guianam4uk" path="res://scene/component/character/player/player.tscn" id="1_f6udf"]
-[ext_resource type="PackedScene" uid="uid://cxyfigyia8t7v" path="res://scene/component/character/Enemy/Zombie.tscn" id="3_6vuhr"]
+[ext_resource type="PackedScene" uid="uid://tfdb5elpsihy" path="res://scene/main/game_scene/game_scene.tscn" id="2_0imob"]
 
 [node name="main" type="Node2D" unique_id=658159684]
 script = ExtResource("1_0imob")
 
-[node name="Player" parent="." unique_id=576296784 instance=ExtResource("1_f6udf")]
-position = Vector2(128, 41)
-
-[node name="Line2D" type="Line2D" parent="." unique_id=616885897]
-position = Vector2(-1, -1)
-points = PackedVector2Array(0, 1000, 0, -1000)
-width = 1.0
-default_color = Color(1, 0, 1, 1)
-
-[node name="Line2D3" type="Line2D" parent="." unique_id=1022370317]
-position = Vector2(-1, -1)
-points = PackedVector2Array(1000, 0, -100, 0)
-width = 1.0
-default_color = Color(1, 0, 1, 1)
-
-[node name="Zombie" parent="." unique_id=905139244 instance=ExtResource("3_6vuhr")]
-position = Vector2(40, 48)
+[node name="GameScene" parent="." unique_id=1599374533 instance=ExtResource("2_0imob")]

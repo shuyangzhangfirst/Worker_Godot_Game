@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c0v7k8irq7oov"]
+
+[ext_resource type="Script" uid="uid://clx564usu2fmv" path="res://script/main/game_scene/game_wrold/game_wrold.gd" id="1_bicqd"]
+[ext_resource type="PackedScene" uid="uid://dxst05ue6f23x" path="res://scene/component/character/player/player.tscn" id="2_kxk8e"]
+[ext_resource type="PackedScene" uid="uid://cxyfigyia8t7v" path="res://scene/component/character/Enemy/Zombie.tscn" id="3_srurc"]
+
+[node name="GameWrold" type="Node2D" unique_id=398538314]
+script = ExtResource("1_bicqd")
+
+[node name="Map" type="Node" parent="." unique_id=1490093083]
+unique_name_in_owner = true
+
+[node name="Entity" type="Node" parent="." unique_id=1342916128]
+unique_name_in_owner = true
+
+[node name="Player" parent="Entity" unique_id=576296784 instance=ExtResource("2_kxk8e")]
+
+[node name="Zombie" parent="Entity" unique_id=905139244 instance=ExtResource("3_srurc")]
+position = Vector2(240, 8)
+
+[node name="Prop" type="Node" parent="." unique_id=1422836792]
+unique_name_in_owner = true

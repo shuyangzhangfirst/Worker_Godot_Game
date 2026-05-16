@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ne1p8ch0mcwe"]
+
+[ext_resource type="Script" uid="uid://dhuewxxnxwr3e" path="res://script/component/interactor/interactor.gd" id="1_1451w"]
+
+[node name="Interactor" type="Area2D" unique_id=942478242]
+collision_layer = 3
+script = ExtResource("1_1451w")
+interactor_name = null
+is_active = null

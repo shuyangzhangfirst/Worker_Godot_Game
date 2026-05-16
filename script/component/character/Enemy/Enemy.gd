@@ -22,7 +22,14 @@ func TakeDamage(hitbox:Hitbox):
 	effect_animation_player.play("takedamage")
 	
 	print(current_hp)
+<<<<<<< Updated upstream
 	#invulnerable=true
 	#await  get_tree().create_timer(1).timeout
 	invulnerable=false
 	
+=======
+	
+	hitbox.invulnerable=true
+	await  get_tree().create_timer(1).timeout
+	hitbox.invulnerable=false
+>>>>>>> Stashed changes

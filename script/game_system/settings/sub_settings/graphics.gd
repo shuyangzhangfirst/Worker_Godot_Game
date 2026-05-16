@@ -2,7 +2,7 @@ extends Node
 
 @onready var settings: SettingsManager = $".."
 
-const DEFAULT_RESOLUTION: Vector2i = Vector2i(1920, 1080)
+const DEFAULT_RESOLUTION: Vector2i = Vector2i(1280, 720)
 const DEFAULT_REFRESH_RATE: int = 120
 const DEFAULT_VSYNC: bool = true
 const DEFAULT_FULLSCREEN: bool = false

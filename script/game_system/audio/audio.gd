@@ -4,10 +4,11 @@ class_name AudioManager
 ## 是否初始化
 var is_init: bool = false
 
-@onready var music: Node = $MUSIC
-@onready var env: Node = $ENV
-@onready var sfx: Node = $SFX
-@onready var voice: Node = $VOICE
+@onready var music: Node = %Music
+@onready var env: Node = %Env
+@onready var sfx: Node = %SFX
+@onready var voice: Node = %Voice
+
 
 var current_music: AudioStream	## 当前播放音乐
 

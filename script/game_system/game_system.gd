@@ -1,7 +1,7 @@
 @tool
 extends Node
 
-@onready var data_manager: DataManager = %DataManager
+@onready var data: DataManager = %Data
 @onready var audio: AudioManager = %Audio
 @onready var settings: SettingsManager = %Settings
 

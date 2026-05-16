@@ -1,3 +1,15 @@
 [gd_scene format=3 uid="uid://f7x661jsdyvi"]
 
 [node name="Audio" type="Node" unique_id=1903797557]
+
+[node name="Music" type="Node" parent="." unique_id=1382735380]
+unique_name_in_owner = true
+
+[node name="Env" type="Node" parent="." unique_id=807151784]
+unique_name_in_owner = true
+
+[node name="SFX" type="Node" parent="." unique_id=370286784]
+unique_name_in_owner = true
+
+[node name="Voice" type="Node" parent="." unique_id=42344326]
+unique_name_in_owner = true
