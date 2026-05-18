@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://c8ry6xpd6e1ur"
 
 GameSystem="*uid://biwpuy3jxu67f"
 Eventbus="*uid://clvgxe6d6kfyn"
+Minimap="*uid://cxyyl2b3xom3g"
 
 [display]
 

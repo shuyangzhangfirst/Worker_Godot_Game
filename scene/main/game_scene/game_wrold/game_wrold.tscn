@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://cxyfigyia8t7v" path="res://scene/component/character/Enemy/Zombie.tscn" id="3_srurc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_kxk8e"]
+vertices = PackedVector2Array(949.90625, 558.1172, -341.25, 573.8594, -278.6172, -318.64063, 942.0781, -405.27344)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-288, -328, -352, 584, 960, 568, 952, -416)])
 
 [node name="GameWrold" type="Node2D" unique_id=398538314]
 script = ExtResource("1_bicqd")
