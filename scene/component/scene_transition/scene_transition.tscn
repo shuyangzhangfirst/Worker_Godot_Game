@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://d3byf5hkqs7ml"]
+
+[ext_resource type="Script" uid="uid://b0gsk5m8qsaq0" path="res://script/component/scene_transition/scene_transition.gd" id="1_5xjv0"]
+[ext_resource type="LabelSettings" uid="uid://b6jntjqugobrx" path="res://Resource/label_settings/default_label_settings.tres" id="2_ro8w8"]
+
+[node name="SceneTransition" type="CanvasLayer" unique_id=352898536]
+layer = 60
+script = ExtResource("1_5xjv0")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1011693472]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.1254902, 0, 1)
+
+[node name="LoadingContainer" type="VBoxContainer" parent="." unique_id=2132436385]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -188.0
+offset_top = -61.0
+offset_right = 188.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LoadingContainer" unique_id=180961563]
+layout_mode = 2
+
+[node name="CurrentProgressLabel" type="Label" parent="LoadingContainer/HBoxContainer" unique_id=200466072]
+layout_mode = 2
+text = "当前进度"
+label_settings = ExtResource("2_ro8w8")
+
+[node name="Label" type="Label" parent="LoadingContainer/HBoxContainer" unique_id=1229709150]
+layout_mode = 2
+text = ":"
+label_settings = ExtResource("2_ro8w8")
+
+[node name="ProgressNumber" type="Label" parent="LoadingContainer/HBoxContainer" unique_id=2030151237]
+unique_name_in_owner = true
+layout_mode = 2
+text = "50"
+label_settings = ExtResource("2_ro8w8")
+
+[node name="Label2" type="Label" parent="LoadingContainer/HBoxContainer" unique_id=141512838]
+layout_mode = 2
+text = "%"
+label_settings = ExtResource("2_ro8w8")
+
+[node name="BlankContainer" type="HBoxContainer" parent="LoadingContainer/HBoxContainer" unique_id=2024681055]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LoadingLabel" type="Label" parent="LoadingContainer/HBoxContainer" unique_id=938283993]
+layout_mode = 2
+text = "加载中"
+label_settings = ExtResource("2_ro8w8")
+
+[node name="LoadingAnimationLabel" type="Label" parent="LoadingContainer/HBoxContainer" unique_id=721105557]
+unique_name_in_owner = true
+layout_mode = 2
+text = "......"
+label_settings = ExtResource("2_ro8w8")
+
+[node name="ProgressBar" type="ProgressBar" parent="LoadingContainer" unique_id=783590052]
+unique_name_in_owner = true
+layout_mode = 2
+value = 50.0
+show_percentage = false
+
+[node name="LoadingAniTimer" type="Timer" parent="." unique_id=1342960892]
+process_callback = 0
+wait_time = 0.2
+one_shot = true
+ignore_time_scale = true

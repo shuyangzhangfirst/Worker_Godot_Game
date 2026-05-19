@@ -22,7 +22,7 @@ buses/default_bus_layout="uid://c8ry6xpd6e1ur"
 [autoload]
 
 GameSystem="*uid://biwpuy3jxu67f"
-Eventbus="*uid://clvgxe6d6kfyn"
+EventBus="*uid://clvgxe6d6kfyn"
 
 [display]
 
