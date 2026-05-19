@@ -19,6 +19,8 @@ class_name Enemy extends Character
 @export var hit_box :Hitbox
 @export var hurt_box:Hurtbox
 
+@export var animatesprite:AnimatedSprite2D
+
 func chase_area_has_player():
 	return chase_area.get_overlapping_bodies().has(GameSystem.data.current_player)
 func meele_area_has_player():
@@ -27,6 +29,21 @@ func TakeDamage(hitbox:Hitbox):
 	current_hp = max(0,current_hp- hitbox.damage)
 	effect_animation_player.play("takedamage")
 	print(current_hp)	
+func UpdateAnimation(animation:String,direction:String="",animation_speed:float=1):
+	if direction=="":
+		animatesprite.play(animation)
+		animatesprite.speed_scale=animation_speed
+	else:
+		animatesprite.play(animation+"_"+direction)
+		animatesprite.speed_scale=animation_speed
+	HandleFlip()
+func HandleFlip():
+	if move_direction.x == 0:
+		return
+	
+	if (anim_direction.x * self.scale.x)<0 or anim_direction.x!=0:
+		
+		animatesprite.flip_h=true if move_direction.x<0 else false
 
 	
 func ShouldUpdateAnimationDirection()->bool:

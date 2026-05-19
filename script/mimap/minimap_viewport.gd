@@ -13,4 +13,5 @@ func _ready() -> void:
 	process_mode=Node.PROCESS_MODE_ALWAYS
 
 func _physics_process(delta: float) -> void:
-	camera.position=player.position
+	#camera.position=player.position
+	pass

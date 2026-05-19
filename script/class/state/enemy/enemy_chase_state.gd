@@ -17,7 +17,7 @@ func Enter():
 	
 	var direction=character.VectorToDirection(character.anim_direction)
 	
-	character.UpdateAnimation(state_name,direction)
+	enemy.UpdateAnimation(state_name,direction,enemy.chase_speed/enemy.walk_speed)
 	
 	character.move_and_slide()
 func Exit():

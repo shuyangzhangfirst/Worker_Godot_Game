@@ -66,7 +66,7 @@ func HandleFlip():
 	if move_direction.x == 0:
 		return
 	
-	if (anim_direction.x * sprite.scale.x)<0 or anim_direction.x!=0:
+	if (anim_direction.x * self.scale.x)<0 or anim_direction.x!=0:
 		
 		sprite.scale.x=-1 if move_direction.x<0 else 1
 	
