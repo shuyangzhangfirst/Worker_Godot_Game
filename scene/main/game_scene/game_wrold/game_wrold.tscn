@@ -14,6 +14,7 @@ script = ExtResource("1_bicqd")
 
 [node name="Map" type="Node" parent="." unique_id=1490093083]
 unique_name_in_owner = true
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Map" unique_id=892217495]
 navigation_polygon = SubResource("NavigationPolygon_kxk8e")
 

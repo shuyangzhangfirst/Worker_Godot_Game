@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://hjk1qmnq7mw3"]
+
+[ext_resource type="Script" uid="uid://cbgdq1w3e844n" path="res://script/component/map/map.gd" id="1_fdhoa"]
+
+[node name="BaseMap" type="Node2D" unique_id=1714983503]
+script = ExtResource("1_fdhoa")
+
+[node name="TileMapLayers" type="Node2D" parent="." unique_id=1186036627]
+unique_name_in_owner = true
+
+[node name="EnvColor" type="CanvasModulate" parent="." unique_id=880398044]
