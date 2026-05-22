@@ -97,7 +97,6 @@ label_settings = ExtResource("2_3qfar")
 [node name="Timer" type="Timer" parent="LoadingContainer/HBoxContainer/加载文字动画" unique_id=1336752461]
 unique_name_in_owner = true
 wait_time = 0.1
-one_shot = true
 
 [node name="占位" type="HBoxContainer" parent="LoadingContainer/HBoxContainer" unique_id=72943338]
 layout_mode = 2
