@@ -9,3 +9,5 @@ script = ExtResource("1_fdhoa")
 unique_name_in_owner = true
 
 [node name="EnvColor" type="CanvasModulate" parent="." unique_id=880398044]
+
+[node name="Entity" type="Node" parent="." unique_id=523646527]

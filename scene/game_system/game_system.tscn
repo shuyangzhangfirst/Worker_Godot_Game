@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://biwpuy3jxu67f"]
 
 [ext_resource type="Script" uid="uid://bc80md2qp4hbv" path="res://script/game_system/game_system.gd" id="1_f7ml6"]
-[ext_resource type="PackedScene" uid="uid://31dmpoigyfsy" path="res://scene/game_system/data_manager/data.tscn" id="2_5qtju"]
+[ext_resource type="PackedScene" uid="uid://31dmpoigyfsy" path="res://scene/game_system/data/data.tscn" id="2_5qtju"]
 [ext_resource type="PackedScene" uid="uid://f7x661jsdyvi" path="res://scene/game_system/audio/audio.tscn" id="4_r31ul"]
+[ext_resource type="PackedScene" uid="uid://4wkk2cw2g0jx" path="res://scene/game_system/scene_load/scene_load.tscn" id="5_ln0bn"]
 [ext_resource type="PackedScene" uid="uid://b540dytmfodoa" path="res://scene/game_system/settings/settings.tscn" id="6_80l1n"]
 
 [node name="GameSystem" type="Node" unique_id=1869255827]
@@ -15,4 +16,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="Settings" parent="." unique_id=939108780 instance=ExtResource("6_80l1n")]
+unique_name_in_owner = true
+
+[node name="SceneLoad" parent="." unique_id=710521209 instance=ExtResource("5_ln0bn")]
 unique_name_in_owner = true
