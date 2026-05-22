@@ -8,10 +8,10 @@
 [ext_resource type="Script" uid="uid://dujllhikumg4" path="res://script/class/state/Player/Player_Walk_State.gd" id="5_bubao"]
 [ext_resource type="Script" uid="uid://cbcdyr20avkx4" path="res://script/component/character/StatsSystem/StatsManager.gd" id="6_1nox1"]
 [ext_resource type="Script" uid="uid://d187dktq0xg4" path="res://script/component/character/StatsSystem/Stat.gd" id="7_kvbc0"]
-[ext_resource type="PackedScene" uid="uid://be8n6l64fk5hw" path="res://scene/component/weapon/gun/handgun/handgun.tscn" id="8_28dk6"]
 [ext_resource type="Resource" uid="uid://rvd8fu46ifbb" path="res://Resource/PlayerStatResource/PlayerMaxHealth.tres" id="9_dthkf"]
 [ext_resource type="Resource" uid="uid://ciajtkyy557wt" path="res://Resource/PlayerStatResource/PlayerCurrentHealth.tres" id="10_dyfn5"]
 [ext_resource type="Script" uid="uid://dfxe4byorgdgl" path="res://script/component/hurtbox/Hurtbox.gd" id="11_dyfn5"]
+[ext_resource type="PackedScene" uid="uid://cslh3tucr7qfn" path="res://scene/component/weapon/gun/automatic_rifle/automatic_rifle.tscn" id="12_8ua8b"]
 
 [sub_resource type="Resource" id="Resource_60te1"]
 script = ExtResource("2_8ua8b")
@@ -247,8 +247,6 @@ stats = Array[ExtResource("7_kvbc0")]([SubResource("Resource_kmjhx")])
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2125858279]
 
-[node name="Handgun" parent="." unique_id=737484638 instance=ExtResource("8_28dk6")]
-
 [node name="StatSystem" type="Node" parent="." unique_id=1188695261]
 script = ExtResource("6_1nox1")
 stats = Array[ExtResource("7_kvbc0")]([ExtResource("9_dthkf"), ExtResource("10_dyfn5")])
@@ -264,3 +262,5 @@ shape = SubResource("RectangleShape2D_8ua8b")
 
 [node name="EffectAnimationPlayer" type="AnimationPlayer" parent="." unique_id=683372094]
 libraries/ = SubResource("AnimationLibrary_60te1")
+
+[node name="AutomaticRifle" parent="." unique_id=737484638 instance=ExtResource("12_8ua8b")]

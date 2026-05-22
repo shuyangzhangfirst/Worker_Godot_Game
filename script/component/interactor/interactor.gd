@@ -7,7 +7,7 @@ class_name Interactor
 
 func _init() -> void:
 	collision_mask = 2
-	collision_layer = 2
+	collision_layer = 4
 	set_collision_mask_value(2, true)
 	
 func _ready() -> void:
@@ -25,15 +25,18 @@ func interact() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if not is_active or not body is Player:
 		return
-	print("[进入交互范围] %s" %interactor_name)
+	print("[进入交互] %s" %interactor_name)
+	
+	EventBus.append_on_interactors.emit(self)
 
 ## 玩家离开交互器
 func _on_body_exited(body: Node2D) -> void:
-	
 	if not is_active or not body is Player:
 		return
-	print("[离开交互范围] %s" %interactor_name)
-
+	print("[离开交互] %s" %interactor_name)
+	
+	EventBus.erase_on_interactors.emit(self)
+	
 ## 连接信号
 func _connect_signals() -> void:
 	body_entered.connect(_on_body_entered)

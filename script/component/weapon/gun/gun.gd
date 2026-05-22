@@ -129,7 +129,7 @@ func _open_fire() -> void:
 func _shoot_bullet() -> void:
 	var new_bullet: Bullet = bullet_scene.instantiate()
 	new_bullet.init(muzzle.global_position, _create_bullet_direction())
-	get_tree().current_scene.add_child(new_bullet)
+	GameSystem.game_wrold.prop.add_child(new_bullet)
 
 #region 开火模式
 ## 单发开火

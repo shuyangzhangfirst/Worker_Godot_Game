@@ -22,14 +22,17 @@ func append_on_interactors(interactor: Interactor) -> void:
 		return
 	
 	interactors.append(interactor)
+	_update_button_container()
 
 ## 移除交互器
 func erase_on_interactors(interactor: Interactor) -> void:
 	if interactors.has(interactor):
 		interactors.erase(interactor)
+		_update_button_container()
 		return
 	else:
 		push_warning("尝试移除一个不在交互列表中的交互器: %s", interactor.interactor_name)
+	_update_button_container()
 
 ## 初始化交互器列表
 func _init_interactor_list() -> void:
@@ -51,8 +54,13 @@ func _init_interactor_button_pool() -> void:
 
 ## 更新交互器列表
 func _update_button_container() -> void:
-	for i in range(button_count):
+	for i in range(interactor_button_pool.size()):
 		interactor_button_pool[i].visible = false
+	
+	for i in range(mini(interactors.size(), interactor_button_pool.size())):
+		var button: Button = interactor_button_pool[i]
+		button.visible = true
+		button.text = interactors[i].interactor_name
 
 ## 更新交互按钮索引
 func _update_focus_index() -> void:

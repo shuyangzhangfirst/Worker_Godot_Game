@@ -74,3 +74,8 @@ func HandleFlip():
 func TakeDamage(hitbox:Hitbox):
 	
 	pass
+
+## 切换动画播放方向
+func change_ani_dir(dir: Vector2) -> void:
+	var dir_name: String = VectorToDirection(dir)
+	UpdateAnimation(statemachine.current_state.state_name, dir_name)

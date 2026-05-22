@@ -51,7 +51,7 @@ func get_direction() -> Vector2:
 			return Vector2.DOWN  # 默认值
 
 func get_directtion_string(direction: PlayerDirection) -> String:
-	match player_direction:
+	match direction:
 		PlayerDirection.RIGHT:
 			return "右"
 		PlayerDirection.LEFT:
