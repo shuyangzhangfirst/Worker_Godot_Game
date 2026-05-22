@@ -173,6 +173,11 @@ terrain_set_0/terrain_0/name = "草地"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_4p5f6")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_pbbu4"]
+vertices = PackedVector2Array(589.8672, -16.203125, 586.1328, 271.78906, -71.5, 258.21094, -57.476563, -29.789063)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(600, -26, 596, 282, -82, 268, -67, -40)])
+
 [node name="地图1" type="Node2D" unique_id=962246659]
 script = ExtResource("1_4p5f6")
 
@@ -184,3 +189,6 @@ tile_set = SubResource("TileSet_ltsnl")
 
 [node name="Zombie" parent="." unique_id=905139244 instance=ExtResource("4_pbbu4")]
 position = Vector2(306, 129)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1308560231]
+navigation_polygon = SubResource("NavigationPolygon_pbbu4")
