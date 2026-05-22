@@ -24,6 +24,10 @@ buses/default_bus_layout="uid://c8ry6xpd6e1ur"
 GameSystem="*uid://biwpuy3jxu67f"
 EventBus="*uid://clvgxe6d6kfyn"
 
+[debug]
+
+gdscript/warnings/unused_signal=0
+
 [display]
 
 window/size/viewport_width=480

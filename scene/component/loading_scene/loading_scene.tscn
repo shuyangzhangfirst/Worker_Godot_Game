@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://d3byf5hkqs7ml"]
+
+[ext_resource type="Script" uid="uid://b0gsk5m8qsaq0" path="res://script/component/loading_scene/loading_scene.gd" id="1_2svhx"]
+[ext_resource type="LabelSettings" uid="uid://b6jntjqugobrx" path="res://Resource/label_settings/default_label_settings.tres" id="2_3qfar"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2svhx"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_vv26f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2svhx"]
+resource_name = "transition"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vv26f"]
+_data = {
+&"RESET": SubResource("Animation_vv26f"),
+&"transition": SubResource("Animation_2svhx")
+}
+
+[node name="LoadingScene" type="CanvasLayer" unique_id=352898536]
+layer = 60
+script = ExtResource("1_2svhx")
+
+[node name="Panel" type="Panel" parent="." unique_id=188122195]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2svhx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1411953031]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_vv26f")
+autoplay = &"transition"
+
+[node name="LoadingContainer" type="VBoxContainer" parent="." unique_id=308094079]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -179.0
+offset_top = -61.0
+offset_right = 179.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LoadingContainer" unique_id=244749725]
+layout_mode = 2
+
+[node name="加载文字动画" type="HBoxContainer" parent="LoadingContainer/HBoxContainer" unique_id=1149199491]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LoadingContainer/HBoxContainer/加载文字动画" unique_id=706062130]
+layout_mode = 2
+text = "加载中"
+label_settings = ExtResource("2_3qfar")
+
+[node name="LabelAnimation" type="Label" parent="LoadingContainer/HBoxContainer/加载文字动画" unique_id=1739861595]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "......"
+label_settings = ExtResource("2_3qfar")
+
+[node name="占位" type="HBoxContainer" parent="LoadingContainer/HBoxContainer" unique_id=72943338]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="进度数字进度" type="HBoxContainer" parent="LoadingContainer/HBoxContainer" unique_id=2072148602]
+layout_mode = 2
+
+[node name="CurrentProgress" type="Label" parent="LoadingContainer/HBoxContainer/进度数字进度" unique_id=886371324]
+layout_mode = 2
+text = "当前进度"
+label_settings = ExtResource("2_3qfar")
+
+[node name="冒号" type="Label" parent="LoadingContainer/HBoxContainer/进度数字进度" unique_id=72282818]
+layout_mode = 2
+text = ":"
+label_settings = ExtResource("2_3qfar")
+
+[node name="LoadingNumber" type="Label" parent="LoadingContainer/HBoxContainer/进度数字进度" unique_id=101045410]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+text = "33"
+label_settings = ExtResource("2_3qfar")
+horizontal_alignment = 2
+
+[node name="百分号" type="Label" parent="LoadingContainer/HBoxContainer/进度数字进度" unique_id=1976101272]
+layout_mode = 2
+text = "%"
+label_settings = ExtResource("2_3qfar")
+
+[node name="LoadingProgressBar" type="ProgressBar" parent="LoadingContainer" unique_id=1589017697]
+unique_name_in_owner = true
+layout_mode = 2
+show_percentage = false

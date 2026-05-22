@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://be5jg4n02k1ff"]
+
+[ext_resource type="Script" uid="uid://b622wmiinu7f3" path="res://script/component/interactor_list/interactor_list.gd" id="1_myn7b"]
+
+[node name="InteractorList" type="Control" unique_id=1457594372]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_myn7b")
+
+[node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=1939421698]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="InteractorButton" type="Button" parent="." unique_id=1844236401]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
