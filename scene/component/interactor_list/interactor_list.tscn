@@ -14,11 +14,14 @@ script = ExtResource("1_myn7b")
 [node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=1939421698]
 unique_name_in_owner = true
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 288.0
+offset_top = 136.0
+offset_right = 384.0
+offset_bottom = 158.0
 
-[node name="InteractorButton" type="Button" parent="." unique_id=1844236401]
+[node name="InteractorButton" type="Button" parent="ButtonContainer" unique_id=1844236401]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 2
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 10
+text = "交互按钮"

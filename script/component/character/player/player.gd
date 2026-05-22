@@ -6,8 +6,6 @@ class_name Player extends Character
 @export var hurtbox:Hurtbox
 @export var stats:PlayerStats
 
-	
-	
 func _ready() -> void:
 	super._ready()
 	GameSystem.data.current_player=self

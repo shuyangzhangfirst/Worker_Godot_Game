@@ -3,6 +3,6 @@
 [ext_resource type="Script" uid="uid://dhuewxxnxwr3e" path="res://script/component/interactor/interactor.gd" id="1_1451w"]
 
 [node name="Interactor" type="Area2D" unique_id=942478242]
-collision_layer = 2
+collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_1451w")

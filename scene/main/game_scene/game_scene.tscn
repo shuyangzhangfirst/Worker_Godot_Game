@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drtnov5f6ocbf" path="res://script/main/game_scene/game_scene.gd" id="1_ygjuj"]
 [ext_resource type="PackedScene" uid="uid://c0v7k8irq7oov" path="res://scene/main/game_scene/game_wrold/game_wrold.tscn" id="2_fo5m0"]
+[ext_resource type="PackedScene" uid="uid://be5jg4n02k1ff" path="res://scene/component/interactor_list/interactor_list.tscn" id="3_fo5m0"]
 
 [node name="GameScene" type="Node2D" unique_id=1599374533]
 script = ExtResource("1_ygjuj")
@@ -11,6 +12,8 @@ unique_name_in_owner = true
 
 [node name="GameUI" type="CanvasLayer" parent="." unique_id=1632680343]
 unique_name_in_owner = true
+
+[node name="InteractorList" parent="GameUI" unique_id=1457594372 instance=ExtResource("3_fo5m0")]
 
 [node name="GameTool" type="Node" parent="." unique_id=1275522114]
 unique_name_in_owner = true

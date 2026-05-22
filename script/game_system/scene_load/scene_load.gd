@@ -12,13 +12,18 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	var load_status = ResourceLoader.load_threaded_get_status(scene_path, progress)
+	
 	EventBus.scene_load_progress_changes.emit(progress[0])
+	
 	match load_status:
 		ResourceLoader.THREAD_LOAD_INVALID_RESOURCE, ResourceLoader.THREAD_LOAD_FAILED:
+			push_error("加载失败")
 			set_process(false)
+			
 		ResourceLoader.THREAD_LOAD_LOADED:
 			loaded_resource = ResourceLoader.load_threaded_get(scene_path)
 			EventBus.scene_load_finished.emit()
+			set_process(false)
 
 func load_scene(_scene_path: String) -> void:
 	scene_path = _scene_path

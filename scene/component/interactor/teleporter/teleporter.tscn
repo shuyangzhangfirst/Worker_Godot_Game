@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://okd7jirqqn2p"]
+
+[ext_resource type="PackedScene" uid="uid://ne1p8ch0mcwe" path="res://scene/component/interactor/interactor.tscn" id="1_7wwou"]
+[ext_resource type="Script" uid="uid://cpjsdtysn60kr" path="res://script/component/interactor/teleporter/teleporter.gd" id="2_7hmga"]
+
+[node name="Teleporter" unique_id=942478242 instance=ExtResource("1_7wwou")]
+script = ExtResource("2_7hmga")
+map_scene_path = null
+target_entry_point = null

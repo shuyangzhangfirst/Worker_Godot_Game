@@ -6,13 +6,13 @@
 
 [node name="AutomaticRifle" unique_id=737484638 instance=ExtResource("1_jlero")]
 bullet_scene = ExtResource("2_syiso")
-spread_angle = 0.03
+spread_angle = 0.02
 magazine_size = 30
 gun_fire_mode = Array[int]([2, 0, 1])
 burst_count = 4
 burst_fire_rate = 0.01
 burst_cooldown_time = 0.1
-weapon_name = "加特林机枪"
+weapon_name = "自动步枪"
 
 [node name="Sprite2D" parent="." index="0" unique_id=1681892862]
 position = Vector2(35, -6.000006)
