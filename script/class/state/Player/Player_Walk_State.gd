@@ -1,5 +1,5 @@
 class_name PlayerWalkState extends PlayerState
-@export var  move_speed:float
+@export var  move_speed: float
 
 func Enter():
 	
