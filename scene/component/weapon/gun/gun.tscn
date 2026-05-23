@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b3cnrf7i32mvf"]
 
 [ext_resource type="Script" uid="uid://cvjmp1lxc5lpt" path="res://script/component/weapon/gun/gun.gd" id="1_hcbmk"]
-[ext_resource type="Texture2D" uid="uid://bnxkqqtoxbhi5" path="res://asset/texture/gun/PNG/[32x96]Shotgun_V1.00.png" id="2_02xej"]
 [ext_resource type="PackedScene" uid="uid://c5c74061iw76w" path="res://scene/component/weapon/gun/bullet/bullet.tscn" id="2_ydf0n"]
+[ext_resource type="Texture2D" uid="uid://cnjpoeifnbfm1" path="res://asset/texture/gun/PNG/GUN_01_[square_frame]_01_V1.00.png" id="3_r1rda"]
 [ext_resource type="PackedScene" uid="uid://by321lbuhg51w" path="res://scene/component/weapon/gun/tools/gun_wire/gun_wire.tscn" id="4_02xej"]
 [ext_resource type="Texture2D" uid="uid://dyfbaag641fu7" path="res://icon.svg" id="5_4tack"]
 [ext_resource type="PackedScene" uid="uid://djdg3naw4w2pr" path="res://scene/component/weapon/gun/tools/crosshair/crosshair.tscn" id="5_fnc7k"]
@@ -11,24 +11,25 @@
 [ext_resource type="Script" uid="uid://t8uq6wvgvo35" path="res://script/component/weapon/gun/tools/gun_fire_mode/gun_fire_modes/burst_fire_mode.gd" id="7_6pxk4"]
 
 [node name="Gun" type="Node2D" unique_id=737484638]
+position = Vector2(1, 0)
 rotation = 6.2831855
 script = ExtResource("1_hcbmk")
 bullet_scene = ExtResource("2_ydf0n")
 
 [node name="GunSprite2D" type="Sprite2D" parent="." unique_id=1681892862]
 unique_name_in_owner = true
-position = Vector2(41, -8.000008)
-texture = ExtResource("2_02xej")
+position = Vector2(10, -8.000002)
+texture = ExtResource("3_r1rda")
 
 [node name="GunWire" parent="GunSprite2D" unique_id=953801462 node_paths=PackedStringArray("barrel_chamber", "muzzle") instance=ExtResource("4_02xej")]
 unique_name_in_owner = true
-points = PackedVector2Array(-7, 1.4622585e-06, 51, -9.536743e-06)
+points = PackedVector2Array(-5.000002, -2.9999988, 16, -3.0000024)
 barrel_chamber = NodePath("BarrelChamber")
 muzzle = NodePath("Muzzle")
 
 [node name="BarrelChamber" type="Marker2D" parent="GunSprite2D/GunWire" unique_id=1993508182]
 unique_name_in_owner = true
-position = Vector2(-7, 1.4622585e-06)
+position = Vector2(-5.000002, -2.9999988)
 
 [node name="Sprite2D" type="Sprite2D" parent="GunSprite2D/GunWire/BarrelChamber" unique_id=1022489214]
 visible = false
@@ -37,7 +38,7 @@ texture = ExtResource("5_4tack")
 
 [node name="Muzzle" type="Marker2D" parent="GunSprite2D/GunWire" unique_id=241637781]
 unique_name_in_owner = true
-position = Vector2(51, -9.536743e-06)
+position = Vector2(16, -3.0000024)
 
 [node name="Sprite2D2" type="Sprite2D" parent="GunSprite2D/GunWire/Muzzle" unique_id=505551811]
 visible = false
@@ -50,20 +51,18 @@ unique_name_in_owner = true
 
 [node name="GunAutoFireMode" type="Node" parent="GunFireMode" unique_id=1772523966]
 script = ExtResource("6_r1rda")
+fire_mode_name = "全自动模式"
 metadata/_custom_type_script = "uid://booraf6sh00qs"
 
 [node name="GunBurstFireMode" type="Node" parent="GunFireMode" unique_id=854110671]
 script = ExtResource("7_6pxk4")
+fire_mode_name = "连发模式"
 metadata/_custom_type_script = "uid://t8uq6wvgvo35"
 
 [node name="GunSingleFireMode" type="Node" parent="GunFireMode" unique_id=4493645]
 script = ExtResource("5_ydf0n")
 fire_mode_name = "单发模式"
 metadata/_custom_type_script = "uid://ny2oyyvllrno"
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=153694892]
-offset = Vector2(100, 0)
-zoom = Vector2(0.7, 0.7)
 
 [node name="Crosshair" parent="." unique_id=863226909 instance=ExtResource("5_fnc7k")]
 unique_name_in_owner = true

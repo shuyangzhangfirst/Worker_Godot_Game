@@ -12,8 +12,9 @@ class_name Gun extends Weapon
 #region 枪械属性
 @export var disable: bool = false
 @export var base_attack: int = 12				## 基础攻击力
-@export var bullet_velocity:float = 500.0		## 子弹发射速度
-@export var penetration_power: int = 0			## 枪支穿透力
+@export var bullet_velocity:float = 200.0		## 子弹发射速度
+@export var base_penetration: float = 0.0			## 枪支固定穿透力
+@export var percentage_penetration: float = 0.0	## 枪支百分比穿透力
 @export var handling_speed: float = 1.0			## 操作速度
 @export var accuracy: float = 1.0				## 开火稳定性
 @export var magazine_size: int = 30				## 弹匣容量
@@ -26,6 +27,7 @@ var trigger_pressed: bool = false	## 扳机状态
 var gun_fire_mode_index: int = 0	## 开火模式索引
 var gun_direction: Vector2		## 枪口朝向
 var remaining_magazine: int = 30
+var reload_bullet_timer: Timer	## 换弹计时器
 
 func _ready() -> void:
 	_init_gun()
@@ -44,6 +46,13 @@ func _physics_process(_delta: float) -> void:
 func _process(delta: float) -> void:
 	set_gun_direction(delta)
 
+func _shortcut_input(event: InputEvent) -> void:
+	if event.is_action_pressed("change_fire_mode"):
+		turn_gun_open_fire_mode()
+	if event.is_action_pressed("reload_bullet"):
+		print("开始换弹")
+		reload_bullet_timer.start()
+
 ## 发射子弹
 func shoot_bullet() -> void:
 	if remaining_magazine <= 0:
@@ -52,9 +61,16 @@ func shoot_bullet() -> void:
 	else:
 		print("开火!")
 		remaining_magazine = remaining_magazine - 1
-		var _new_bullet: Bullet = bullet_scene.instantiate()
-		GameSystem.game_wrold.prop.add_child(_new_bullet)
+		_create_bullet()
 		
+
+func _create_bullet() -> void:
+	var new_bullet: Bullet = bullet_scene.instantiate()
+	new_bullet.init(muzzle.global_position, gun_direction, bullet_velocity)
+	new_bullet.damage = base_attack + new_bullet.bullet_attack
+	new_bullet.percentage_penatration = percentage_penetration + new_bullet.percentage_bullet_penatration
+	new_bullet.base_penatration = base_penetration + new_bullet.base_bullet_penatration
+	GameSystem.game_wrold.prop.add_child(new_bullet)
 
 ## 设置枪支方向
 func set_gun_direction(_delta: float) -> void:
@@ -76,9 +92,21 @@ func _init_gun() -> void:
 	if gun_fire_mode.get_children().is_empty():
 		push_error("当前枪支开火模式为空，检查枪支开火模式节点是否有对应开火模式")
 		return
-		
+	
 	current_gun_fire_mode = gun_fire_mode.get_children()[0]
 	current_gun_fire_mode.open_fire.connect(shoot_bullet)
+	
+	reload_bullet_timer = Timer.new()
+	reload_bullet_timer.name = "换弹计时器"
+	reload_bullet_timer.one_shot = true
+	reload_bullet_timer.wait_time = reload_time
+	reload_bullet_timer.timeout.connect(reload)
+	add_child(reload_bullet_timer)
+	
+
+func reload() -> void:
+	print("换弹完成")
+	remaining_magazine = magazine_size
 
 ## 切换开火模式
 func turn_gun_open_fire_mode() -> void:
@@ -88,7 +116,7 @@ func turn_gun_open_fire_mode() -> void:
 	gun_fire_mode_index = wrapi(gun_fire_mode_index + 1 ,0 ,gun_fire_mode.get_children().size())
 	current_gun_fire_mode = gun_fire_mode.get_children()[gun_fire_mode_index]
 	current_gun_fire_mode.open_fire.connect(shoot_bullet)
-	print("开火模式切换为: %s", current_gun_fire_mode.fire_mode_name)
+	print("开火模式切换为: " + current_gun_fire_mode.fire_mode_name)
 
 func get_gun_muzzle_distance() -> float:
 	return global_position.distance_to(muzzle.global_position)

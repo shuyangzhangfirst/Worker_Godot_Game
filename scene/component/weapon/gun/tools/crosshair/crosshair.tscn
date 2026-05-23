@@ -44,6 +44,42 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_aocmy"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_7200l"]
+resource_name = "float"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0, 6.2831855, -0.11829381, -1.0471976, 0, 0),
+"times": PackedFloat32Array(0, 5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fsctn"]
+_data = {
+&"RESET": SubResource("Animation_aocmy"),
+&"float": SubResource("Animation_7200l")
+}
+
 [node name="Crosshair" type="Marker2D" unique_id=863226909]
 script = ExtResource("1_24brd")
 
@@ -52,3 +88,7 @@ unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_24brd")
 animation = &"crosshair"
 frame_progress = 0.26605198
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1469859518]
+libraries/ = SubResource("AnimationLibrary_fsctn")
+autoplay = &"float"
