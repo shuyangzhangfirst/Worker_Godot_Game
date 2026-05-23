@@ -8,7 +8,8 @@ class_name Enemy extends Character
 ## 敌人的属性，不用如主角那样复杂，当然后面可以看吧
 @export var current_hp:float=10
 @export var max_hp:float=10
-
+@export var max_defense:float=50
+var current_defense:float
 ## 敌人的一些其他东西
 @export var walk_speed:float
 @export var chase_speed:float
@@ -17,16 +18,20 @@ class_name Enemy extends Character
 @export var meele_area:AttackArea
 
 @export var hit_box :Hitbox
+
 @export var hurt_box:Hurtbox
 
 @export var animatesprite:AnimatedSprite2D
-
+func _ready() -> void:
+	super._ready()
+	current_defense=max_defense
 func chase_area_has_player():
 	return chase_area.get_overlapping_bodies().has(GameSystem.data.current_player)
 func meele_area_has_player():
 	return meele_area.get_overlapping_bodies().has(GameSystem.data.current_player)
 func TakeDamage(hitbox:Hitbox):
-	current_hp = max(0,current_hp- hitbox.damage)
+	
+	current_hp = max(0,current_hp- hitbox.calculate_damage(self))
 	effect_animation_player.play("takedamage")
 	print(current_hp)	
 func UpdateAnimation(animation:String,direction:String="",animation_speed:float=1):

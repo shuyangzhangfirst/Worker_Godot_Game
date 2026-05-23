@@ -5,6 +5,8 @@ var current_state:State
 var previous_state:State
 var states:Dictionary[StateConstands.State,State]
 
+
+
 func Initialize(character:Character):
 	self.states={}
 	
