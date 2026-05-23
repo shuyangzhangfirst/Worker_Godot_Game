@@ -1,5 +1,6 @@
 @tool
 extends Line2D
+class_name GunWire
 
 @export var gun_wire_preview: bool = false	## 枪线预览
 

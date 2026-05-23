@@ -1,6 +1,6 @@
 class_name Player extends Character
 
-@export var gun:Gun
+@export var gun: Gun
 
 @export var statmanager:StatsManager
 @export var hurtbox:Hurtbox

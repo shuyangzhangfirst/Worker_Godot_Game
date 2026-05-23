@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://djdg3naw4w2pr"]
+
+[ext_resource type="Script" uid="uid://d0cme2j7p56rf" path="res://script/component/weapon/gun/tools/crosshair/crosshair.gd" id="1_24brd"]
+[ext_resource type="Texture2D" uid="uid://b83o4uiki56nq" path="res://asset/texture/gun/Crosshair.png" id="2_aocmy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7200l"]
+atlas = ExtResource("2_aocmy")
+region = Rect2(0, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsctn"]
+atlas = ExtResource("2_aocmy")
+region = Rect2(25, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuj5b"]
+atlas = ExtResource("2_aocmy")
+region = Rect2(50, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm1hh"]
+atlas = ExtResource("2_aocmy")
+region = Rect2(75, 0, 25, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_24brd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7200l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsctn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuj5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rm1hh")
+}],
+"loop": true,
+"name": &"crosshair",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Crosshair" type="Marker2D" unique_id=863226909]
+script = ExtResource("1_24brd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1611216431]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_24brd")
+animation = &"crosshair"
+frame_progress = 0.1489343
