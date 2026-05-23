@@ -566,14 +566,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Zombie" type="CharacterBody2D" unique_id=905139244 node_paths=PackedStringArray("chase_area", "meele_area", "hit_box", "hurt_box", "animatesprite", "statemachine", "effect_animation_player")]
+[node name="Zombie" type="CharacterBody2D" unique_id=905139244 node_paths=PackedStringArray("chase_area", "meele_area", "hit_box", "animatesprite", "statemachine", "effect_animation_player")]
 script = ExtResource("1_yego2")
 walk_speed = 15.0
 chase_speed = 30.0
 chase_area = NodePath("ChaseArea")
 meele_area = NodePath("MeeleAttackArea")
 hit_box = NodePath("Hitbox")
-hurt_box = NodePath("Hurtbox")
 animatesprite = NodePath("AnimatedSprite2D")
 statemachine = NodePath("StateMachine")
 effect_animation_player = NodePath("EffectAnimationPlayer")

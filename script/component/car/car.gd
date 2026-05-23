@@ -1,19 +1,19 @@
-extends CharacterBody2D
-class_name car
+extends Character
+class_name Car
 
 signal drive_car
 signal not_drive_car
 var all_directions:Array[Vector2]=[Vector2.RIGHT,Vector2(1,1),Vector2.DOWN,Vector2(-1,1),Vector2.LEFT,Vector2(-1,-1),Vector2.UP,Vector2(1,-1)]
 var input_direction:Vector2
 var angle:float =0
-var move_direction:Vector2=Vector2.RIGHT
 @export var rotation_speed:float #转向速度
 @export var acceleration:float #加速度
 @export var stop:float#停止
 @export var to_break:float#刹车
 @export var max_speed:float #最大速度
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-
+@onready var state_machine: StateMachine = $StateMachine
+@onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
 
 var choose_speed:Array
 var speed:float #目前车辆的速度
@@ -21,6 +21,7 @@ var animation_direction:Vector2
 @export var animation_player:AnimationPlayer
 
 func _ready() -> void:
+	super._ready()
 	choose_speed=[acceleration,acceleration,to_break]
 	
 	
@@ -32,21 +33,11 @@ func disable_car():
 	process_mode=Node.PROCESS_MODE_DISABLED
 	
 
-func _physics_process(delta: float) -> void:
-	input_direction=Vector2(
-	Input.get_axis("Left", "Right"),
-	Input.get_axis("Up", "Down")
-	)
-	var v =get_move_vector(delta)
-	velocity=v
-	animated_sprite_2d.play(match_animation_direction(move_direction))
-	move_and_slide()
+func update_collision_direction():
+	collision_shape_2d.rotation = move_direction.angle()
 	
 func get_move_vector(delta)->Vector2:
-	angle += input_direction.x*rotation_speed *delta
-	angle  = fposmod(angle, TAU)
-	var dir_index = int(round(angle / (TAU / 8.0)))%8
-	move_direction= all_directions[dir_index]
+	
 	var speed_factor=0
 	
 	if input_direction.y!=0:
@@ -65,6 +56,12 @@ func get_move_vector(delta)->Vector2:
 			speed = clamp(speed+acc,-max_speed,0)
 	else:
 		speed=clampf(speed+acc,-max_speed,max_speed)
+	if speed !=0:
+		angle += input_direction.x*rotation_speed *delta
+		angle  = fposmod(angle, TAU)
+		var dir_index = int(round(angle / (TAU / 8.0)))%8
+		move_direction= all_directions[dir_index]
+	
 	return move_direction.normalized()*speed
 
 

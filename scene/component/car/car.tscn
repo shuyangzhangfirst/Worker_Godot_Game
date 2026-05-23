@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://22ai5wrq4v4u" path="res://script/component/car/car.gd" id="1_umkx1"]
 [ext_resource type="Texture2D" uid="uid://cdaun1qcwugxa" path="res://asset/texture/car/Gemini_Generated_Image_v207hiv207hiv207.png" id="2_xtyi7"]
+[ext_resource type="Script" uid="uid://bqeo8phqedhek" path="res://script/class/state/State_Machine.gd" id="3_665th"]
+[ext_resource type="Script" uid="uid://bdrwsw35r1hek" path="res://script/class/state/car/drive_state.gd" id="4_ggpyj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iatng"]
 atlas = ExtResource("2_xtyi7")
@@ -114,18 +116,38 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Car" type="CharacterBody2D" unique_id=1768435934]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_665th"]
+size = Vector2(110, 81)
+
+[node name="Car" type="CharacterBody2D" unique_id=1768435934 node_paths=PackedStringArray("statemachine")]
+collision_layer = 16
+collision_mask = 7
 script = ExtResource("1_umkx1")
 rotation_speed = 2.0
 acceleration = 30.0
 stop = 20.0
 to_break = 100.0
 max_speed = 300.0
+statemachine = NodePath("StateMachine")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1008253030]
 sprite_frames = SubResource("SpriteFrames_7vc2m")
 animation = &"down_right"
 
-[node name="Area2D" type="Area2D" parent="." unique_id=758666797]
+[node name="playerdedectarea" type="Area2D" parent="." unique_id=758666797]
 
-[node name="StateMachine" type="Node" parent="." unique_id=1533314357]
+[node name="StateMachine" type="Node" parent="." unique_id=1533314357 node_paths=PackedStringArray("intialize_state")]
+script = ExtResource("3_665th")
+intialize_state = NodePath("DriveState")
+
+[node name="DriveState" type="Node" parent="StateMachine" unique_id=270261902 node_paths=PackedStringArray("car")]
+script = ExtResource("4_ggpyj")
+car = NodePath("../..")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=548822529]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=67539259]
+unique_name_in_owner = true
+position = Vector2(0, 4.5)
+rotation = 0.7853982
+shape = SubResource("RectangleShape2D_665th")

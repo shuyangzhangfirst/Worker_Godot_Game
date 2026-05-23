@@ -94,6 +94,7 @@ change_fire_mode={
 2d_physics/layer_2="player"
 2d_physics/layer_3="enemy"
 2d_physics/layer_4="interactor"
+2d_physics/layer_5="car"
 
 [physics]
 

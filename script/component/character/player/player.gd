@@ -5,9 +5,15 @@ class_name Player extends Character
 @export var statmanager:StatsManager
 @export var hurtbox:Hurtbox
 @export var stats:PlayerStats
-
+var player_collision_shape:CollisionShape2D
+var camera:Camera2D
 func _ready() -> void:
 	super._ready()
+	for c in get_children():
+		if c is CollisionShape2D:
+			player_collision_shape=c
+		elif c is Camera2D:
+			camera=c
 	GameSystem.data.current_player=self
 	
 func _physics_process(_delta: float) -> void:
@@ -24,13 +30,23 @@ func _physics_process(_delta: float) -> void:
 
 	
 func TakeDamage(hitbox:Hitbox):
-	stats.current_hp-=hitbox.damage
+	stats.current_hp-=hitbox.calculate_damage(self)
 	effect_animation_player.play("takedamage")
 	print(stats.max_hp)
 	
 	
-
-
+func disable_player():
+	hurtbox.enable_hurtbox(false)
+	player_collision_shape.disabled=true
+	process_mode=Node.PROCESS_MODE_DISABLED
+	visible=false
+	camera.enabled=false
+func enable_player():
+	hurtbox.enable_hurtbox(true)
+	player_collision_shape.disabled=false
+	process_mode=Node.PROCESS_MODE_INHERIT
+	visible=true
+	camera.enabled=true
 
 	
 	
