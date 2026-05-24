@@ -2,12 +2,15 @@ class_name PlayerWalkState extends PlayerState
 @export var  move_speed: float
 
 func Enter():
-	
+	character.drive_car.connect(_on_drive_car)
 	
 	character.ShouldUpdateAnimationDirection()
 	var direction=character.VectorToDirection(character.move_direction)
 	character.UpdateAnimation(state_name,direction)
-	
+func Exit():
+	character.drive_car.disconnect(_on_drive_car)
+func _on_drive_car():
+	statemachine.SwitchState(statemachine.states[StateConstands.State.disable])
 	
 
 

@@ -1,7 +1,10 @@
 extends CarState
 class_name DriveState
+@onready var camera_2d: Camera2D = $"../../Camera2D"
 
-
+func Enter():
+	camera_2d.enabled=true
+	
 	
 func Physic(_delta:float):
 	car.input_direction=Vector2(

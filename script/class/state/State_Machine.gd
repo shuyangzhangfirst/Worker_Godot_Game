@@ -28,7 +28,8 @@ func _physics_process(delta: float) -> void:
 	
 	current_state.Physic(delta)
 	
-	
+func _unhandled_input(event: InputEvent) -> void:
+	current_state.HandleInput(event)	
 
 func SwitchState(new_state:State):
 	

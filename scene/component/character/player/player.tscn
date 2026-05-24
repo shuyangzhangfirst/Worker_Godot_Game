@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bspycrpxnlwnp" path="res://script/class/state/Player/Player_Idle_State.gd" id="4_0tco1"]
 [ext_resource type="Script" uid="uid://dujllhikumg4" path="res://script/class/state/Player/Player_Walk_State.gd" id="5_bubao"]
 [ext_resource type="Script" uid="uid://cbcdyr20avkx4" path="res://script/component/character/StatsSystem/StatsManager.gd" id="6_1nox1"]
+[ext_resource type="Script" uid="uid://c7ook8gowcby2" path="res://script/class/state/Player/Player_Disable_State.gd" id="7_60te1"]
 [ext_resource type="Script" uid="uid://d187dktq0xg4" path="res://script/component/character/StatsSystem/Stat.gd" id="7_kvbc0"]
 [ext_resource type="Resource" uid="uid://rvd8fu46ifbb" path="res://Resource/PlayerStatResource/PlayerMaxHealth.tres" id="9_dthkf"]
 [ext_resource type="Resource" uid="uid://ciajtkyy557wt" path="res://Resource/PlayerStatResource/PlayerCurrentHealth.tres" id="10_dyfn5"]
@@ -233,6 +234,7 @@ intialize_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=1774162490]
 script = ExtResource("4_0tco1")
+state_id = null
 state_name = "idle"
 
 [node name="Walk" type="Node" parent="StateMachine" unique_id=369780156]
@@ -240,6 +242,10 @@ script = ExtResource("5_bubao")
 move_speed = 100.0
 state_id = 1
 state_name = "walk"
+
+[node name="Disaable" type="Node" parent="StateMachine" unique_id=1898699307]
+script = ExtResource("7_60te1")
+state_id = 3
 
 [node name="StatManager" type="Node" parent="." unique_id=1757818698]
 script = ExtResource("6_1nox1")

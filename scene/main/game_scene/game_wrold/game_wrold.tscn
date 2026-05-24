@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://clx564usu2fmv" path="res://script/main/game_scene/game_wrold/game_wrold.gd" id="1_bicqd"]
 [ext_resource type="PackedScene" uid="uid://dxst05ue6f23x" path="res://scene/component/character/player/player.tscn" id="2_kxk8e"]
 [ext_resource type="PackedScene" uid="uid://pwvcshjnh0rt" path="res://scene/component/map/test_map_1/test_map_1.tscn" id="2_srurc"]
-[ext_resource type="PackedScene" uid="uid://cxyfigyia8t7v" path="res://scene/component/character/Enemy/Zombie.tscn" id="4_srurc"]
+[ext_resource type="PackedScene" uid="uid://lp3d4ohagxv5" path="res://scene/component/car/car.tscn" id="5_owj03"]
 
 [node name="GameWrold" type="Node2D" unique_id=398538314]
 script = ExtResource("1_bicqd")
@@ -19,8 +19,8 @@ unique_name_in_owner = true
 [node name="Player" parent="Entity" unique_id=576296784 instance=ExtResource("2_kxk8e")]
 position = Vector2(128, 171)
 
-[node name="Zombie" parent="Entity" unique_id=905139244 instance=ExtResource("4_srurc")]
-position = Vector2(180, 128)
+[node name="Car" parent="Entity" unique_id=1768435934 instance=ExtResource("5_owj03")]
+position = Vector2(97, 89)
 
 [node name="Prop" type="Node" parent="." unique_id=1422836792]
 unique_name_in_owner = true

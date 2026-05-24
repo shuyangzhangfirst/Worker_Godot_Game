@@ -4,6 +4,9 @@ enum State{
 	idle,
 	walk,
 	meele,
-	enemy_chase
+	disable,
+	enemy_chase,
+	car_drive,
+	car_not_drive
 	
 }

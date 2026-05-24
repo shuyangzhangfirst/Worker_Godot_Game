@@ -1,5 +1,7 @@
 class_name Player extends Character
 
+signal drive_car
+
 @export var gun:Gun
 
 @export var statmanager:StatsManager
