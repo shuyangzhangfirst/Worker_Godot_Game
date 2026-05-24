@@ -23,7 +23,7 @@ texture = ExtResource("3_r1rda")
 
 [node name="GunWire" parent="GunSprite2D" unique_id=953801462 node_paths=PackedStringArray("barrel_chamber", "muzzle") instance=ExtResource("4_02xej")]
 unique_name_in_owner = true
-points = PackedVector2Array(-5.000002, -2.9999988, 16, -3.0000024)
+points = PackedVector2Array(-5.000002, -2.9999988, 19, -3.0000029)
 barrel_chamber = NodePath("BarrelChamber")
 muzzle = NodePath("Muzzle")
 
@@ -38,7 +38,7 @@ texture = ExtResource("5_4tack")
 
 [node name="Muzzle" type="Marker2D" parent="GunSprite2D/GunWire" unique_id=241637781]
 unique_name_in_owner = true
-position = Vector2(16, -3.0000024)
+position = Vector2(19, -3.0000029)
 
 [node name="Sprite2D2" type="Sprite2D" parent="GunSprite2D/GunWire/Muzzle" unique_id=505551811]
 visible = false
