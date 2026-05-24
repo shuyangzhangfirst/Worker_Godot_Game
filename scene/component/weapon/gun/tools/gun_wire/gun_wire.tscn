@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://by321lbuhg51w"]
 
-[ext_resource type="Script" uid="uid://wyv5cfs2fl55" path="res://script/component/weapon/gun/gun_wire/gun_wire.gd" id="1_jom12"]
+[ext_resource type="Script" uid="uid://wyv5cfs2fl55" path="res://script/component/weapon/gun/tools/gun_wire/gun_wire.gd" id="1_jom12"]
 
 [node name="GunWire" type="Line2D" unique_id=40538929]
 points = PackedVector2Array(256, 0, 0, 0)

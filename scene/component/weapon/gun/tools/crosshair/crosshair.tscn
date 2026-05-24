@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://djdg3naw4w2pr"]
+
+[ext_resource type="Script" uid="uid://d0cme2j7p56rf" path="res://script/component/weapon/gun/tools/crosshair/crosshair.gd" id="1_24brd"]
+[ext_resource type="Texture2D" uid="uid://b83o4uiki56nq" path="res://asset/texture/gun/Crosshair.png" id="2_aocmy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7200l"]
+atlas = ExtResource("2_aocmy")
+region = Rect2(0, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsctn"]
+atlas = ExtResource("2_aocmy")
+region = Rect2(25, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuj5b"]
+atlas = ExtResource("2_aocmy")
+region = Rect2(50, 0, 25, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm1hh"]
+atlas = ExtResource("2_aocmy")
+region = Rect2(75, 0, 25, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_24brd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7200l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsctn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuj5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rm1hh")
+}],
+"loop": true,
+"name": &"crosshair",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_aocmy"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_7200l"]
+resource_name = "float"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0, 6.2831855, -0.11829381, -1.0471976, 0, 0),
+"times": PackedFloat32Array(0, 5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fsctn"]
+_data = {
+&"RESET": SubResource("Animation_aocmy"),
+&"float": SubResource("Animation_7200l")
+}
+
+[node name="Crosshair" type="Marker2D" unique_id=863226909]
+script = ExtResource("1_24brd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1611216431]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_24brd")
+animation = &"crosshair"
+frame_progress = 0.26605198
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1469859518]
+libraries/ = SubResource("AnimationLibrary_fsctn")
+autoplay = &"float"
