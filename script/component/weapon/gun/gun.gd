@@ -10,14 +10,17 @@ class_name Gun extends Weapon
 #endregion
 
 #region 枪械属性
-@export var disable: bool = false
+@export var disable: bool = false:
+	set(value):
+		crosshair.visible = !value
+		disable = value
 @export var base_attack: int = 12				## 基础攻击力
-@export var bullet_velocity:float = 200.0		## 子弹发射速度
-@export var base_penetration: float = 0.0			## 枪支固定穿透力
+@export var bullet_velocity:float = 600.0		## 子弹发射速度
+@export var base_penetration: float = 0.0		## 枪支固定穿透力
 @export var percentage_penetration: float = 0.0	## 枪支百分比穿透力
 @export var handling_speed: float = 1.0			## 操作速度
 @export var accuracy: float = 1.0				## 开火稳定性
-@export var magazine_size: int = 30				## 弹匣容量
+@export var magazine_size: int = 120			## 弹匣容量
 @export var reload_time: float = 2.0        	## 换弹时间(秒)
 @export var bullet_scene: PackedScene			## 子弹场景
 #endregion
@@ -59,14 +62,18 @@ func shoot_bullet() -> void:
 		print("弹匣子弹为空")
 		return
 	else:
-		print("开火!")
 		remaining_magazine = remaining_magazine - 1
 		_create_bullet()
-		
 
 func _create_bullet() -> void:
+	
+	var new_bullet_rotation: float
+	var offset_rotation: float = (1 - accuracy) * 0.3
+	new_bullet_rotation = gun_direction.angle() + randf_range(-offset_rotation, offset_rotation)
+	var new_bullet_direction: Vector2 = Vector2.from_angle(new_bullet_rotation)
+	
 	var new_bullet: Bullet = bullet_scene.instantiate()
-	new_bullet.init(muzzle.global_position, gun_direction, bullet_velocity)
+	new_bullet.init(muzzle.global_position, new_bullet_direction, bullet_velocity)
 	new_bullet.damage = base_attack + new_bullet.bullet_attack
 	new_bullet.percentage_penatration = percentage_penetration + new_bullet.percentage_bullet_penatration
 	new_bullet.base_penatration = base_penetration + new_bullet.base_bullet_penatration

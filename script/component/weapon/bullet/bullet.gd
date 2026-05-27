@@ -28,6 +28,7 @@ func _physics_process(delta: float) -> void:
 
 func init(muzzle_position: Vector2, shoot_direction: Vector2 = Vector2.RIGHT, _flight_speed: float = 100.0) -> void:
 	global_position = muzzle_position
+	rotation = shoot_direction.angle()
 	_flight_direction = shoot_direction
 	bullet_flight_speed = _flight_speed
 	damage = bullet_attack
