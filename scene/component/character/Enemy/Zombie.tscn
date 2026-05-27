@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://dc47u6aobwsyj" path="res://script/class/state/enemy/enemy_idle_state.gd" id="8_xgnxy"]
 [ext_resource type="PackedScene" uid="uid://bvvc0cf57tj1" path="res://scene/component/character/Enemy/attack_area.tscn" id="9_475x2"]
 [ext_resource type="Script" uid="uid://djn2joduv3a1o" path="res://script/class/state/enemy/enemy_walk_state.gd" id="9_oglhm"]
+[ext_resource type="Script" uid="uid://cxxlbdx78oiox" path="res://script/class/state/enemy/enemy_take_hit_state.gd" id="9_pbyes"]
 [ext_resource type="Texture2D" uid="uid://w5j6eoay2gh0" path="res://asset/texture/entities/enemy/axe_zombie/idle/idle_down.png" id="11_crut4"]
 [ext_resource type="Texture2D" uid="uid://c7tirc41uuavp" path="res://asset/texture/entities/enemy/axe_zombie/idle/idld_side.png" id="12_pbyes"]
 [ext_resource type="Texture2D" uid="uid://dewdbjhcnoa20" path="res://asset/texture/entities/enemy/axe_zombie/idle/idle_up.png" id="13_3scyb"]
@@ -27,7 +28,7 @@ size = Vector2(10, 7)
 size = Vector2(13, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klso0"]
-size = Vector2(13.902406, 24.301296)
+size = Vector2(8.632648, 26.465458)
 
 [sub_resource type="Animation" id="Animation_dyfn5"]
 length = 0.001
@@ -71,6 +72,18 @@ radius = 95.005264
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xgnxy"]
 radius = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbyes"]
+atlas = ExtResource("11_crut4")
+region = Rect2(0, 0, 13, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3scyb"]
+atlas = ExtResource("12_pbyes")
+region = Rect2(0, 0, 22, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evjpe"]
+atlas = ExtResource("13_3scyb")
+region = Rect2(0, 0, 12, 23)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7n6is"]
 atlas = ExtResource("11_crut4")
@@ -332,6 +345,30 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbyes")
+}],
+"loop": true,
+"name": &"hit_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3scyb")
+}],
+"loop": true,
+"name": &"hit_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evjpe")
+}],
+"loop": true,
+"name": &"hit_up",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_7n6is")
 }, {
@@ -566,7 +603,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Zombie" type="CharacterBody2D" unique_id=905139244 node_paths=PackedStringArray("chase_area", "meele_area", "hit_box", "animatesprite", "statemachine", "effect_animation_player")]
+[node name="Zombie" type="CharacterBody2D" unique_id=905139244 node_paths=PackedStringArray("chase_area", "meele_area", "hit_box", "animatesprite", "statemachine", "hurt_box", "effect_animation_player")]
 script = ExtResource("1_yego2")
 walk_speed = 15.0
 chase_speed = 30.0
@@ -575,6 +612,7 @@ meele_area = NodePath("MeeleAttackArea")
 hit_box = NodePath("Hitbox")
 animatesprite = NodePath("AnimatedSprite2D")
 statemachine = NodePath("StateMachine")
+hurt_box = NodePath("Hurtbox")
 effect_animation_player = NodePath("EffectAnimationPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=186707812]
@@ -587,6 +625,9 @@ scale = Vector2(0.6868382, 0.441229)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("2_vkpty")
+knock_back_velocity = 300
+knock_back_duration = 1
+knock_back_fall_off = 200
 collision_shape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=585695490]
@@ -595,14 +636,13 @@ shape = SubResource("RectangleShape2D_yego2")
 disabled = true
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=1558824059]
-position = Vector2(-1, -5)
 scale = Vector2(1.5059111, 0.7934873)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_yego2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=387690111]
-position = Vector2(-0.04879713, -5.849351)
+position = Vector2(0.332025, -0.63013005)
 scale = Vector2(1, 0.9999999)
 shape = SubResource("RectangleShape2D_klso0")
 
@@ -636,6 +676,12 @@ script = ExtResource("9_oglhm")
 state_id = 1
 state_name = "walk"
 
+[node name="EnemyTakeHitState" type="Node" parent="StateMachine" unique_id=1696664271 node_paths=PackedStringArray("hurt_box")]
+script = ExtResource("9_pbyes")
+hurt_box = NodePath("../../Hurtbox")
+state_id = 7
+state_name = "hit"
+
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2132532161]
 
 [node name="ChaseArea" parent="." unique_id=1901543769 instance=ExtResource("4_klso0")]
@@ -657,5 +703,5 @@ shape = SubResource("CircleShape2D_xgnxy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=917105996]
 sprite_frames = SubResource("SpriteFrames_8bn2m")
-animation = &"meele_side"
+animation = &"hit_down"
 autoplay = "idle_down"

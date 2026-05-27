@@ -5,7 +5,7 @@ class_name EnemyMeeleState
 var animation_finished:bool
 @export var hit_box_enable_frame:int
 func Enter():
-	
+	character.hurt_box.TakeDamage.connect(take_damage)
 	var direction=character.VectorToDirection(character.anim_direction)
 	character.UpdateAnimation(state_name,direction)
 	animation_finished=false
@@ -29,7 +29,12 @@ func Physic(_delta:float):
 		character.statemachine.SwitchState(statemachine.states[StateConstands.State.idle])
 	
 func Exit():
-	
+	character.hurt_box.TakeDamage.disconnect(take_damage)
 	
 	character.animatesprite.animation_finished.disconnect(attack_animation_finished)
 	enemy.animatesprite.frame_changed.disconnect(hurtbox_on)
+func take_damage(hit_box:Hitbox):
+	
+	if hit_box.knock_back_duration>0:
+		
+		statemachine.Switch_State_With_Parameter(statemachine.states[StateConstands.State.TakeHit],[hit_box])

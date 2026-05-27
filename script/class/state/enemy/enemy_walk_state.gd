@@ -8,7 +8,9 @@ var direction=[Vector2.UP,Vector2.DOWN,Vector2.LEFT,Vector2.RIGHT]
 func Enter():
 	max_walk_times = randi_range(3,5)
 	walk_interval=0
-	
+	character.hurt_box.TakeDamage.connect(take_damage)
+func Exit():
+	character.hurt_box.TakeDamage.disconnect(take_damage)
 func Physic(_delta:float):
 	if enemy.meele_area_has_player():
 		character.statemachine.SwitchState(statemachine.states[StateConstands.State.meele])
@@ -34,6 +36,10 @@ func Physic(_delta:float):
 		character.UpdateAnimation(state_name,direction)
 	character.move_and_slide()
 	
+func take_damage(hit_box:Hitbox):
 	
+	if hit_box.knock_back_duration>0:
+		
+		statemachine.Switch_State_With_Parameter(statemachine.states[StateConstands.State.TakeHit],[hit_box])	
 	
 	

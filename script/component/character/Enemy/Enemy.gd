@@ -19,7 +19,7 @@ var current_defense:float
 
 @export var hit_box :Hitbox
 
-@export var hurt_box:Hurtbox
+
 
 @export var animatesprite:AnimatedSprite2D
 func _ready() -> void:

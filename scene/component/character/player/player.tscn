@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cbcdyr20avkx4" path="res://script/component/character/StatsSystem/StatsManager.gd" id="6_1nox1"]
 [ext_resource type="Script" uid="uid://c7ook8gowcby2" path="res://script/class/state/Player/Player_Disable_State.gd" id="7_60te1"]
 [ext_resource type="Script" uid="uid://d187dktq0xg4" path="res://script/component/character/StatsSystem/Stat.gd" id="7_kvbc0"]
+[ext_resource type="Script" uid="uid://bvyckoqlmofan" path="res://script/class/state/Player/player_take_hit_state.gd" id="8_lh1sa"]
 [ext_resource type="Resource" uid="uid://rvd8fu46ifbb" path="res://Resource/PlayerStatResource/PlayerMaxHealth.tres" id="9_dthkf"]
 [ext_resource type="Resource" uid="uid://ciajtkyy557wt" path="res://Resource/PlayerStatResource/PlayerCurrentHealth.tres" id="10_dyfn5"]
 [ext_resource type="Script" uid="uid://dfxe4byorgdgl" path="res://script/component/hurtbox/Hurtbox.gd" id="11_dyfn5"]
@@ -38,6 +39,63 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2i(0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [24]
+}
+
+[sub_resource type="Animation" id="Animation_vjf71"]
+resource_name = "hid_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [31]
+}
+
+[sub_resource type="Animation" id="Animation_2epxb"]
+resource_name = "hit_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [43]
+}
+
+[sub_resource type="Animation" id="Animation_6xrog"]
+resource_name = "hit_side"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [24]
 }
 
 [sub_resource type="Animation" id="Animation_1tc5g"]
@@ -146,6 +204,9 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dvjev"]
 _data = {
 &"RESET": SubResource("Animation_8xcb8"),
+&"hid_up": SubResource("Animation_vjf71"),
+&"hit_down": SubResource("Animation_2epxb"),
+&"hit_side": SubResource("Animation_6xrog"),
 &"idle_down": SubResource("Animation_1tc5g"),
 &"idle_side": SubResource("Animation_0tco1"),
 &"idle_up": SubResource("Animation_bubao"),
@@ -154,13 +215,13 @@ _data = {
 &"walk_up": SubResource("Animation_kmjhx")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ua8b"]
+size = Vector2(15, 22)
+
 [sub_resource type="Resource" id="Resource_kmjhx"]
 script = ExtResource("7_kvbc0")
 base_value = 100.0
 metadata/_custom_type_script = "uid://d187dktq0xg4"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ua8b"]
-size = Vector2(15, 22)
 
 [sub_resource type="Animation" id="Animation_dyfn5"]
 length = 0.001
@@ -199,17 +260,17 @@ _data = {
 &"takedamage": SubResource("Animation_8ua8b")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=576296784 node_paths=PackedStringArray("gun", "statmanager", "hurtbox", "animationplayer", "sprite", "statemachine", "effect_animation_player")]
+[node name="Player" type="CharacterBody2D" unique_id=576296784 node_paths=PackedStringArray("statmanager", "hurtbox", "animationplayer", "sprite", "statemachine", "hurt_box", "effect_animation_player")]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_aheb8")
-stats = SubResource("Resource_60te1")
-gun = NodePath("")
 statmanager = NodePath("StatManager")
 hurtbox = NodePath("Hurtbox")
+stats = SubResource("Resource_60te1")
 animationplayer = NodePath("AnimationPlayer")
 sprite = NodePath("Sprite2D")
 statemachine = NodePath("StateMachine")
+hurt_box = NodePath("Hurtbox")
 effect_animation_player = NodePath("EffectAnimationPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=456719034]
@@ -229,13 +290,21 @@ position = Vector2(0, 12)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=639224624]
 libraries/ = SubResource("AnimationLibrary_dvjev")
 
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1185940278]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("11_dyfn5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1277727515]
+position = Vector2(0.5, -7)
+shape = SubResource("RectangleShape2D_8ua8b")
+
 [node name="StateMachine" type="Node" parent="." unique_id=209446466 node_paths=PackedStringArray("intialize_state")]
 script = ExtResource("3_8xcb8")
 intialize_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine" unique_id=1774162490]
 script = ExtResource("4_0tco1")
-state_id = null
 state_name = "idle"
 
 [node name="Walk" type="Node" parent="StateMachine" unique_id=369780156]
@@ -248,6 +317,12 @@ state_name = "walk"
 script = ExtResource("7_60te1")
 state_id = 3
 
+[node name="TakeHit" type="Node" parent="StateMachine" unique_id=1376217022 node_paths=PackedStringArray("hurt_box")]
+script = ExtResource("8_lh1sa")
+hurt_box = NodePath("../../Hurtbox")
+state_id = 7
+state_name = "hit"
+
 [node name="StatManager" type="Node" parent="." unique_id=1757818698]
 script = ExtResource("6_1nox1")
 stats = Array[ExtResource("7_kvbc0")]([SubResource("Resource_kmjhx")])
@@ -257,15 +332,6 @@ stats = Array[ExtResource("7_kvbc0")]([SubResource("Resource_kmjhx")])
 [node name="StatSystem" type="Node" parent="." unique_id=1188695261]
 script = ExtResource("6_1nox1")
 stats = Array[ExtResource("7_kvbc0")]([ExtResource("9_dthkf"), ExtResource("10_dyfn5")])
-
-[node name="Hurtbox" type="Area2D" parent="." unique_id=1185940278]
-collision_layer = 0
-collision_mask = 4
-script = ExtResource("11_dyfn5")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1277727515]
-position = Vector2(0.5, -7)
-shape = SubResource("RectangleShape2D_8ua8b")
 
 [node name="EffectAnimationPlayer" type="AnimationPlayer" parent="." unique_id=683372094]
 libraries/ = SubResource("AnimationLibrary_60te1")

@@ -1,8 +1,7 @@
 class_name Hurtbox extends Area2D
 
 signal TakeDamage(hitbox:Hitbox)
-@export var can_be_invincible:bool = true
-@export var invulnerable_duration:float=1
+
 var collision_shape:CollisionShape2D
 var invulnerable:bool = false
 
@@ -20,16 +19,12 @@ func enable_hurtbox(enable):
 		
 func OnAreaEntered(area:Area2D):
 	
-	if can_be_invincible and invulnerable:
-		
-		return 
 	
-	elif area is Hitbox:
+	
+	if area is Hitbox:
 		
 		TakeDamage.emit(area)
-		invulnerable=true
-		await get_tree().create_timer(invulnerable_duration).timeout
-		invulnerable=false
+		
 		
 	
 func _connec_signals() -> void:

@@ -11,7 +11,7 @@ func Enter():
 	navigation_agent_2d.target_position=player.global_position
 	update_timer=update_interval
 	chase_player()
-	
+	character.hurt_box.TakeDamage.connect(take_damage)
 	enemy.chase_area.scale=chase_area_range
 	character.ShouldUpdateAnimationDirection()
 	
@@ -22,6 +22,7 @@ func Enter():
 	character.move_and_slide()
 func Exit():
 	enemy.chase_area.scale=Vector2(1,1)	
+	character.hurt_box.TakeDamage.disconnect(take_damage)
 func get_next_position():
 	
 	var next_pos = navigation_agent_2d.get_next_path_position()
@@ -63,3 +64,8 @@ func Physic(_delta:float):
 	character.move_and_slide()
 	update_timer-=_delta
 	
+func take_damage(hit_box:Hitbox):
+	
+	if hit_box.knock_back_duration>0:
+		
+		statemachine.Switch_State_With_Parameter(statemachine.states[StateConstands.State.TakeHit],[hit_box])

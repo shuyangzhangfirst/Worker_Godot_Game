@@ -7,6 +7,7 @@ enum State{
 	disable,
 	enemy_chase,
 	car_drive,
-	car_not_drive
+	car_not_drive,
+	TakeHit
 	
 }

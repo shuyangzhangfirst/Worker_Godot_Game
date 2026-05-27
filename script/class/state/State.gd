@@ -9,6 +9,9 @@ func _ready() -> void:
 
 func Init():
 	pass
+func Enter_With_Parameter(para:Array):
+	process_mode=Node.PROCESS_MODE_INHERIT
+	pass
 
 func Enter():
 	process_mode=Node.PROCESS_MODE_INHERIT

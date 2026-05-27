@@ -4,6 +4,8 @@ class_name Character extends CharacterBody2D
 @export var sprite:Sprite2D
 @export var statemachine:StateMachine
 
+@export var hurt_box:Hurtbox
+
 @export var effect_animation_player:AnimationPlayer # 受伤特效的animation
 var move_direction:Vector2
 var anim_direction:Vector2
@@ -14,6 +16,8 @@ func _ready() -> void:
 	
 	pass
 
+	
+	
 func UpdateAnimation(animation:String,direction:String=""):
 	if direction=="":
 		animationplayer.play(animation)
