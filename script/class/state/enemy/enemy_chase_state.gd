@@ -5,7 +5,8 @@ class_name EnemyChaseState extends EnemyState
 
 var update_timer:float
 @export var update_interval:float
-
+@export var max_chase_duration:float #玩家丢失视野后继续追逐的时间
+var chase_timer:float
 @export var chase_area_range:Vector2
 func Enter():
 	navigation_agent_2d.target_position=player.global_position
@@ -14,7 +15,7 @@ func Enter():
 	character.hurt_box.TakeDamage.connect(take_damage)
 	enemy.chase_area.scale=chase_area_range
 	character.ShouldUpdateAnimationDirection()
-	
+	chase_timer=max_chase_duration
 	var direction=character.VectorToDirection(character.anim_direction)
 	
 	enemy.UpdateAnimation(state_name,direction,enemy.chase_speed/enemy.walk_speed)
@@ -45,9 +46,14 @@ func Physic(_delta:float):
 	if enemy.meele_area_has_player():
 		character.statemachine.SwitchState(character.statemachine.states[StateConstands.State.meele])
 		return 
-	elif not enemy.chase_area_has_player():
-		character.statemachine.SwitchState(character.statemachine.states[StateConstands.State.idle])
-		return
+	if not enemy.chase_area_has_player():
+		chase_timer-=_delta
+		if chase_timer<=0:
+			character.statemachine.SwitchState(character.statemachine.states[StateConstands.State.idle])
+			return
+	else:	
+		chase_timer=max_chase_duration
+	
 	
 		
 	if update_timer<=0:

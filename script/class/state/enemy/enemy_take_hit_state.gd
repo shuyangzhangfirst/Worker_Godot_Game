@@ -41,7 +41,7 @@ func Exit():
 func Physic(_delta:float):
 	
 	if knock_back_timer<=0:
-		statemachine.SwitchState(statemachine.states[StateConstands.State.idle])
+		statemachine.SwitchState(statemachine.states[StateConstands.State.enemy_chase])
 	knock_back_timer-=_delta
 	character.velocity=knock_back_direction*knock_back_velocity
 	knock_back_velocity-=knock_back_fall_off*_delta

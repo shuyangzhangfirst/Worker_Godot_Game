@@ -656,6 +656,7 @@ intialize_state = NodePath("EnemyWalkState")
 [node name="EnemyChaseState" type="Node" parent="StateMachine" unique_id=1014572852 node_paths=PackedStringArray("navigation_agent_2d")]
 script = ExtResource("6_7v7mh")
 navigation_agent_2d = NodePath("../../NavigationAgent2D")
+max_chase_duration = 5.0
 chase_area_range = Vector2(2, 2)
 state_id = 4
 state_name = "walk"
