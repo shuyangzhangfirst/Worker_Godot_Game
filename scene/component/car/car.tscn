@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bdrwsw35r1hek" path="res://script/class/state/car/drive_state.gd" id="4_ggpyj"]
 [ext_resource type="Script" uid="uid://dkgutrrt0ggm6" path="res://script/class/state/car/none_drive_state.gd" id="5_ggpyj"]
 [ext_resource type="Texture2D" uid="uid://cl1ysapy283fe" path="res://asset/texture/car/car_door.png" id="6_r6nkd"]
+[ext_resource type="Script" uid="uid://dks3h2vcu5vwu" path="res://script/component/hitbox/Hitbox.gd" id="7_ew8st"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iatng"]
 atlas = ExtResource("2_xtyi7")
@@ -163,6 +164,9 @@ _data = {
 &"player_entered": SubResource("Animation_1142m")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1142m"]
+size = Vector2(20, 81)
+
 [node name="Car" type="CharacterBody2D" unique_id=1768435934 node_paths=PackedStringArray("statemachine")]
 collision_layer = 16
 collision_mask = 7
@@ -204,14 +208,39 @@ state_id = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=67539259]
 unique_name_in_owner = true
-position = Vector2(0, 4.5)
-rotation = 0.7853982
 shape = SubResource("RectangleShape2D_665th")
 
 [node name="CarsymbolPlayer" type="AnimationPlayer" parent="." unique_id=818511426]
 libraries/ = SubResource("AnimationLibrary_nb83y")
 
 [node name="Carsymbol" type="Sprite2D" parent="." unique_id=467422387]
-position = Vector2(-3, -89.42031)
-scale = Vector2(1.0078344, 1.0078344)
+position = Vector2(-3, -89.00366)
 texture = ExtResource("6_r6nkd")
+
+[node name="Hitbox_front" type="Area2D" parent="." unique_id=143575936 node_paths=PackedStringArray("collision_shape")]
+collision_layer = 16
+collision_mask = 0
+monitoring = false
+script = ExtResource("7_ew8st")
+knock_back_velocity = 200
+knock_back_duration = 1
+knock_back_fall_off = 100
+collision_shape = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox_front" unique_id=836376865]
+position = Vector2(50, 0)
+shape = SubResource("RectangleShape2D_1142m")
+
+[node name="Hitbox_back" type="Area2D" parent="." unique_id=479046297 node_paths=PackedStringArray("collision_shape")]
+collision_layer = 16
+collision_mask = 0
+monitoring = false
+script = ExtResource("7_ew8st")
+knock_back_velocity = 200
+knock_back_duration = 1
+knock_back_fall_off = 100
+collision_shape = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox_back" unique_id=994371638]
+position = Vector2(-50, 0)
+shape = SubResource("RectangleShape2D_1142m")

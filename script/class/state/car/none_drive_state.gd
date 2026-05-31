@@ -9,12 +9,16 @@ class_name NoneDriveState
 var player:Player
 func Enter():
 	camera_2d.enabled=false
+	playerdedectarea.monitoring=true
+	carsymbol.visible=true
 	playerdedectarea.body_entered.connect(_player_entered)
 	playerdedectarea.body_exited.connect(_player_leaved)
-
+	
 func Exit():
 	playerdedectarea.body_entered.disconnect(_player_entered)
 	playerdedectarea.body_exited.disconnect(_player_leaved)
+	playerdedectarea.monitoring=false
+	carsymbol.visible=false
 
 func _player_entered(body):
 	

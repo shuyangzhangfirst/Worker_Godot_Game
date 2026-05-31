@@ -34,7 +34,12 @@ func Physic(_delta:float):
 		var direction=character.VectorToDirection(character.anim_direction)
 		
 		character.UpdateAnimation(state_name,direction)
-	character.move_and_slide()
+	var collision =character.move_and_collide(character.velocity*_delta,true)
+	if collision==null:
+		
+		character.move_and_slide()
+	
+		
 	
 func take_damage(hit_box:Hitbox):
 	

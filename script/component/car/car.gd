@@ -14,6 +14,10 @@ var angle:float =0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var state_machine: StateMachine = $StateMachine
 @onready var collision_shape_2d: CollisionShape2D = %CollisionShape2D
+@onready var playerdedectarea: Area2D = $playerdedectarea
+
+@onready var hitbox_front: Hitbox = $Hitbox_front
+@onready var hitbox_back: Hitbox = $Hitbox_back
 
 var choose_speed:Array
 var speed:float #目前车辆的速度
@@ -35,7 +39,19 @@ func disable_car():
 
 func update_collision_direction():
 	collision_shape_2d.rotation = move_direction.angle()
+func update_hit_box():
+	hitbox_front.rotation = move_direction.angle()
 	
+	hitbox_back.rotation = move_direction.angle()
+	if speed>0:
+		hitbox_front.monitorable=true
+		hitbox_back.monitorable=false
+	elif speed<0:
+		hitbox_front.monitorable=false
+		hitbox_back.monitorable=true
+	else:
+		hitbox_front.monitorable=false
+		hitbox_back.monitorable=false
 func get_move_vector(delta)->Vector2:
 	
 	var speed_factor=0
@@ -78,4 +94,5 @@ func match_animation_direction(direction:Vector2)-> String:
 		Vector2(-1,-1): return "up_left"
 		_: return "right"
 		
+
 		
