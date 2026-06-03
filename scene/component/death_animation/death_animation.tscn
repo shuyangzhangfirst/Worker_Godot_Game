@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b28ih88vdubcu"]
+
+[ext_resource type="Script" uid="uid://dbyajxgqnixv0" path="res://script/component/death_animation/death_animation.gd" id="1_smilv"]
+[ext_resource type="PackedScene" uid="uid://c5oxn823d0fww" path="res://scene/component/death_animation/corpse_fragment/corpse_fragment.tscn" id="2_x1ml7"]
+[ext_resource type="Texture2D" uid="uid://rbni330gnotp" path="res://asset/texture/entities/enemy/axe_zombie/death_animation/axe_zombie_death_block.png" id="3_lh52e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7t6c4"]
+atlas = ExtResource("3_lh52e")
+region = Rect2(1, 1, 8, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwkch"]
+atlas = ExtResource("3_lh52e")
+region = Rect2(11, 2, 5, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcoae"]
+atlas = ExtResource("3_lh52e")
+region = Rect2(18, 2, 6, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dmcd"]
+atlas = ExtResource("3_lh52e")
+region = Rect2(27, 1, 3, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8e7s"]
+atlas = ExtResource("3_lh52e")
+region = Rect2(32, 3, 3, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujyg1"]
+atlas = ExtResource("3_lh52e")
+region = Rect2(0, 13, 12, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge5tv"]
+atlas = ExtResource("3_lh52e")
+region = Rect2(15, 13, 2, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjl7v"]
+atlas = ExtResource("3_lh52e")
+region = Rect2(19, 14, 3, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocie5"]
+atlas = ExtResource("3_lh52e")
+region = Rect2(26, 13, 2, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5oeo"]
+atlas = ExtResource("3_lh52e")
+region = Rect2(31, 15, 3, 3)
+
+[node name="DeathAnimation" type="Node2D" unique_id=620467226]
+script = ExtResource("1_smilv")
+corpse_fragment_scene = ExtResource("2_x1ml7")
+corpse_fragment_texture = Array[Texture2D]([SubResource("AtlasTexture_7t6c4"), SubResource("AtlasTexture_lwkch"), SubResource("AtlasTexture_xcoae"), SubResource("AtlasTexture_6dmcd"), SubResource("AtlasTexture_y8e7s"), SubResource("AtlasTexture_ujyg1"), SubResource("AtlasTexture_ge5tv"), SubResource("AtlasTexture_sjl7v"), SubResource("AtlasTexture_ocie5"), SubResource("AtlasTexture_c5oeo")])

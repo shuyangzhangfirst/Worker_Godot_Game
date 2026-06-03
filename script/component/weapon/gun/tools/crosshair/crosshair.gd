@@ -25,7 +25,7 @@ func _update_crosshair_position() -> void:
 	var to_mouse: Vector2 = mouse_position - gun.global_position
 	gun_mouse_distance = to_mouse.length()
 	var mouse_direction: Vector2 = to_mouse.normalized() if gun_mouse_distance > 0 else Vector2.RIGHT
-	var muzzle_direction = gun.global_position.direction_to(gun.muzzle.global_position)
+	#var muzzle_direction = gun.global_position.direction_to(gun.muzzle.global_position)
 	
 	if gun_mouse_distance <= gun_muzzle_distance:
 		# 在最小距离圆上，完全跟随鼠标方向

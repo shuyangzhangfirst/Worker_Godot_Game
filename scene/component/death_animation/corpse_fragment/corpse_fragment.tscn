@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c5oxn823d0fww"]
+
+[ext_resource type="Script" uid="uid://jcum0jfm7qmr" path="res://script/component/death_animation/corpse_fragment/corpse_fragment.gd" id="1_51rwn"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ooidq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_smilv"]
+radius = 8.0
+
+[node name="CorpseFragment" type="RigidBody2D" unique_id=1379847123]
+physics_material_override = SubResource("PhysicsMaterial_ooidq")
+script = ExtResource("1_51rwn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=563595965]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1795753290]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_smilv")
