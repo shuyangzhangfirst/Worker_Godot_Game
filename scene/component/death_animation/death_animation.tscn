@@ -33,8 +33,10 @@ alpha_curve = SubResource("CurveTexture_lh52e")
 script = ExtResource("1_smilv")
 
 [node name="BloodMist" type="GPUParticles2D" parent="." unique_id=670317660]
+emitting = false
 amount = 100
 texture = ExtResource("2_x1ml7")
 lifetime = 2.0
+one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_7t6c4")

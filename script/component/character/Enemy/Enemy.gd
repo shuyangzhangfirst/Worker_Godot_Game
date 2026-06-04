@@ -32,8 +32,11 @@ func meele_area_has_player():
 func TakeDamage(hitbox:Hitbox):
 	
 	current_hp = max(0,current_hp- hitbox.calculate_damage(self))
-	effect_animation_player.play("takedamage")
-	print(current_hp)	
+	print(current_hp)
+	if current_hp == 0:
+		dead()
+		
+		
 func UpdateAnimation(animation:String,direction:String="",animation_speed:float=1):
 	if direction=="":
 		animatesprite.play(animation)
@@ -42,6 +45,11 @@ func UpdateAnimation(animation:String,direction:String="",animation_speed:float=
 		animatesprite.play(animation+"_"+direction)
 		animatesprite.speed_scale=animation_speed
 	HandleFlip()
+func dead():
+	var death_scene=death_scene.instantiate()
+	add_sibling(death_scene)
+	death_scene.global_position=global_position
+	queue_free()
 func HandleFlip():
 	if move_direction.x == 0:
 		return
