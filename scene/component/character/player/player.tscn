@@ -310,6 +310,7 @@ state_name = "idle"
 [node name="Walk" type="Node" parent="StateMachine" unique_id=369780156]
 script = ExtResource("5_bubao")
 move_speed = 100.0
+run_speed = 200.0
 state_id = 1
 state_name = "walk"
 
