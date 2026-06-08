@@ -15,12 +15,12 @@ lifetime_randomness = 0.43
 particle_flag_disable_z = true
 particle_flag_damping_as_friction = true
 emission_shape = 3
-emission_box_extents = Vector3(10, 20, 1)
+emission_box_extents = Vector3(10, 15, 1)
 angle_min = -692.6
 angle_max = 513.2
-inherit_velocity_ratio = 0.217
+inherit_velocity_ratio = 0.1
 direction = Vector3(0, -1, 0)
-spread = 33.089
+spread = 92.648
 initial_velocity_min = 6.92
 initial_velocity_max = 62.28
 gravity = Vector3(0, 0, 0)
@@ -33,8 +33,15 @@ alpha_curve = SubResource("CurveTexture_lh52e")
 script = ExtResource("1_smilv")
 
 [node name="BloodMist" type="GPUParticles2D" parent="." unique_id=670317660]
+<<<<<<< Updated upstream
 amount = 100
 texture = ExtResource("2_x1ml7")
 lifetime = 2.0
+=======
+emitting = false
+amount = 40
+texture = ExtResource("2_x1ml7")
+one_shot = true
+>>>>>>> Stashed changes
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_7t6c4")
