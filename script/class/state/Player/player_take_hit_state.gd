@@ -31,13 +31,14 @@ func Enter_With_Parameter(para:Array):
 		var direction=character.VectorToDirection(character.anim_direction)
 		
 		character.UpdateAnimation(state_name,direction)
+		character.current_weapon.hit_enable=false
 	else:
 		statemachine.SwitchState(statemachine.states[StateConstands.State.idle])
 
 func Exit():
 	
 	hurt_box.TakeDamage.disconnect(take_another_damage)
-	
+	character.current_weapon.hit_enable=true
 func Physic(_delta:float):
 	
 	if knock_back_timer<=0:

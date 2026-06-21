@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cts3105cmjrka"]
+
+[ext_resource type="Script" uid="uid://d0saqwfrhes8t" path="res://scene/component/enemy_generator/script/enemy_generator.gd" id="1_3yioi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jphnp"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qyoh"]
+size = Vector2(256, 256)
+
+[node name="EnemyGenerator" type="Node2D" unique_id=1375734314]
+script = ExtResource("1_3yioi")
+min_spawn_distance = Vector2(32, 32)
+max_spawn_distance = Vector2(128, 128)
+
+[node name="min_area" type="CollisionShape2D" parent="." unique_id=255294538]
+shape = SubResource("RectangleShape2D_jphnp")
+debug_color = Color(0.8767047, 0.3051849, 0.40413782, 0)
+
+[node name="max_area" type="CollisionShape2D" parent="." unique_id=331078721]
+shape = SubResource("RectangleShape2D_5qyoh")
+debug_color = Color(0.8104782, 0.3538856, 0.55007905, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=780694956]
+one_shot = true

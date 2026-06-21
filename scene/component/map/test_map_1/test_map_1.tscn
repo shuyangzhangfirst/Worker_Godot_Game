@@ -23,8 +23,9 @@ vertices = PackedVector2Array(949.90625, 558.1172, -341.25, 573.8594, -278.6172,
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-288, -328, -352, 584, 960, 568, 952, -416)])
 
-[node name="测试地图一" unique_id=1714983503 instance=ExtResource("1_nn4ch")]
+[node name="测试地图一" unique_id=1714983503 node_paths=PackedStringArray("tilemap") instance=ExtResource("1_nn4ch")]
 map_name = "测试地图一"
+tilemap = NodePath("TileMapLayers/GrassTileMapLayer")
 
 [node name="GrassTileMapLayer" type="TileMapLayer" parent="TileMapLayers" parent_id_path=PackedInt32Array(1186036627) index="0" unique_id=328671170]
 material = SubResource("ShaderMaterial_67swi")

@@ -260,13 +260,14 @@ _data = {
 &"takedamage": SubResource("Animation_8ua8b")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=576296784 node_paths=PackedStringArray("statmanager", "hurtbox", "animationplayer", "sprite", "statemachine", "hurt_box", "effect_animation_player")]
+[node name="Weapons" type="CharacterBody2D" unique_id=576296784 node_paths=PackedStringArray("statmanager", "hurtbox", "current_weapon", "animationplayer", "sprite", "statemachine", "hurt_box", "effect_animation_player")]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_aheb8")
 statmanager = NodePath("StatManager")
 hurtbox = NodePath("Hurtbox")
 stats = SubResource("Resource_60te1")
+current_weapon = NodePath("Gun")
 animationplayer = NodePath("AnimationPlayer")
 sprite = NodePath("Sprite2D")
 statemachine = NodePath("StateMachine")

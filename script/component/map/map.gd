@@ -5,7 +5,7 @@ class_name BaseMap
 
 @export var map_name: String = ""	## 地图名称
 @export var map_music: AudioStream	## 地图音乐
-
+@export var tilemap:TileMapLayer
 ## 地图事件数据
 @export var map_data: Dictionary = {}
 
