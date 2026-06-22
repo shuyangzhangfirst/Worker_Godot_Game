@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://c8ry6xpd6e1ur"
 
 GameSystem="*uid://biwpuy3jxu67f"
 EventBus="*uid://clvgxe6d6kfyn"
+InputHelper="*uid://cholww48njaeh"
 
 [debug]
 
@@ -43,7 +44,7 @@ project/assembly_name="Worker"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/FolderLabels/plugin.cfg")
+enabled=PackedStringArray("res://addons/FolderLabels/plugin.cfg", "res://addons/input_helper/plugin.cfg")
 
 [file_customization]
 

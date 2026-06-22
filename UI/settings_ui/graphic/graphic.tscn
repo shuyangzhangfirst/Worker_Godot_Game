@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://drl8mmfej6jip"]
+
+[ext_resource type="Script" uid="uid://csvhyaj77ug85" path="res://UI/settings_ui/graphic/graphic.gd" id="1_oyt31"]
+[ext_resource type="LabelSettings" uid="uid://b6jntjqugobrx" path="res://Resource/label_settings/default_label_settings.tres" id="1_rfkrv"]
+[ext_resource type="Theme" uid="uid://c5vksf854ea5c" path="res://Resource/theme/default_theme.tres" id="1_uhd8r"]
+[ext_resource type="LabelSettings" uid="uid://b6jntjqugobrx" path="res://resource/label_settings/default_label_settings.tres" id="2_oyt31"]
+
+[node name="Graphic" type="MarginContainer" unique_id=1908818091]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_uhd8r")
+script = ExtResource("1_oyt31")
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1878289287]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1668229142]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=919242804]
+layout_mode = 2
+size_flags_vertical = 6
+text = "图像"
+label_settings = ExtResource("1_rfkrv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Resolution" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=310539560]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Resolution" unique_id=386613959]
+layout_mode = 2
+text = "分辨率"
+label_settings = ExtResource("2_oyt31")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Resolution" unique_id=1501312827]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResolutionOptionButton" type="OptionButton" parent="ScrollContainer/VBoxContainer/Resolution" unique_id=831182122]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FullScreen" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1196097884]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/FullScreen" unique_id=2015224882]
+layout_mode = 2
+text = "全屏"
+label_settings = ExtResource("2_oyt31")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/FullScreen" unique_id=1480980426]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FullScreenCheckButton" type="CheckButton" parent="ScrollContainer/VBoxContainer/FullScreen" unique_id=1433344782]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="RefreshRate" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=993757380]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/RefreshRate" unique_id=2062573674]
+layout_mode = 2
+text = "最大刷新率"
+label_settings = ExtResource("2_oyt31")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/RefreshRate" unique_id=1411581453]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RefreshRateOptionButton" type="OptionButton" parent="ScrollContainer/VBoxContainer/RefreshRate" unique_id=174881897]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Vsync" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1368475884]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Vsync" unique_id=1178850874]
+layout_mode = 2
+text = "垂直同步"
+label_settings = ExtResource("2_oyt31")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Vsync" unique_id=48733966]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VsyncCheckButton" type="CheckButton" parent="ScrollContainer/VBoxContainer/Vsync" unique_id=1476318912]
+unique_name_in_owner = true
+layout_mode = 2

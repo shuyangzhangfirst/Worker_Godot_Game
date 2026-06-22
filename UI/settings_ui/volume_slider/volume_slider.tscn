@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dhaso0gjl32xb"]
+
+[ext_resource type="Theme" uid="uid://c5vksf854ea5c" path="res://Resource/theme/default_theme.tres" id="1_pwbjo"]
+[ext_resource type="Script" uid="uid://bb14or2hyai1b" path="res://UI/settings_ui/volume_slider/volume_slider.gd" id="1_wysec"]
+[ext_resource type="LabelSettings" uid="uid://b6jntjqugobrx" path="res://Resource/label_settings/default_label_settings.tres" id="2_n7oui"]
+
+[node name="VolumeSlider" type="BoxContainer" unique_id=965503254]
+custom_minimum_size = Vector2(200, 0)
+offset_right = 200.0
+offset_bottom = 16.0
+theme = ExtResource("1_pwbjo")
+script = ExtResource("1_wysec")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2126107967]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=1387661497]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer" unique_id=346825131]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 0.7
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer" unique_id=714603673]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=1159613211]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="VolumeLabel" type="Label" parent="HBoxContainer2" unique_id=1505122134]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(28, 0)
+layout_mode = 2
+text = "100"
+label_settings = ExtResource("2_n7oui")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer2" unique_id=1074683289]
+layout_mode = 2
+text = "%"
+label_settings = ExtResource("2_n7oui")
+vertical_alignment = 1

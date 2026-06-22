@@ -9,18 +9,18 @@
 [node name="Settings" type="Node" unique_id=939108780]
 script = ExtResource("1_6bwef")
 
-[node name="Audio" type="Node" parent="." unique_id=1997686510]
+[node name="VolumeSetting" type="Node" parent="." unique_id=1997686510]
 unique_name_in_owner = true
 script = ExtResource("2_d75we")
 
-[node name="Graphics" type="Node" parent="." unique_id=487824769]
+[node name="GraphicSetting" type="Node" parent="." unique_id=487824769]
 unique_name_in_owner = true
 script = ExtResource("3_32a1s")
 
-[node name="GamePlay" type="Node" parent="." unique_id=1805425215]
+[node name="GameplaySetting" type="Node" parent="." unique_id=1805425215]
 unique_name_in_owner = true
 script = ExtResource("4_m1o7e")
 
-[node name="Control" type="Node" parent="." unique_id=84763884]
+[node name="ControlSetting" type="Node" parent="." unique_id=84763884]
 unique_name_in_owner = true
 script = ExtResource("5_wudd8")

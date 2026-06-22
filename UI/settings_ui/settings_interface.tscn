@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://chtvxx8o5pkrn"]
+
+[ext_resource type="Script" uid="uid://cuy3cl010ggpt" path="res://UI/settings_ui/settings_interface.gd" id="1_ferux"]
+[ext_resource type="Theme" uid="uid://c5vksf854ea5c" path="res://Resource/theme/default_theme.tres" id="1_xmaih"]
+[ext_resource type="PackedScene" uid="uid://hvu0yfbp6tnn" path="res://UI/settings_ui/vloume/volume.tscn" id="3_n4oj3"]
+[ext_resource type="PackedScene" uid="uid://drl8mmfej6jip" path="res://UI/settings_ui/graphic/graphic.tscn" id="4_qsjll"]
+[ext_resource type="PackedScene" uid="uid://dcp8djc5dwyfw" path="res://UI/settings_ui/gameplay/gameplay.tscn" id="5_xmaih"]
+[ext_resource type="PackedScene" uid="uid://dfxogccw4wnd0" path="res://UI/settings_ui/control/control.tscn" id="6_dp1l1"]
+
+[node name="SettingsInterface" type="Control" unique_id=1264639200]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xmaih")
+script = ExtResource("1_ferux")
+confirmation_window_scene = "res://scenes/component/confirmation_dialog/confirmation_window.tscn"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1073059317]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -114.0
+offset_right = 208.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=1385484286]
+layout_mode = 2
+
+[node name="VolumeTab" type="Button" parent="HBoxContainer/VBoxContainer2" unique_id=646755662]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "音量"
+
+[node name="GraphicTab" type="Button" parent="HBoxContainer/VBoxContainer2" unique_id=1085546499]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "图像"
+
+[node name="GameplayTab" type="Button" parent="HBoxContainer/VBoxContainer2" unique_id=2038060079]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "游戏"
+
+[node name="ControlTab" type="Button" parent="HBoxContainer/VBoxContainer2" unique_id=747599992]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "控制"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=101128504]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/VBoxContainer" unique_id=498073117]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/PanelContainer" unique_id=270377872]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="TabContainer" type="TabContainer" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer" unique_id=556308119]
+unique_name_in_owner = true
+layout_mode = 2
+current_tab = 3
+tabs_visible = false
+
+[node name="Volume" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/TabContainer" unique_id=2103341586 instance=ExtResource("3_n4oj3")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Graphic" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/TabContainer" unique_id=1908818091 instance=ExtResource("4_qsjll")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Gameplay" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/TabContainer" unique_id=586702905 instance=ExtResource("5_xmaih")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Control" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/TabContainer" unique_id=1492854240 instance=ExtResource("6_dp1l1")]
+unique_name_in_owner = true
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1677974331]
+layout_mode = 2
+
+[node name="ResetSettingsButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=446706489]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "恢复默认设置"
+
+[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1220351967]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=956651010]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "关闭"
+
+[node name="SaveSettingsButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=427580191]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "保存"
