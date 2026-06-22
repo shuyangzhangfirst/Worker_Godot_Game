@@ -1,21 +1,21 @@
 [gd_scene format=3 uid="uid://chtvxx8o5pkrn"]
 
-[ext_resource type="Script" uid="uid://cuy3cl010ggpt" path="res://UI/settings_ui/settings_interface.gd" id="1_ferux"]
-[ext_resource type="Theme" uid="uid://c5vksf854ea5c" path="res://Resource/theme/default_theme.tres" id="1_xmaih"]
-[ext_resource type="PackedScene" uid="uid://hvu0yfbp6tnn" path="res://UI/settings_ui/vloume/volume.tscn" id="3_n4oj3"]
-[ext_resource type="PackedScene" uid="uid://drl8mmfej6jip" path="res://UI/settings_ui/graphic/graphic.tscn" id="4_qsjll"]
-[ext_resource type="PackedScene" uid="uid://dcp8djc5dwyfw" path="res://UI/settings_ui/gameplay/gameplay.tscn" id="5_xmaih"]
-[ext_resource type="PackedScene" uid="uid://dfxogccw4wnd0" path="res://UI/settings_ui/control/control.tscn" id="6_dp1l1"]
+[ext_resource type="Theme" uid="uid://c5vksf854ea5c" path="res://Resource/theme/default_theme.tres" id="1_ggxjs"]
+[ext_resource type="Script" uid="uid://cuy3cl010ggpt" path="res://UI/settings_ui/settings_ui.gd" id="2_tseik"]
+[ext_resource type="PackedScene" uid="uid://hvu0yfbp6tnn" path="res://UI/settings_ui/vloume/volume.tscn" id="3_yiduk"]
+[ext_resource type="PackedScene" uid="uid://drl8mmfej6jip" path="res://UI/settings_ui/graphic/graphic.tscn" id="4_okiwp"]
+[ext_resource type="PackedScene" uid="uid://dcp8djc5dwyfw" path="res://UI/settings_ui/gameplay/gameplay.tscn" id="5_elgnx"]
+[ext_resource type="PackedScene" uid="uid://dfxogccw4wnd0" path="res://UI/settings_ui/control/control.tscn" id="6_8rm3d"]
 
-[node name="SettingsInterface" type="Control" unique_id=1264639200]
+[node name="SettingsUI" type="Control" unique_id=1264639200]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_xmaih")
-script = ExtResource("1_ferux")
+theme = ExtResource("1_ggxjs")
+script = ExtResource("2_tseik")
 confirmation_window_scene = "res://scenes/component/confirmation_dialog/confirmation_window.tscn"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1073059317]
@@ -80,23 +80,23 @@ layout_mode = 2
 current_tab = 3
 tabs_visible = false
 
-[node name="Volume" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/TabContainer" unique_id=2103341586 instance=ExtResource("3_n4oj3")]
+[node name="Volume" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/TabContainer" unique_id=2103341586 instance=ExtResource("3_yiduk")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Graphic" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/TabContainer" unique_id=1908818091 instance=ExtResource("4_qsjll")]
+[node name="Graphic" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/TabContainer" unique_id=1908818091 instance=ExtResource("4_okiwp")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Gameplay" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/TabContainer" unique_id=586702905 instance=ExtResource("5_xmaih")]
+[node name="Gameplay" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/TabContainer" unique_id=586702905 instance=ExtResource("5_elgnx")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="Control" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/TabContainer" unique_id=1492854240 instance=ExtResource("6_dp1l1")]
+[node name="Control" parent="HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/TabContainer" unique_id=1492854240 instance=ExtResource("6_8rm3d")]
 unique_name_in_owner = true
 layout_mode = 2
 metadata/_tab_index = 3

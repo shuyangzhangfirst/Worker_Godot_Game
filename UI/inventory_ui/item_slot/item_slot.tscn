@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://daqrrxjg4jnso"]
+
+[ext_resource type="Script" uid="uid://5qx4eurpito2" path="res://UI/inventory_ui/item_slot/item_slot.gd" id="1_7t5po"]
+[ext_resource type="Texture2D" uid="uid://dr5rdpwljwa7" path="res://asset/texture/ui/Sprite sheet for Basic Pack.png" id="1_bjlbn"]
+[ext_resource type="Texture2D" uid="uid://dyfbaag641fu7" path="res://icon.svg" id="3_ol5s8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ol5s8"]
+texture = ExtResource("1_bjlbn")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(107, 59, 26, 26)
+
+[sub_resource type="LabelSettings" id="LabelSettings_o6gm8"]
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="ItemSlot" type="PanelContainer" unique_id=1193963014]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ol5s8")
+script = ExtResource("1_7t5po")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=749200509]
+layout_mode = 2
+
+[node name="ItemIcon" type="TextureRect" parent="CenterContainer" unique_id=1360111837]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_ol5s8")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="ItemCountLabel" type="Label" parent="." unique_id=980017034]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+text = "99"
+label_settings = SubResource("LabelSettings_o6gm8")
+horizontal_alignment = 2
+vertical_alignment = 2
