@@ -10,7 +10,11 @@ func has_empty_slot() -> bool:
 		if data.slot_item == null:
 			return true
 	return false
-
+func add_pickedup_item(pickup:DropItem):
+	var _item_slot_data: ItemSlotData = ItemSlotData.new()
+	_item_slot_data.item_count=pickup.quantity
+	_item_slot_data.slot_item = pickup.item
+	append_item_to_inventory(_item_slot_data)
 ## 根据物品id返回物品栏中对应物品的总数
 func get_item_count_by_id(_item_id: int) -> int:
 	var count: int = 0

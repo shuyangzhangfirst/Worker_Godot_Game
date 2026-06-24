@@ -1,6 +1,8 @@
 extends PanelContainer
 class_name InventoryInterface
 
+
+
 @onready var slot_container: GridContainer = %SlotContainer
 
 @export var item_slot_scene: PackedScene
@@ -8,8 +10,11 @@ class_name InventoryInterface
 
 func _ready() -> void:
 	update_inventory_interface()
-
+	
 ## 更新物品栏接口
+func on_item_picked_up(item:Item,quantity:int):
+	pass
+	
 func update_inventory_interface() -> void:
 	_clear_inventory_interface()
 

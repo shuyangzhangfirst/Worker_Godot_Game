@@ -3,7 +3,7 @@
 extends CharacterBody2D
 class_name  DropItem
 
-signal item_picked_up(item:Item,quantity:int)
+
 
 @export var item : Item :set = set_item #掉落的物品
 @export var quantity : int : set = set_quantity #掉落的数量 y
@@ -46,5 +46,6 @@ func _on_body_entered(b):
 	if not (b is Player):
 		return 
 	## 具体的逻辑
-	item_picked_up.emit(item,quantity)
+	GameSystem.data.current_player.inventory.add_pickedup_item(self)
+	
 	queue_free()
