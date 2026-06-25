@@ -46,6 +46,6 @@ func _on_body_entered(b):
 	if not (b is Player):
 		return 
 	## 具体的逻辑
-	GameSystem.data.current_player.inventory.add_pickedup_item(self)
+	GameSystem.data.player_inventory.add_pickedup_item(self)
 	
 	queue_free()
