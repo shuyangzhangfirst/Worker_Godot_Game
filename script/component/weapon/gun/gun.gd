@@ -48,8 +48,8 @@ func _physics_process(_delta: float) -> void:
 		trigger_pressed = false
 
 func _process(delta: float) -> void:
-	set_gun_direction(delta)
-
+	#set_gun_direction(delta)
+	pass
 func _shortcut_input(event: InputEvent) -> void:
 	if event.is_action_pressed("change_fire_mode"):
 		turn_gun_open_fire_mode()
@@ -65,6 +65,9 @@ func shoot_bullet() -> void:
 	else:
 		remaining_magazine = remaining_magazine - 1
 		_create_bullet()
+
+
+	
 
 func _create_bullet() -> void:
 	
