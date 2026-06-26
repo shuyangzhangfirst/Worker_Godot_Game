@@ -4,11 +4,12 @@ signal drive_car
 
 
 
-@export var statmanager:StatsManager
+
 @export var hurtbox:Hurtbox
 @export var stats:PlayerStats
 @export var current_weapon:Weapon
 var player_collision_shape:CollisionShape2D
+
 var camera:Camera2D
 func _ready() -> void:
 	super._ready()
