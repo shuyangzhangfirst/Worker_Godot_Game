@@ -14,6 +14,7 @@ texture_margin_bottom = 4.0
 region_rect = Rect2(417, 80, 47, 48)
 
 [node name="Backpack" type="Control" unique_id=1536852418]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

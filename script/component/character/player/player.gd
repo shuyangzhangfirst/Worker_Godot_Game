@@ -2,8 +2,6 @@ class_name Player extends Character
 
 signal drive_car
 
-
-
 @export var statmanager:StatsManager
 @export var hurtbox:Hurtbox
 @export var stats:PlayerStats
