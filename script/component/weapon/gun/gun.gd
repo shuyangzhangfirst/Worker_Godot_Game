@@ -1,4 +1,4 @@
-class_name WeaponGun extends Weapon
+class_name Gun extends Weapon
 
 ## 节点引用
 #region 节点引用
@@ -14,11 +14,7 @@ class_name WeaponGun extends Weapon
 		crosshair.visible = !value
 		disable = value
 
-@export var base_attack: int = 12				## 基础攻击力
 @export var bullet_velocity:float = 600.0		## 子弹发射速度
-@export var base_penetration: float = 0.0		## 枪支固定穿透力
-@export var percentage_penetration: float = 0.0	## 枪支百分比穿透力
-@export var handling_speed: float = 1.0			## 操作速度
 @export var accuracy: float = 1.0				## 开火稳定性
 @export var magazine_size: int = 120			## 弹匣容量
 @export var reload_time: float = 2.0        	## 换弹时间(秒)

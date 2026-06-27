@@ -4,7 +4,6 @@ class_name WeaponGun
 @onready var gun_wire: GunWire = %GunWire			## 枪械方向辅助枪线
 @onready var gun_fire_mode: Node = %GunFireMode		## 开火模式容器
 
-
 @export_category("枪械属性")
 @export var exit_velocity: float = 600.0			## 子弹出口速度
 @export var spread: float = 0.0						## 子弹扩散(角度)
@@ -19,6 +18,7 @@ func _ready() -> void:
 	_init_weapon_gun()
 	_connect_signal()
 
+## 测试用
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
 		trigger_on()
