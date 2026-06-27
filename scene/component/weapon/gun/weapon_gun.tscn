@@ -44,7 +44,6 @@ unique_name_in_owner = true
 
 [node name="GunAutoFireMode" type="Node" parent="GunFireMode" index="0" unique_id=178433817]
 script = ExtResource("4_tx07u")
-auto_fire_rate = 0.05
 fire_mode_name = "全自动模式"
 metadata/_custom_type_script = "uid://booraf6sh00qs"
 

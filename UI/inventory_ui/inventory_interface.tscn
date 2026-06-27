@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d272olie55g0r"]
+
+[ext_resource type="Script" uid="uid://bxt58qoc3ije7" path="res://UI/inventory_ui/inventory_interface.gd" id="1_j5fox"]
+[ext_resource type="PackedScene" uid="uid://daqrrxjg4jnso" path="res://UI/inventory_ui/item_slot/item_slot.tscn" id="2_0ei80"]
+[ext_resource type="Resource" uid="uid://c8nawaoec5mky" path="res://Resource/test_inventory_data/test_inventory_data.tres" id="3_85bq8"]
+
+[node name="InventoryInterface" type="PanelContainer" unique_id=1725285466]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j5fox")
+item_slot_scene = ExtResource("2_0ei80")
+inventory = ExtResource("3_85bq8")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=527809683]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="SlotContainer" type="GridContainer" parent="ScrollContainer" unique_id=1017829471]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 6

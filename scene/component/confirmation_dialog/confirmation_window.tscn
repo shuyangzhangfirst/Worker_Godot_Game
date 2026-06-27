@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cr510d0yb205d"]
+
+[ext_resource type="Theme" uid="uid://c5vksf854ea5c" path="res://Resource/theme/default_theme.tres" id="1_42l74"]
+[ext_resource type="Script" uid="uid://wi2ajggun851" path="res://scene/component/confirmation_dialog/confirmation_window.gd" id="2_tfee1"]
+[ext_resource type="LabelSettings" uid="uid://b6jntjqugobrx" path="res://Resource/label_settings/default_label_settings.tres" id="4_tfee1"]
+
+[node name="ConfirmationWindow" type="PanelContainer" unique_id=199262524]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -38.0
+offset_right = 91.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_42l74")
+script = ExtResource("2_tfee1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1913074979]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=176289710]
+unique_name_in_owner = true
+layout_mode = 2
+text = "标题"
+label_settings = ExtResource("4_tfee1")
+horizontal_alignment = 1
+
+[node name="TipLabel" type="Label" parent="VBoxContainer" unique_id=1232236346]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+text = "提示词"
+label_settings = ExtResource("4_tfee1")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=768069083]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=1244598693]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ConfirmButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=513961816]
+unique_name_in_owner = true
+layout_mode = 2
+text = "确定"
+
+[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=1934704215]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CancelButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1522870621]
+unique_name_in_owner = true
+layout_mode = 2
+text = "取消"
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=1949317080]
+layout_mode = 2
+size_flags_horizontal = 3

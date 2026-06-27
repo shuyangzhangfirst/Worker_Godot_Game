@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Inventory" format=3 uid="uid://c8nawaoec5mky"]
+
+[ext_resource type="Script" uid="uid://0u81u2pijkbw" path="res://script/class/item/item_slot_data/item_slot_data.gd" id="1_b4l0y"]
+[ext_resource type="Resource" uid="uid://nm7qc5dq6jdk" path="res://Resource/item/薄荷草枝.tres" id="2_1weya"]
+[ext_resource type="Script" uid="uid://mccpvbtp331a" path="res://script/class/item/inventory/inventory.gd" id="2_dg4bw"]
+
+[sub_resource type="Resource" id="Resource_b4l0y"]
+script = ExtResource("1_b4l0y")
+slot_item = ExtResource("2_1weya")
+item_count = 44
+metadata/_custom_type_script = "uid://0u81u2pijkbw"
+
+[sub_resource type="Resource" id="Resource_dg4bw"]
+script = ExtResource("1_b4l0y")
+slot_item = ExtResource("2_1weya")
+item_count = 43
+metadata/_custom_type_script = "uid://0u81u2pijkbw"
+
+[resource]
+script = ExtResource("2_dg4bw")
+item_slot_datas = Array[ExtResource("1_b4l0y")]([SubResource("Resource_b4l0y"), SubResource("Resource_dg4bw"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+metadata/_custom_type_script = "uid://mccpvbtp331a"

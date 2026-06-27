@@ -13,6 +13,7 @@ class_name WeaponGun extends Weapon
 	set(value):
 		crosshair.visible = !value
 		disable = value
+
 @export var base_attack: int = 12				## 基础攻击力
 @export var bullet_velocity:float = 600.0		## 子弹发射速度
 @export var base_penetration: float = 0.0		## 枪支固定穿透力
@@ -35,7 +36,7 @@ func _ready() -> void:
 	_init_gun()
 
 func _physics_process(_delta: float) -> void:
-	if disable:
+	if disable or hit_enable==false:
 		return
 	if Input.is_action_just_pressed("attack"):
 		current_gun_fire_mode.on_trigger_just_pressed()
@@ -46,8 +47,8 @@ func _physics_process(_delta: float) -> void:
 		trigger_pressed = false
 
 func _process(delta: float) -> void:
-	set_gun_direction(delta)
-
+	#set_gun_direction(delta)
+	pass
 func _shortcut_input(event: InputEvent) -> void:
 	if event.is_action_pressed("change_fire_mode"):
 		turn_gun_open_fire_mode()
@@ -63,6 +64,9 @@ func shoot_bullet() -> void:
 	else:
 		remaining_magazine = remaining_magazine - 1
 		_create_bullet()
+
+
+	
 
 func _create_bullet() -> void:
 	

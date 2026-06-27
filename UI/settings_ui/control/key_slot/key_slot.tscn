@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dljxcdu1srk0r"]
+
+[ext_resource type="Theme" uid="uid://c5vksf854ea5c" path="res://Resource/theme/default_theme.tres" id="1_vqfdk"]
+[ext_resource type="Texture2D" uid="uid://dr5rdpwljwa7" path="res://asset/texture/ui/Sprite sheet for Basic Pack.png" id="2_irwqn"]
+[ext_resource type="Script" uid="uid://0582kgkowsx5" path="res://UI/settings_ui/control/key_slot/key_slot.gd" id="2_vx2ot"]
+[ext_resource type="LabelSettings" uid="uid://b6jntjqugobrx" path="res://Resource/label_settings/default_label_settings.tres" id="3_vx2ot"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_enybn"]
+texture = ExtResource("2_irwqn")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(402, 105, 28, 14)
+
+[node name="KeySlot" type="PanelContainer" unique_id=1203748536]
+offset_right = 253.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+theme = ExtResource("1_vqfdk")
+script = ExtResource("2_vx2ot")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1072944050]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer" unique_id=706689133]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_enybn")
+
+[node name="ActionNameLabel" type="Label" parent="HBoxContainer/PanelContainer" unique_id=1536797214]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "移动上"
+label_settings = ExtResource("3_vx2ot")
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=639000121]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BindButton" type="Button" parent="HBoxContainer" unique_id=1160935329]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "1314"

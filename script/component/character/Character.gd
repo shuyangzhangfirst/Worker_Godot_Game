@@ -5,7 +5,7 @@ class_name Character extends CharacterBody2D
 @export var statemachine:StateMachine
 
 @export var hurt_box:Hurtbox
-
+var death_scene=preload("res://scene/component/death_animation/death_animation.tscn")
 @export var effect_animation_player:AnimationPlayer # 受伤特效的animation
 var move_direction:Vector2
 var anim_direction:Vector2

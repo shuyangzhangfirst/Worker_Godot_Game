@@ -31,6 +31,7 @@ func Enter_With_Parameter(para:Array):
 		var direction=character.VectorToDirection(character.anim_direction)
 		
 		character.UpdateAnimation(state_name,direction)
+		
 	else:
 		statemachine.SwitchState(statemachine.states[StateConstands.State.idle])
 

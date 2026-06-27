@@ -13,7 +13,7 @@
 [ext_resource type="Resource" uid="uid://rvd8fu46ifbb" path="res://Resource/PlayerStatResource/PlayerMaxHealth.tres" id="9_dthkf"]
 [ext_resource type="Resource" uid="uid://ciajtkyy557wt" path="res://Resource/PlayerStatResource/PlayerCurrentHealth.tres" id="10_dyfn5"]
 [ext_resource type="Script" uid="uid://dfxe4byorgdgl" path="res://script/component/hurtbox/Hurtbox.gd" id="11_dyfn5"]
-[ext_resource type="PackedScene" uid="uid://b3cnrf7i32mvf" path="res://scene/component/weapon/gun/gun.tscn" id="12_8ua8b"]
+[ext_resource type="PackedScene" uid="uid://cv85h48n6jkp0" path="res://script/component/weapon/Weapon_Manager.tscn" id="14_lh1sa"]
 
 [sub_resource type="Resource" id="Resource_60te1"]
 script = ExtResource("2_8ua8b")
@@ -260,13 +260,13 @@ _data = {
 &"takedamage": SubResource("Animation_8ua8b")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=576296784 node_paths=PackedStringArray("statmanager", "hurtbox", "animationplayer", "sprite", "statemachine", "hurt_box", "effect_animation_player")]
+[node name="Weapons" type="CharacterBody2D" unique_id=576296784 node_paths=PackedStringArray("hurtbox", "current_weapon", "animationplayer", "sprite", "statemachine", "hurt_box", "effect_animation_player")]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_aheb8")
-statmanager = NodePath("StatManager")
 hurtbox = NodePath("Hurtbox")
 stats = SubResource("Resource_60te1")
+current_weapon = NodePath("")
 animationplayer = NodePath("AnimationPlayer")
 sprite = NodePath("Sprite2D")
 statemachine = NodePath("StateMachine")
@@ -310,6 +310,7 @@ state_name = "idle"
 [node name="Walk" type="Node" parent="StateMachine" unique_id=369780156]
 script = ExtResource("5_bubao")
 move_speed = 100.0
+run_speed = 200.0
 state_id = 1
 state_name = "walk"
 
@@ -336,4 +337,4 @@ stats = Array[ExtResource("7_kvbc0")]([ExtResource("9_dthkf"), ExtResource("10_d
 [node name="EffectAnimationPlayer" type="AnimationPlayer" parent="." unique_id=683372094]
 libraries/ = SubResource("AnimationLibrary_60te1")
 
-[node name="Gun" parent="." unique_id=737484638 instance=ExtResource("12_8ua8b")]
+[node name="WeaponManager" parent="." unique_id=1642598188 instance=ExtResource("14_lh1sa")]

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://nm7qc5dq6jdk"]
+
+[ext_resource type="Texture2D" uid="uid://cm21ibctowtef" path="res://asset/texture/items/items.png" id="1_bslw2"]
+[ext_resource type="Script" uid="uid://uqwbvjjevob8" path="res://script/class/item/item.gd" id="2_gec2b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrefu"]
+atlas = ExtResource("1_bslw2")
+region = Rect2(192, 0, 64, 64)
+
+[resource]
+script = ExtResource("2_gec2b")
+item_id = 1
+item_name = "薄荷草枝"
+item_icon = SubResource("AtlasTexture_hrefu")
+metadata/_custom_type_script = "uid://uqwbvjjevob8"

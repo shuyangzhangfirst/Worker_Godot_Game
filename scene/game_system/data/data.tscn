@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://31dmpoigyfsy"]
 
 [ext_resource type="Script" uid="uid://g767g5oxjkgo" path="res://script/game_system/data/data_manager.gd" id="1_ssa5i"]
+[ext_resource type="Resource" uid="uid://c8nawaoec5mky" path="res://Resource/test_inventory_data/test_inventory_data.tres" id="2_ulro0"]
 
 [node name="Data" type="Node" unique_id=1619383742]
 script = ExtResource("1_ssa5i")
+player_inventory = ExtResource("2_ulro0")

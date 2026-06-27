@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://dfxogccw4wnd0"]
+
+[ext_resource type="Theme" uid="uid://c5vksf854ea5c" path="res://Resource/theme/default_theme.tres" id="1_ttoua"]
+[ext_resource type="Script" uid="uid://y6qdd05m00s2" path="res://UI/settings_ui/control/control.gd" id="2_l7rca"]
+[ext_resource type="PackedScene" uid="uid://dljxcdu1srk0r" path="res://UI/settings_ui/control/key_slot/key_slot.tscn" id="3_1cflp"]
+[ext_resource type="LabelSettings" uid="uid://b6jntjqugobrx" path="res://resource/label_settings/default_label_settings.tres" id="3_pf0qh"]
+
+[node name="Control" type="MarginContainer" unique_id=2103341586]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ttoua")
+script = ExtResource("2_l7rca")
+key_slot_scene = ExtResource("3_1cflp")
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1797205103]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1611687175]
+layout_mode = 2
+text = "控制"
+label_settings = ExtResource("3_pf0qh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=347315383]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=861679518]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1385049087]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="KeyboardButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1958232672]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "键盘"
+
+[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1267071085]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ControllerButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1564351332]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "手柄"
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=478552955]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/HBoxContainer" unique_id=1549957790]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+current_tab = 0
+tabs_visible = false
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/TabContainer" unique_id=408778299]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="KeyboardContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/TabContainer/ScrollContainer" unique_id=1410645433]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/TabContainer" unique_id=656220979]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="ControllerContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/TabContainer/ScrollContainer2" unique_id=635633108]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
