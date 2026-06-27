@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bhrceqa1yej84"]
+
+[ext_resource type="Script" uid="uid://b07qpbc0ef6qg" path="res://script/component/weapon/weapon.gd" id="1_po38l"]
+
+[node name="Weapon" type="Node2D" unique_id=1461030757]
+script = ExtResource("1_po38l")
+
+[node name="Container" type="Node2D" parent="." unique_id=793883134]
+unique_name_in_owner = true

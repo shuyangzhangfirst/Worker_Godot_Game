@@ -1,10 +1,9 @@
-class_name Gun extends Weapon
+class_name WeaponGun extends Weapon
 
 ## 节点引用
 #region 节点引用
 @onready var barrel_chamber: Marker2D = %BarrelChamber	## 枪膛
 @onready var muzzle: Marker2D = %Muzzle		## 枪口
-@onready var gun_wire: GunWire = %GunWire	## 枪线
 @onready var gun_fire_mode: Node = %GunFireMode	## 枪支开火模式
 @onready var crosshair: Crosshair = %Crosshair	## 准星
 #endregion

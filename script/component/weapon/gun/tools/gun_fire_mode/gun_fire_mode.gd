@@ -1,7 +1,7 @@
 extends Node
 class_name GunFireMode
 
-signal open_fire
+signal shoot_bullet
 
 @export var fire_mode_name: String = ""	## 开火模式名称
 

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dlhm4384iaiqm"]
+
+[ext_resource type="Script" uid="uid://lycn1g5xns64" path="res://script/class/item/drop_item/drop_item.gd" id="1_1bhkc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0geh"]
+radius = 30.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1bhkc"]
+radius = 30.0
+
+[node name="DropItem" type="CharacterBody2D" unique_id=644527550]
+collision_layer = 0
+script = ExtResource("1_1bhkc")
+
+[node name="item_icon" type="Sprite2D" parent="." unique_id=912236532]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=512778881]
+shape = SubResource("CircleShape2D_d0geh")
+
+[node name="Label" type="Label" parent="." unique_id=2016142795]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0"
+
+[node name="pick_area" type="Area2D" parent="." unique_id=70318192]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pick_area" unique_id=393236002]
+shape = SubResource("CircleShape2D_1bhkc")
