@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Inventory" format=3 uid="uid://c8nawaoec5mky"]
 
 [ext_resource type="Script" uid="uid://0u81u2pijkbw" path="res://script/class/item/item_slot_data/item_slot_data.gd" id="1_b4l0y"]
-[ext_resource type="Resource" uid="uid://clpvikx35igwj" path="res://Resource/item/薄荷草枝.tres" id="2_1weya"]
+[ext_resource type="Resource" uid="uid://nm7qc5dq6jdk" path="res://Resource/item/薄荷草枝.tres" id="2_1weya"]
 [ext_resource type="Script" uid="uid://mccpvbtp331a" path="res://script/class/item/inventory/inventory.gd" id="2_dg4bw"]
 
 [sub_resource type="Resource" id="Resource_b4l0y"]
