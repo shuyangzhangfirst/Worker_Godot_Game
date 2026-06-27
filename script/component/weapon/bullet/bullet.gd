@@ -16,20 +16,20 @@ class_name Bullet extends BulletHitbox
 @export var exit_screen_duration: float = 2.0	## 屏幕外子弹可滞留时间
 #endregion
 
-var _flight_direction: Vector2	## 飞行方向
+var flight_direction: Vector2	## 飞行方向
 
 func _ready() -> void:
 	_init_bullet()
 	_connect_signals()
 
 func _physics_process(delta: float) -> void:
-	global_position += _flight_direction * bullet_flight_speed * delta
-	rotation = _flight_direction.angle()
+	global_position += flight_direction * bullet_flight_speed * delta
+	rotation = flight_direction.angle()
 
 func init(muzzle_position: Vector2, shoot_direction: Vector2 = Vector2.RIGHT, _flight_speed: float = 100.0) -> void:
 	global_position = muzzle_position
 	rotation = shoot_direction.angle()
-	_flight_direction = shoot_direction
+	flight_direction = shoot_direction
 	bullet_flight_speed = _flight_speed
 	damage = bullet_attack
 	

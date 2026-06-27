@@ -14,7 +14,18 @@
 position = Vector2(1, 0)
 rotation = 6.2831855
 script = ExtResource("1_hcbmk")
+disable = null
+base_attack = 1.0
+bullet_velocity = null
+base_penetration = null
+percentage_penetration = null
+handling_speed = null
+accuracy = null
+magazine_size = null
+reload_time = null
 bullet_scene = ExtResource("2_ydf0n")
+weapon_name = null
+weapon_type = null
 
 [node name="GunSprite2D" type="Sprite2D" parent="." unique_id=1681892862]
 unique_name_in_owner = true

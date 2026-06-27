@@ -20,8 +20,7 @@ shape = SubResource("CircleShape2D_d0geh")
 [node name="Label" type="Label" parent="." unique_id=2016142795]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "99"
-
+text = "0"
 [node name="pick_area" type="Area2D" parent="." unique_id=70318192]
 collision_layer = 0
 collision_mask = 2

@@ -4,7 +4,6 @@ class_name Gun extends Weapon
 #region 节点引用
 @onready var barrel_chamber: Marker2D = %BarrelChamber	## 枪膛
 @onready var muzzle: Marker2D = %Muzzle		## 枪口
-@onready var gun_wire: GunWire = %GunWire	## 枪线
 @onready var gun_fire_mode: Node = %GunFireMode	## 枪支开火模式
 @onready var crosshair: Crosshair = %Crosshair	## 准星
 #endregion
@@ -15,11 +14,7 @@ class_name Gun extends Weapon
 		crosshair.visible = !value
 		disable = value
 
-@export var base_attack: int = 12				## 基础攻击力
 @export var bullet_velocity:float = 600.0		## 子弹发射速度
-@export var base_penetration: float = 0.0		## 枪支固定穿透力
-@export var percentage_penetration: float = 0.0	## 枪支百分比穿透力
-@export var handling_speed: float = 1.0			## 操作速度
 @export var accuracy: float = 1.0				## 开火稳定性
 @export var magazine_size: int = 120			## 弹匣容量
 @export var reload_time: float = 2.0        	## 换弹时间(秒)

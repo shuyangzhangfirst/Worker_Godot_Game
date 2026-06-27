@@ -1,15 +1,15 @@
 extends GunFireMode
 class_name GunAutoFireMode
 
-@export var open_fire_cooling_time: float = 0.3	## 开火冷却时间间隔
-@export var auto_fire_rate: float = 0.05		## 全自动子弹间隔
+@export var trigger_cooldown_time: float = 0.1		## 扳机冷却时间
+@export var auto_fire_rate: float = 0.1		## 全自动子弹间隔
 
-var open_fire_cooling_timer: Timer	## 开火冷却计时器
+var trigger_cooldown_timer: Timer	## 扳机冷却计时器
 var auto_fire_rate_timer: Timer	## 子弹间隔计时器
 
 func _physics_process(_delta: float) -> void:
 	if auto_fire_rate_timer.is_stopped():
-		open_fire.emit()
+		shoot_bullet.emit()
 		auto_fire_rate_timer.start()
 
 func on_trigger_just_pressed() -> void:
@@ -22,11 +22,12 @@ func on_trigger_just_release() -> void:
 
 func _init_fire_mode() -> void:
 	set_physics_process(false)
-	open_fire_cooling_timer = Timer.new()
-	add_child(open_fire_cooling_timer)
-	open_fire_cooling_timer.name = "连发模式开火冷却计时器"
-	open_fire_cooling_timer.wait_time = open_fire_cooling_time
-	open_fire_cooling_timer.one_shot = true
+	
+	trigger_cooldown_timer = Timer.new()
+	add_child(trigger_cooldown_timer)
+	trigger_cooldown_timer.name = "扳机冷却计时器"
+	trigger_cooldown_timer.wait_time = trigger_cooldown_time
+	trigger_cooldown_timer.one_shot = true
 	
 	auto_fire_rate_timer = Timer.new()
 	add_child(auto_fire_rate_timer)

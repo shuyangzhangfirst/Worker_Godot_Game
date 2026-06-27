@@ -1,20 +1,27 @@
-[gd_scene format=3 uid="uid://s2vllud5pmsq"]
+[gd_scene format=3 uid="uid://cjboiwuqdklm7"]
 
-[ext_resource type="PackedScene" uid="uid://dk02uyeapo256" path="res://scene/component/weapon/Weapon.tscn" id="1_yhev0"]
+[ext_resource type="PackedScene" uid="uid://bhrceqa1yej84" path="res://scene/component/weapon/Weapon.tscn" id="1_yhev0"]
 [ext_resource type="Script" uid="uid://4hc3m5jnmo1e" path="res://scene/component/weapon/gun/weapon_gun.gd" id="2_f5hkj"]
 [ext_resource type="PackedScene" uid="uid://by321lbuhg51w" path="res://scene/component/weapon/gun/tools/gun_wire/gun_wire.tscn" id="2_gutd8"]
+[ext_resource type="Script" uid="uid://cqmnft1c6fpf2" path="res://Resource/magazine_bullet.gd" id="3_5c316"]
 [ext_resource type="Texture2D" uid="uid://cnjpoeifnbfm1" path="res://asset/texture/gun/PNG/GUN_01_[square_frame]_01_V1.00.png" id="3_nrfvw"]
 [ext_resource type="Script" uid="uid://booraf6sh00qs" path="res://script/component/weapon/gun/tools/gun_fire_mode/gun_fire_modes/auto_fire_mode.gd" id="4_tx07u"]
+[ext_resource type="PackedScene" uid="uid://c5c74061iw76w" path="res://scene/component/weapon/gun/bullet/bullet.tscn" id="4_xtf76"]
 [ext_resource type="Script" uid="uid://t8uq6wvgvo35" path="res://script/component/weapon/gun/tools/gun_fire_mode/gun_fire_modes/burst_fire_mode.gd" id="5_nrfvw"]
 [ext_resource type="Script" uid="uid://ny2oyyvllrno" path="res://script/component/weapon/gun/tools/gun_fire_mode/gun_fire_modes/single_fire_mode.gd" id="6_5c316"]
 
+[sub_resource type="Resource" id="Resource_5c316"]
+script = ExtResource("3_5c316")
+buttlet_scene = ExtResource("4_xtf76")
+metadata/_custom_type_script = "uid://cqmnft1c6fpf2"
+
 [node name="WeaponGun" unique_id=1461030757 instance=ExtResource("1_yhev0")]
 script = ExtResource("2_f5hkj")
-exit_velocity = 1000.0
-spread = 5.0
+exit_velocity = 600.0
+spread = 0.0
 reload_time = 2.0
-magazine_size = 100
-weapon_name = "枪械武器名称"
+magazine_size = 30
+magazine_array = Array[ExtResource("3_5c316")]([SubResource("Resource_5c316"), SubResource("Resource_5c316"), SubResource("Resource_5c316"), SubResource("Resource_5c316"), SubResource("Resource_5c316"), SubResource("Resource_5c316"), SubResource("Resource_5c316"), SubResource("Resource_5c316"), SubResource("Resource_5c316"), SubResource("Resource_5c316"), SubResource("Resource_5c316"), SubResource("Resource_5c316"), SubResource("Resource_5c316"), SubResource("Resource_5c316"), SubResource("Resource_5c316")])
 
 [node name="Sprite" type="Sprite2D" parent="Container" parent_id_path=PackedInt32Array(793883134) index="0" unique_id=2092911291]
 position = Vector2(9, -8)
@@ -23,7 +30,7 @@ texture = ExtResource("3_nrfvw")
 [node name="GunWire" parent="Container" parent_id_path=PackedInt32Array(793883134) index="1" unique_id=40538929 node_paths=PackedStringArray("barrel_chamber", "muzzle") instance=ExtResource("2_gutd8")]
 unique_name_in_owner = true
 scale = Vector2(0.9852941, 1)
-points = PackedVector2Array(3.0447762, -11, 29.432837, -11)
+points = PackedVector2Array(3.0447762, -11, 25.373135, -11)
 width = 0.5
 default_color = Color(0.92156863, 0.050980393, 0.05882353, 1)
 barrel_chamber = NodePath("BarrelChamber")
@@ -36,7 +43,7 @@ gizmo_extents = 5.0
 
 [node name="Muzzle" type="Marker2D" parent="Container/GunWire" index="1" unique_id=61590780]
 unique_name_in_owner = true
-position = Vector2(29.432837, -11)
+position = Vector2(25.373135, -11)
 gizmo_extents = 5.0
 
 [node name="GunFireMode" type="Node" parent="." index="1" unique_id=1381931537]
@@ -44,6 +51,7 @@ unique_name_in_owner = true
 
 [node name="GunAutoFireMode" type="Node" parent="GunFireMode" index="0" unique_id=178433817]
 script = ExtResource("4_tx07u")
+auto_fire_rate = 0.05
 fire_mode_name = "全自动模式"
 metadata/_custom_type_script = "uid://booraf6sh00qs"
 
