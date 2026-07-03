@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://s2vllud5pmsq"]
 
-[ext_resource type="PackedScene" uid="uid://dk02uyeapo256" path="res://scene/component/weapon/Weapon.tscn" id="1_yhev0"]
+[ext_resource type="PackedScene" uid="uid://bhrceqa1yej84" path="res://scene/component/weapon/Weapon.tscn" id="1_yhev0"]
 [ext_resource type="Script" uid="uid://4hc3m5jnmo1e" path="res://scene/component/weapon/gun/weapon_gun.gd" id="2_f5hkj"]
 [ext_resource type="PackedScene" uid="uid://by321lbuhg51w" path="res://scene/component/weapon/gun/tools/gun_wire/gun_wire.tscn" id="2_gutd8"]
 [ext_resource type="Texture2D" uid="uid://cnjpoeifnbfm1" path="res://asset/texture/gun/PNG/GUN_01_[square_frame]_01_V1.00.png" id="3_nrfvw"]
@@ -56,5 +56,3 @@ metadata/_custom_type_script = "uid://ny2oyyvllrno"
 script = ExtResource("5_nrfvw")
 fire_mode_name = "连发模式"
 metadata/_custom_type_script = "uid://t8uq6wvgvo35"
-
-[node name="Camera2D" type="Camera2D" parent="." index="2" unique_id=1121200075]

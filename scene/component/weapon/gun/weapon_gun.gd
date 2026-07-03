@@ -1,6 +1,8 @@
 extends Weapon
 class_name WeaponGun
 
+
+
 @onready var gun_wire: GunWire = %GunWire			## 枪械方向辅助枪线
 @onready var gun_fire_mode: Node = %GunFireMode		## 开火模式容器
 
@@ -20,8 +22,10 @@ func _ready() -> void:
 
 ## 测试用
 func _input(event: InputEvent) -> void:
+	
 	if event.is_action_pressed("attack"):
 		trigger_on()
+		
 	elif event.is_action_released("attack"):
 		trigger_off()
 	elif event.is_action_pressed("change_fire_mode"):
@@ -48,6 +52,7 @@ func shoot_bullet() -> void:
 	# 加入场景
 	#GameSystem.game_wrold.prop.add_child(bullet)
 	add_child(bullet)
+	bullet.global_position=gun_wire.muzzle.global_position
 
 ## 将物品加载为弹匣内子弹
 func loading_magazine(item_bullet: ItemBullet) -> void:
@@ -85,8 +90,11 @@ func _create_bullet(bullet: MagazineBullet) -> Bullet:
 	new_bullet.damage = new_bullet.bullet_attack + base_attack 
 	new_bullet.percentage_penatration = new_bullet.percentage_bullet_penatration + percentage_penetration
 	new_bullet.base_penatration = new_bullet.base_bullet_penatration + base_penetration
-	new_bullet.global_position = gun_wire.muzzle.global_position
+	
+	
+	
 	new_bullet.bullet_flight_speed = exit_velocity
+	
 	
 	var gun_wire_rotaion: float = gun_wire.get_barrel_direction().angle()
 	var bullet_rotation: float = gun_wire_rotaion + deg_to_rad(randf_range(-spread, spread))
@@ -105,3 +113,4 @@ func _connect_signal() -> void:
 	#get_parent().trigger_on.connect(trigger_on)
 	#get_parent().trigger_off.connect(trigger_off)
 	current_gun_fire_mode.shoot_bullet.connect(shoot_bullet)
+	

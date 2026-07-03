@@ -19,13 +19,15 @@ class_name Bullet extends BulletHitbox
 var flight_direction: Vector2	## 飞行方向
 
 func _ready() -> void:
+	
 	_init_bullet()
 	_connect_signals()
 
 func _physics_process(delta: float) -> void:
+	
 	global_position += flight_direction * bullet_flight_speed * delta
 	rotation = flight_direction.angle()
-
+	
 func init(muzzle_position: Vector2, shoot_direction: Vector2 = Vector2.RIGHT, _flight_speed: float = 100.0) -> void:
 	global_position = muzzle_position
 	rotation = shoot_direction.angle()
@@ -36,6 +38,7 @@ func init(muzzle_position: Vector2, shoot_direction: Vector2 = Vector2.RIGHT, _f
 
 ## 初始化子弹
 func _init_bullet() -> void:
+	
 	name = bullet_name
 	bullet_animated.play("shooting")
 	clear_timer.wait_time = exit_screen_duration

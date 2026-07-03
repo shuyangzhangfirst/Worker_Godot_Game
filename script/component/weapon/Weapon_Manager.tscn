@@ -1,15 +1,12 @@
 [gd_scene format=3 uid="uid://cv85h48n6jkp0"]
 
 [ext_resource type="Script" uid="uid://dppb1nenewbor" path="res://script/component/weapon/Weapon_Manager.gd" id="1_ugmjl"]
-[ext_resource type="PackedScene" uid="uid://b3cnrf7i32mvf" path="res://scene/component/weapon/gun/gun.tscn" id="2_21gmb"]
 
 [node name="WeaponManager" type="Node2D" unique_id=1642598188]
 script = ExtResource("1_ugmjl")
-left_hand_scene = ExtResource("2_21gmb")
-right_hand_scene = ExtResource("2_21gmb")
 
-[node name="LeftHand" type="Node2D" parent="." unique_id=1501805019]
+[node name="meele" type="Node2D" parent="." unique_id=1501805019]
 position = Vector2(7, -3)
 
-[node name="RightHand" type="Node2D" parent="." unique_id=1881151846]
+[node name="gun" type="Node2D" parent="." unique_id=1881151846]
 position = Vector2(7, 3)

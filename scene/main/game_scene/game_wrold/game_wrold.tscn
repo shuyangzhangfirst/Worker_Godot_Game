@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cts3105cmjrka" path="res://scene/component/enemy_generator/enemy_generator.tscn" id="4_srurc"]
 [ext_resource type="PackedScene" uid="uid://cxyfigyia8t7v" path="res://scene/component/character/Enemy/Zombie.tscn" id="5_uusv0"]
 [ext_resource type="PackedScene" uid="uid://dlhm4384iaiqm" path="res://scene/component/drop_item/drop_item.tscn" id="6_ugtjv"]
-[ext_resource type="Resource" uid="uid://clpvikx35igwj" path="res://Resource/item/薄荷草枝.tres" id="7_duo11"]
+[ext_resource type="Resource" uid="uid://nm7qc5dq6jdk" path="res://Resource/item/薄荷草枝.tres" id="7_duo11"]
 
 [node name="GameWrold" type="Node2D" unique_id=398538314]
 script = ExtResource("1_bicqd")
@@ -20,7 +20,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="Player" parent="Entity" unique_id=576296784 instance=ExtResource("2_kxk8e")]
-position = Vector2(128, 171)
+position = Vector2(0, 1)
 
 [node name="EnemyGenerator" parent="Entity" unique_id=1375734314 node_paths=PackedStringArray("tilemap", "map") instance=ExtResource("4_srurc")]
 position = Vector2(345, 113)
