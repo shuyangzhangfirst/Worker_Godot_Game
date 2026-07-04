@@ -2,10 +2,10 @@ class_name Player extends Character
 
 signal drive_car
 
-@export var statmanager:StatsManager
+
 
 @export var hurtbox:Hurtbox
-@export var stats:PlayerStats
+@export var player_stats:PlayerStatsManager
 @export var current_weapon:Weapon
 var player_collision_shape:CollisionShape2D
 
@@ -33,9 +33,10 @@ func _physics_process(_delta: float) -> void:
 
 	
 func TakeDamage(hitbox:Hitbox):
-	stats.current_hp-=hitbox.calculate_damage(self)
+	
+	player_stats.current_hp.add_value(-hitbox.damage)
 	effect_animation_player.play("takedamage")
-	print(stats.max_hp)
+	print(player_stats.current_hp.get_value())
 	
 	
 func disable_player():

@@ -2,7 +2,7 @@ class_name Hitbox extends Area2D
 
 
 
-var damage:float
+@export var damage:float
 @export_category("击退信息")
 @export var knock_back_velocity=0 #击退速度，建议100
 @export var knock_back_duration=0 #击退持续时间

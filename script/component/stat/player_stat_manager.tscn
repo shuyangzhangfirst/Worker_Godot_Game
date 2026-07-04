@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bnw7glw2vmyrn"]
+
+[ext_resource type="Script" uid="uid://dicns1svnhtx6" path="res://script/component/stat/player_stats_manager.gd" id="1_3h4ra"]
+[ext_resource type="Script" uid="uid://jkdanxb562l7" path="res://script/component/stat/stat/player_attribute/Player_Max_hp.gd" id="2_usoi2"]
+[ext_resource type="Script" uid="uid://obitg7cb4bol" path="res://script/component/stat/stat/player_attribute/player_current_hp.gd" id="3_ik8u1"]
+
+[node name="PlayerStatManager" type="Node" unique_id=2117920168]
+script = ExtResource("1_3h4ra")
+
+[node name="PlayerMaxHp" type="Node" parent="." unique_id=1285151948]
+script = ExtResource("2_usoi2")
+_base = 50.0
+
+[node name="PlayerCurrentHp" type="Node" parent="." unique_id=1664439763]
+script = ExtResource("3_ik8u1")
+_base = 50.0

@@ -25,7 +25,7 @@ position = Vector2(0, 1)
 [node name="EnemyGenerator" parent="Entity" unique_id=1375734314 node_paths=PackedStringArray("tilemap", "map") instance=ExtResource("4_srurc")]
 position = Vector2(345, 113)
 max_spawn_distance = Vector2(256, 256)
-spawn_interval = 100.0
+spawn_interval = 2.0
 enemies = Array[PackedScene]([ExtResource("5_uusv0")])
 tilemap = NodePath("../../Map/测试地图一/TileMapLayers/GrassTileMapLayer")
 map = NodePath("../../Map/测试地图一")

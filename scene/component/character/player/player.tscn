@@ -1,28 +1,16 @@
 [gd_scene format=3 uid="uid://dxst05ue6f23x"]
 
 [ext_resource type="Script" uid="uid://jjlxccn5isc8" path="res://script/component/character/player/player.gd" id="1_aheb8"]
-[ext_resource type="Script" uid="uid://dicns1svnhtx6" path="res://script/component/stat/player_stats.gd" id="2_8ua8b"]
 [ext_resource type="Texture2D" uid="uid://owvqssu7se37" path="res://asset/texture/Modern tiles_Free/Characters_free/Adam_16x16.png" id="2_aheb8"]
 [ext_resource type="Script" uid="uid://bqeo8phqedhek" path="res://script/class/state/State_Machine.gd" id="3_8xcb8"]
 [ext_resource type="Script" uid="uid://bspycrpxnlwnp" path="res://script/class/state/Player/Player_Idle_State.gd" id="4_0tco1"]
 [ext_resource type="Script" uid="uid://dujllhikumg4" path="res://script/class/state/Player/Player_Walk_State.gd" id="5_bubao"]
-[ext_resource type="Script" uid="uid://cbcdyr20avkx4" path="res://script/component/character/StatsSystem/StatsManager.gd" id="6_1nox1"]
 [ext_resource type="Script" uid="uid://c7ook8gowcby2" path="res://script/class/state/Player/Player_Disable_State.gd" id="7_60te1"]
-[ext_resource type="Script" uid="uid://d187dktq0xg4" path="res://script/component/character/StatsSystem/Stat.gd" id="7_kvbc0"]
 [ext_resource type="Script" uid="uid://bvyckoqlmofan" path="res://script/class/state/Player/player_take_hit_state.gd" id="8_lh1sa"]
-[ext_resource type="Resource" uid="uid://rvd8fu46ifbb" path="res://Resource/PlayerStatResource/PlayerMaxHealth.tres" id="9_dthkf"]
-[ext_resource type="Resource" uid="uid://ciajtkyy557wt" path="res://Resource/PlayerStatResource/PlayerCurrentHealth.tres" id="10_dyfn5"]
+[ext_resource type="PackedScene" uid="uid://bnw7glw2vmyrn" path="res://script/component/stat/player_stat_manager.tscn" id="11_8ua8b"]
 [ext_resource type="Script" uid="uid://dfxe4byorgdgl" path="res://script/component/hurtbox/Hurtbox.gd" id="11_dyfn5"]
 [ext_resource type="PackedScene" uid="uid://cv85h48n6jkp0" path="res://script/component/weapon/Weapon_Manager.tscn" id="14_lh1sa"]
 [ext_resource type="PackedScene" uid="uid://s2vllud5pmsq" path="res://scene/component/weapon/gun/weapon_gun.tscn" id="15_vjf71"]
-
-[sub_resource type="Resource" id="Resource_60te1"]
-script = ExtResource("2_8ua8b")
-strength = 10
-vitality = 10
-stamina = 10
-luck = 10
-metadata/_custom_type_script = "uid://dicns1svnhtx6"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1tc5g"]
 size = Vector2(12, 7)
@@ -219,11 +207,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ua8b"]
 size = Vector2(15, 22)
 
-[sub_resource type="Resource" id="Resource_kmjhx"]
-script = ExtResource("7_kvbc0")
-base_value = 100.0
-metadata/_custom_type_script = "uid://d187dktq0xg4"
-
 [sub_resource type="Animation" id="Animation_dyfn5"]
 length = 0.001
 tracks/0/type = "value"
@@ -261,12 +244,12 @@ _data = {
 &"takedamage": SubResource("Animation_8ua8b")
 }
 
-[node name="Weapons" type="CharacterBody2D" unique_id=576296784 node_paths=PackedStringArray("hurtbox", "animationplayer", "sprite", "statemachine", "hurt_box", "effect_animation_player")]
+[node name="Weapons" type="CharacterBody2D" unique_id=576296784 node_paths=PackedStringArray("hurtbox", "player_stats", "animationplayer", "sprite", "statemachine", "hurt_box", "effect_animation_player")]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_aheb8")
 hurtbox = NodePath("Hurtbox")
-stats = SubResource("Resource_60te1")
+player_stats = NodePath("PlayerStatManager")
 animationplayer = NodePath("AnimationPlayer")
 sprite = NodePath("Sprite2D")
 statemachine = NodePath("StateMachine")
@@ -324,18 +307,14 @@ hurt_box = NodePath("../../Hurtbox")
 state_id = 7
 state_name = "hit"
 
-[node name="StatManager" type="Node" parent="." unique_id=1757818698]
-script = ExtResource("6_1nox1")
-stats = Array[ExtResource("7_kvbc0")]([SubResource("Resource_kmjhx")])
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2125858279]
-
-[node name="StatSystem" type="Node" parent="." unique_id=1188695261]
-script = ExtResource("6_1nox1")
-stats = Array[ExtResource("7_kvbc0")]([ExtResource("9_dthkf"), ExtResource("10_dyfn5")])
 
 [node name="EffectAnimationPlayer" type="AnimationPlayer" parent="." unique_id=683372094]
 libraries/ = SubResource("AnimationLibrary_60te1")
 
 [node name="WeaponManager" parent="." unique_id=1642598188 instance=ExtResource("14_lh1sa")]
 gun_scene = ExtResource("15_vjf71")
+
+[node name="PlayerStatManager" parent="." unique_id=2117920168 instance=ExtResource("11_8ua8b")]
+init_current_hp_value = 50.0
+init_max_hp_value = 50.0
