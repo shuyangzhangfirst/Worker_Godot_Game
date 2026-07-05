@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://ce1xryonnm4on"]
+
+[ext_resource type="PackedScene" uid="uid://bhrceqa1yej84" path="res://scene/component/weapon/Weapon.tscn" id="1_8q547"]
+[ext_resource type="Script" uid="uid://bhy7cfgyj0u0i" path="res://scene/component/weapon/melee/weapon_melee.gd" id="2_6eh5d"]
+[ext_resource type="Texture2D" path="res://asset/texture/melee/32x32pixelmeleeweapon.png" id="3_76lqm"]
+[ext_resource type="Script" uid="uid://dks3h2vcu5vwu" path="res://script/component/hitbox/Hitbox.gd" id="4_ccpma"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uf8mx"]
+atlas = ExtResource("3_76lqm")
+region = Rect2(65, 0, 30, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yelln"]
+size = Vector2(57, 104)
+
+[sub_resource type="Animation" id="Animation_76lqm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -20.000002)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.7853982]
+}
+
+[sub_resource type="Animation" id="Animation_ccpma"]
+resource_name = "attack"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.050940275, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-9.536743e-07, -15), Vector2(-9, -36), Vector2(5, -33), Vector2(33, -6), Vector2(26, 32), Vector2(-9.536743e-07, -15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.7853982, -1.0471976, 0.5235988, 1.5707964, -0.7853982]
+}
+
+[sub_resource type="Animation" id="Animation_uf8mx"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(0, -20.000002)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yelln"]
+_data = {
+&"RESET": SubResource("Animation_76lqm"),
+&"attack": SubResource("Animation_ccpma"),
+&"idle": SubResource("Animation_uf8mx")
+}
+
+[node name="WeaponMelee" unique_id=1461030757 instance=ExtResource("1_8q547")]
+script = ExtResource("2_6eh5d")
+weapon_type = 1
+
+[node name="Sprite" type="Sprite2D" parent="Container" parent_id_path=PackedInt32Array(793883134) index="0" unique_id=727892476]
+unique_name_in_owner = true
+position = Vector2(0, -20.000002)
+rotation = -0.7853982
+texture = SubResource("AtlasTexture_uf8mx")
+
+[node name="Hitbox" type="Area2D" parent="Container" parent_id_path=PackedInt32Array(793883134) index="1" unique_id=609576764]
+unique_name_in_owner = true
+script = ExtResource("4_ccpma")
+metadata/_custom_type_script = "uid://dks3h2vcu5vwu"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Hitbox" index="0" unique_id=613277439]
+position = Vector2(28.5, 0)
+shape = SubResource("RectangleShape2D_yelln")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=1914517221]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_yelln")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
