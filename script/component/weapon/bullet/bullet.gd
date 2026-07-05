@@ -36,6 +36,7 @@ func init(muzzle_position: Vector2, shoot_direction: Vector2 = Vector2.RIGHT, _f
 
 ## 初始化子弹
 func _init_bullet() -> void:
+	rotation = flight_direction.angle()
 	name = bullet_name
 	bullet_animated.play("shooting")
 	clear_timer.wait_time = exit_screen_duration

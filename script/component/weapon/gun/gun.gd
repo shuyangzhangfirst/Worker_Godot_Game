@@ -100,7 +100,7 @@ func _init_gun() -> void:
 		return
 	
 	current_gun_fire_mode = gun_fire_mode.get_children()[0]
-	current_gun_fire_mode.open_fire.connect(shoot_bullet)
+	current_gun_fire_mode.shoot_bullet.connect(shoot_bullet)
 	
 	reload_bullet_timer = Timer.new()
 	reload_bullet_timer.name = "换弹计时器"

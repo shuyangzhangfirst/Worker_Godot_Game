@@ -45,9 +45,8 @@ func shoot_bullet() -> void:
 	
 	var bullet: Bullet = _create_bullet(magazine_array.pop_back())
 	
-	# 加入场景
-	#GameSystem.game_wrold.prop.add_child(bullet)
-	add_child(bullet)
+
+	GameSystem.game_wrold.prop.add_child(bullet)
 
 ## 将物品加载为弹匣内子弹
 func loading_magazine(item_bullet: ItemBullet) -> void:
@@ -82,16 +81,11 @@ func _init_weapon_gun() -> void:
 ## 创建新子弹
 func _create_bullet(bullet: MagazineBullet) -> Bullet:
 	var new_bullet: Bullet = bullet.buttlet_scene.instantiate()
+
 	new_bullet.damage = new_bullet.bullet_attack + base_attack 
 	new_bullet.percentage_penatration = new_bullet.percentage_bullet_penatration + percentage_penetration
 	new_bullet.base_penatration = new_bullet.base_bullet_penatration + base_penetration
-	new_bullet.global_position = gun_wire.muzzle.global_position
-	new_bullet.bullet_flight_speed = exit_velocity
-	
-	var gun_wire_rotaion: float = gun_wire.get_barrel_direction().angle()
-	var bullet_rotation: float = gun_wire_rotaion + deg_to_rad(randf_range(-spread, spread))
-	new_bullet.flight_direction = Vector2.from_angle(bullet_rotation)
-	
+	new_bullet.init(gun_wire.muzzle.global_position, gun_wire.get_barrel_direction(), exit_velocity)
 	return new_bullet
 
 func _full_magezine_test() -> void:

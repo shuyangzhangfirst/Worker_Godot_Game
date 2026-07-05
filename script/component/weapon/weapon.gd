@@ -1,8 +1,6 @@
 extends Node2D
 class_name Weapon
 
-@onready var container: Node2D = %Container
-
 @export_category("武器信息")
 @export var weapon_name: String = ""			## 武器名称
 @export var weapon_type: WeaponType				## 武器类型
