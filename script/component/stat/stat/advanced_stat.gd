@@ -1,4 +1,4 @@
-extends Node
+extends VirtualStatClass
 class_name AdvancedStat
 
 
@@ -68,6 +68,7 @@ func get_value():
 
 
 func update_final_value():
+	value_changed.emit(stat_name)
 	var add_value=0
 	var add_percent_effect_value=0
 	var set_value=0
@@ -102,7 +103,7 @@ func update_final_value():
 		base += add_percent_effect_value*base
 		base*=set_percent_value
 		_final_value=base
-		
+	
 func _physics_process(delta: float) -> void:
 	if buffs.size() ==0:
 		return 

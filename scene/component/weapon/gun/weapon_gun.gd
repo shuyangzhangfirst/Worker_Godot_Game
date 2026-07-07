@@ -21,17 +21,7 @@ func _ready() -> void:
 	_connect_signal()
 
 ## 测试用
-func _input(event: InputEvent) -> void:
-	
-	if event.is_action_pressed("attack"):
-		trigger_on()
-		
-	elif event.is_action_released("attack"):
-		trigger_off()
-	elif event.is_action_pressed("change_fire_mode"):
-		change_fire_mode()
-	elif event.is_action_pressed("reload_magezine"):
-		_full_magezine_test()
+
 
 ## 扳机按下
 func trigger_on() -> void:
@@ -43,10 +33,11 @@ func trigger_off() -> void:
 
 ## 发射子弹
 func shoot_bullet() -> void:
-	if magazine_array.is_empty():
+	if magazine_array.is_empty() :
 		print("弹匣为空")
 		return
-	
+	if hit_enable == false:
+		return
 	var bullet: Bullet = _create_bullet(magazine_array.pop_back())
 	
 	# 加入场景

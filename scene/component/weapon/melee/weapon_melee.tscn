@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bhrceqa1yej84" path="res://scene/component/weapon/Weapon.tscn" id="1_8q547"]
 [ext_resource type="Script" uid="uid://bhy7cfgyj0u0i" path="res://scene/component/weapon/melee/weapon_melee.gd" id="2_6eh5d"]
-[ext_resource type="Texture2D" path="res://asset/texture/melee/32x32pixelmeleeweapon.png" id="3_76lqm"]
+[ext_resource type="Texture2D" uid="uid://bnxkqqtoxbhi5" path="res://asset/texture/gun/PNG/[32x96]Shotgun_V1.00.png" id="3_76lqm"]
 [ext_resource type="Script" uid="uid://dks3h2vcu5vwu" path="res://script/component/hitbox/Hitbox.gd" id="4_ccpma"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uf8mx"]
@@ -42,7 +42,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_ccpma"]
 resource_name = "attack"
 length = 0.5
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -102,9 +101,12 @@ position = Vector2(0, -20.000002)
 rotation = -0.7853982
 texture = SubResource("AtlasTexture_uf8mx")
 
-[node name="Hitbox" type="Area2D" parent="Container" parent_id_path=PackedInt32Array(793883134) index="1" unique_id=609576764]
+[node name="Hitbox" type="Area2D" parent="Container" parent_id_path=PackedInt32Array(793883134) index="1" unique_id=609576764 node_paths=PackedStringArray("collision_shape")]
 unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("4_ccpma")
+collision_shape = NodePath("CollisionShape2D")
 metadata/_custom_type_script = "uid://dks3h2vcu5vwu"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Container/Hitbox" index="0" unique_id=613277439]
