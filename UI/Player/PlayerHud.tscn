@@ -1,5 +1,185 @@
 [gd_scene format=3 uid="uid://cyu53mw1c832s"]
 
+[ext_resource type="Script" uid="uid://1tvuxkvrlv38" path="res://UI/Player/player_hud.gd" id="1_f4pd8"]
+[ext_resource type="StyleBox" uid="uid://4ddfu8g5b7cn" path="res://Resource/panel/default_box_texture.tres" id="2_ilf23"]
+[ext_resource type="LabelSettings" uid="uid://b6jntjqugobrx" path="res://Resource/label_settings/default_label_settings.tres" id="3_g5g7l"]
+[ext_resource type="Texture2D" uid="uid://dr5rdpwljwa7" path="res://asset/texture/ui/Sprite sheet for Basic Pack.png" id="4_4twsn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilf23"]
+atlas = ExtResource("4_4twsn")
+region = Rect2(402, 105, 28, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5g7l"]
+atlas = ExtResource("4_4twsn")
+region = Rect2(466, 105, 28, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4twsn"]
+atlas = ExtResource("4_4twsn")
+region = Rect2(402, 73, 28, 14)
+
 [node name="PlayerHud" type="Control" unique_id=1782343894]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f4pd8")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1264468943]
+layout_mode = 0
+offset_right = 152.0
+offset_bottom = 82.0
+theme_override_styles/panel = ExtResource("2_ilf23")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1813409506]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=733616256]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=51062531]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("2_ilf23")
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/PanelContainer" unique_id=1955091663]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "生命值"
+label_settings = ExtResource("3_g5g7l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="healthProgressBar" type="TextureProgressBar" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=687618382]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+value = 70.0
+nine_patch_stretch = true
+stretch_margin_left = 2
+stretch_margin_top = 4
+stretch_margin_right = 2
+stretch_margin_bottom = 4
+texture_under = SubResource("AtlasTexture_ilf23")
+texture_progress = SubResource("AtlasTexture_g5g7l")
+
+[node name="RealhealthProgressBar" type="TextureProgressBar" parent="PanelContainer/VBoxContainer/HBoxContainer/healthProgressBar" unique_id=1219577413]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 2
+stretch_margin_top = 4
+stretch_margin_right = 2
+stretch_margin_bottom = 4
+texture_progress = SubResource("AtlasTexture_4twsn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/healthProgressBar" unique_id=1843489565]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer/healthProgressBar/HBoxContainer" unique_id=676727554]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShowHealthLabel" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/healthProgressBar/HBoxContainer" unique_id=458898850]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+text = "50.0"
+label_settings = ExtResource("3_g5g7l")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/healthProgressBar/HBoxContainer" unique_id=1312169725]
+layout_mode = 2
+text = "/"
+label_settings = ExtResource("3_g5g7l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MaxHealthLabel" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/healthProgressBar/HBoxContainer" unique_id=280862087]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+text = "100.0"
+label_settings = ExtResource("3_g5g7l")
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer/healthProgressBar/HBoxContainer" unique_id=63620966]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=120951789]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=1245800931]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("2_ilf23")
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer2/PanelContainer" unique_id=725901763]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "XX值"
+label_settings = ExtResource("3_g5g7l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=1886910363]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 70.0
+nine_patch_stretch = true
+stretch_margin_left = 2
+stretch_margin_top = 4
+stretch_margin_right = 2
+stretch_margin_bottom = 4
+texture_under = SubResource("AtlasTexture_ilf23")
+texture_progress = SubResource("AtlasTexture_g5g7l")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1604823634]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/HBoxContainer3" unique_id=986464527]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("2_ilf23")
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer3/PanelContainer" unique_id=1715204834]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "XX值"
+label_settings = ExtResource("3_g5g7l")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="PanelContainer/VBoxContainer/HBoxContainer3" unique_id=1830904087]
+layout_mode = 2
+size_flags_horizontal = 3
+value = 70.0
+nine_patch_stretch = true
+stretch_margin_left = 2
+stretch_margin_top = 4
+stretch_margin_right = 2
+stretch_margin_bottom = 4
+texture_under = SubResource("AtlasTexture_ilf23")
+texture_progress = SubResource("AtlasTexture_g5g7l")
