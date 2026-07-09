@@ -12,10 +12,10 @@ class_name PlayerHUD
 func _ready() -> void:
 	_init_player_hud()
 	set_process(false)
-	
+	EventBus.player_stat_changed.connect(_update_player_hud)
 func _process(_delta: float) -> void:
-	_update_transition()
-
+	#_update_transition()
+	pass
 ## 初始化HUD
 func _init_player_hud() -> void:
 	if not player:
@@ -30,16 +30,21 @@ func _init_player_hud() -> void:
 	health_progress_bar.value = player.player_stats.current_hp.get_value()
 	realhealth_progress_bar.value = player.player_stats.current_hp.get_value()
 	realhealth_progress_bar.max_value = player.player_stats.max_hp.get_value()
+
+
 	
+
 func _update_player_hud(updated_stat_name: String) -> void:
 	# 最大生命值
-	if updated_stat_name == player.player_stats.max_hp.stat_name:
+	
+	if updated_stat_name == "player_max_hp":
 		realhealth_progress_bar.max_value = player.player_stats.max_hp.get_value()
 		max_health_label.text = str(player.player_stats.max_hp.get_value())
 		max_health_label.text = str(player.player_stats.max_hp.get_value())
 		set_process(true)
 	# 生命值
-	if updated_stat_name == player.player_stats.current_hp.get_value():
+	elif updated_stat_name == "player_current_hp":
+		
 		realhealth_progress_bar.value = player.player_stats.current_hp.get_value()
 		show_health_label.text = str(player.player_stats.current_hp.get_value())
 		set_process(true)

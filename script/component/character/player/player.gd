@@ -36,7 +36,7 @@ func TakeDamage(hitbox:Hitbox):
 	
 	player_stats.current_hp.add_value(-hitbox.damage)
 	effect_animation_player.play("takedamage")
-	print(player_stats.current_hp.get_value())
+	
 	
 	
 func disable_player():

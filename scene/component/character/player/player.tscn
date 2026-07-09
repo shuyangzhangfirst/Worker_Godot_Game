@@ -43,21 +43,6 @@ tracks/1/keys = {
 "values": [24]
 }
 
-[sub_resource type="Animation" id="Animation_vjf71"]
-resource_name = "hid_up"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [31]
-}
-
 [sub_resource type="Animation" id="Animation_2epxb"]
 resource_name = "hit_down"
 tracks/0/type = "value"
@@ -86,6 +71,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [24]
+}
+
+[sub_resource type="Animation" id="Animation_vjf71"]
+resource_name = "hit_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [31]
 }
 
 [sub_resource type="Animation" id="Animation_1tc5g"]
@@ -194,9 +194,9 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dvjev"]
 _data = {
 &"RESET": SubResource("Animation_8xcb8"),
-&"hid_up": SubResource("Animation_vjf71"),
 &"hit_down": SubResource("Animation_2epxb"),
 &"hit_side": SubResource("Animation_6xrog"),
+&"hit_up": SubResource("Animation_vjf71"),
 &"idle_down": SubResource("Animation_1tc5g"),
 &"idle_side": SubResource("Animation_0tco1"),
 &"idle_up": SubResource("Animation_bubao"),
