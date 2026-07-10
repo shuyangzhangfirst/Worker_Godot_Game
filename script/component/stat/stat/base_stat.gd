@@ -1,7 +1,7 @@
 extends VirtualStatClass
 class_name BaseStat
 
-@export var _base:float
+
 
 
 

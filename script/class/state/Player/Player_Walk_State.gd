@@ -1,11 +1,8 @@
 class_name PlayerWalkState extends PlayerState
-@export var  move_speed: float
-@export var run_speed:float
-var run_animation_speed:float
-var is_running
-func Init():
-	run_animation_speed=run_speed/move_speed
 
+
+var is_running
+@export var running_energy_cost = 20
 func Enter():
 	character.drive_car.connect(_on_drive_car)
 	character.hurt_box.TakeDamage.connect(take_damage)
@@ -34,11 +31,15 @@ func Physic(delta:float):
 		
 		statemachine.SwitchState(statemachine.states[StateConstands.State.idle])
 		return
-	if Input.is_action_pressed("run"):
-		character.velocity = character.move_direction * run_speed
-		character.animationplayer.speed_scale=run_animation_speed
+	
+	if Input.is_action_pressed("run") and character.player_stats.current_energy.get_value()>0:
+		character.velocity = character.move_direction * character.player_stats.run_speed.get_value()
+		character.player_stats.current_energy.add_value(-running_energy_cost*delta)
+		character.player_stats.player_just_cost_energy()
+		character.animationplayer.speed_scale=character.player_stats.run_speed.get_value()/character.player_stats.walk_speed.get_value()
 	else:	
-		character.velocity = character.move_direction * move_speed
+		
+		character.velocity = character.move_direction * character.player_stats.walk_speed.get_value()
 		character.animationplayer.speed_scale=1
 	
 	if character.ShouldUpdateAnimationDirection():

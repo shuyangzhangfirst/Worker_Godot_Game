@@ -1,0 +1,2 @@
+extends AdvancedStat
+class_name PlayerEnergyGenerateRate

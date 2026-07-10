@@ -5,7 +5,6 @@ class_name AdvancedStat
 
 
 
-@export var _base:float
 
 var buffs:Array[BuffEffect]
 var bonuses:Array[BonusEffect]
@@ -14,10 +13,14 @@ var bonuses:Array[BonusEffect]
 var _final_value:float
 
 
+func _ready() -> void:
+	process_mode=Node.PROCESS_MODE_DISABLED
+	update_final_value()
 
 
 
 func add_base_value(value):
+	
 	_base+= value
 	update_final_value()
 func add_base_percent(value):
@@ -63,6 +66,7 @@ func add_buff_value(value:float,effect_type:StatEffect,duration:float):
 
 
 func get_value():
+	
 	return _final_value
 
 
