@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://c3w8di35611lp"]
+
+[ext_resource type="Script" uid="uid://d7dfemfjh6b3" path="res://script/component/throwable/throwable.gd" id="1_lhc55"]
+[ext_resource type="Texture2D" uid="uid://br2fhh3fkajn3" path="res://asset/texture/throwable/gernade.png" id="2_46iey"]
+[ext_resource type="Texture2D" uid="uid://cwlneklqyjylq" path="res://asset/texture/general/shadow.png" id="3_h55v1"]
+[ext_resource type="Script" uid="uid://dks3h2vcu5vwu" path="res://script/component/hitbox/Hitbox.gd" id="4_pbgju"]
+
+[sub_resource type="Animation" id="Animation_aprli"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_mtyqh"]
+resource_name = "explosive"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hitbox")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"enable_hitbox"
+}, {
+"args": [false],
+"method": &"enable_hitbox"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e81fd"]
+_data = {
+&"RESET": SubResource("Animation_aprli"),
+&"explosive": SubResource("Animation_mtyqh")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bocu0"]
+radius = 100.0
+
+[node name="Grenade" type="Node2D" unique_id=101432372]
+script = ExtResource("1_lhc55")
+throw_speed = 200.0
+max_height = 50.0
+explosive_wait_time = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1269074036]
+texture = ExtResource("2_46iey")
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=385292879]
+libraries/ = SubResource("AnimationLibrary_e81fd")
+
+[node name="shadow" type="Sprite2D" parent="." unique_id=1336391778]
+modulate = Color(1, 1, 1, 0.46666667)
+position = Vector2(0, 11)
+texture = ExtResource("3_h55v1")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1798145844 node_paths=PackedStringArray("collision_shape")]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("4_pbgju")
+damage = 30.0
+collision_shape = NodePath("CollisionShape2D")
+metadata/_custom_type_script = "uid://dks3h2vcu5vwu"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=322075522]
+shape = SubResource("CircleShape2D_bocu0")

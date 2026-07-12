@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bnw7glw2vmyrn" path="res://script/component/stat/player_stat_manager.tscn" id="11_8ua8b"]
 [ext_resource type="PackedScene" uid="uid://ce1xryonnm4on" path="res://scene/component/weapon/melee/weapon_melee.tscn" id="11_60te1"]
 [ext_resource type="Script" uid="uid://dfxe4byorgdgl" path="res://script/component/hurtbox/Hurtbox.gd" id="11_dyfn5"]
+[ext_resource type="PackedScene" uid="uid://c3w8di35611lp" path="res://script/component/throwable/Explosive/Grenade.tscn" id="12_60te1"]
 [ext_resource type="PackedScene" uid="uid://cv85h48n6jkp0" path="res://script/component/weapon/Weapon_Manager.tscn" id="14_lh1sa"]
 [ext_resource type="PackedScene" uid="uid://s2vllud5pmsq" path="res://scene/component/weapon/gun/weapon_gun.tscn" id="15_vjf71"]
 
@@ -293,8 +294,6 @@ state_name = "idle"
 
 [node name="Walk" type="Node" parent="StateMachine" unique_id=369780156]
 script = ExtResource("5_bubao")
-move_speed = 100.0
-run_speed = 200.0
 state_id = 1
 state_name = "walk"
 
@@ -316,7 +315,7 @@ libraries/ = SubResource("AnimationLibrary_60te1")
 [node name="WeaponManager" parent="." unique_id=1642598188 instance=ExtResource("14_lh1sa")]
 gun_scene = ExtResource("15_vjf71")
 meele_scene = ExtResource("11_60te1")
+throwable_scene = ExtResource("12_60te1")
+remain_throwable = 10
 
 [node name="PlayerStatManager" parent="." unique_id=2117920168 instance=ExtResource("11_8ua8b")]
-init_current_hp_value = 50.0
-init_max_hp_value = 50.0

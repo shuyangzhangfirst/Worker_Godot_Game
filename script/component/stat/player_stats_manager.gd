@@ -45,7 +45,7 @@ func player_stat_on_changed(stat_name):
 	EventBus.player_stat_changed.emit(stat_name)
 func _physics_process(delta: float) -> void:
 	if energy_recover_timer<=0:
-		player_energy_regenerate(energy_generate_rate.get_value()*max_energy.get_value())
+		player_energy_regenerate(energy_generate_rate.get_value()*max_energy.get_value()/100)
 		energy_recover_timer = 1
 	else:
 		energy_recover_timer-=delta

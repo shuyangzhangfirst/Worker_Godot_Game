@@ -10,3 +10,5 @@ position = Vector2(7, -3)
 
 [node name="gun" type="Node2D" parent="." unique_id=1881151846]
 position = Vector2(7, 3)
+
+[node name="throwable" type="Node2D" parent="." unique_id=1541271170]
